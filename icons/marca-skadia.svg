@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2157.77 289.89">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Atmosphere, Atmosphere;
+      }
+
+      .cls-1, .cls-2 {
+        font-size: 106.95px;
+        letter-spacing: .14em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3, .cls-2 {
+        font-family: TANJIRORegular, TANJIRO;
+      }
+
+      .cls-3, .cls-4 {
+        font-size: 165px;
+      }
+
+      .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+
+      .cls-7 {
+        fill: #66ff21;
+      }
+
+      .cls-4 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <rect class="cls-6" x="3" y="3" width="2151.77" height="283.89" rx="141.94" ry="141.94"/>
+    <text class="cls-5" transform="translate(508.35 187.44)"><tspan class="cls-4" x="0" y="0" xml:space="preserve">|    </tspan><tspan class="cls-3" x="179.35" y="0" xml:space="preserve">skadia  </tspan><tspan class="cls-4" x="947.08" y="0">| </tspan><tspan class="cls-2" x="1021.49" y="0"> </tspan><tspan class="cls-1" x="1074.97" y="0">AGtech</tspan></text>
+    <g id="uuid-07106073-12cb-429d-a485-1cf824baa9ac" data-name="Capa 1-2">
+      <path class="cls-7" d="M110.62,76.75v26.62l.52.52h83.33v-26.62l.58-.47c14.88-.16,27.62,12.14,27.61,27.08h84.55v53.58h52.36c.1,0,.27.44.52.35v-9.57c0-1.27,2.51-6.48,3.34-7.8,3.75-5.91,8.72-8.7,15.63-9.42,1.49-.16,6.42-.54,7.67-.37.46.06,1.55.44,1.55.89v26.79l-.52.52h-26.1c-.1,0-.27-.44-.52-.35v54.1l-.52.52h-53.58c-.11,0-.53-.46-.87-.35v-53.93h-83.5v53.93c-.34-.11-.76.35-.87.35h-53.58l-.52-.52v-54.1c-.25-.09-.42.35-.52.35h-29.23l-27.31-54.28h-27.49c-.49-15.1,12.34-28.19,27.49-27.83ZM221.61,104.59h-25.92l-26.62,52.89h52.54v-52.89Z"/>
+    </g>
+  </g>
+</svg>

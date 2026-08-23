@@ -1,0 +1,1 @@
+import{a as e,n as t,o as n,r,t as i}from"./bgVideo-lTtZnRox.js";function a(){let t=document.querySelector(`main`),n=document.body.dataset.page;t&&n&&r(t,n),e()}t(),i(),a(),n(),window.addEventListener(`skadia:lang`,a);

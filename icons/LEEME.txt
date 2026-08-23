@@ -1,0 +1,23 @@
+Reemplazá cada archivo (no cambies el nombre).
+
+Carpeta:
+  C:\Users\fabri\skadia-webgl\public\icons\
+
+Formato preferido: SVG (fondo transparente).
+Alternativa: PNG 256×256 px, o 512×512 para pantallas nítidas. Nombre igual, extensión .png
+  (si usás PNG, avisá y se cambia la ruta en el HTML).
+
+Archivos que lee el sitio:
+
+  ganaderia.svg          tarjeta y dock — hacienda / rodeo
+  datos.svg              tarjeta y dock — dato de campo
+  vision.svg             tarjeta y dock — visión / ojo
+  agro.svg               tarjeta y dock — potrero / forraje
+  orquestacion.svg       dock — alertas / próximo paso
+  producto-sigag.svg     bloque Productos → SIGAG
+  marca-skadia.svg       opcional, encabezado (hoy es texto)
+
+Color de referencia del HUD: #7dffb0 sobre fondo oscuro.
+Tamaño de dibujo: que se lea a 40×40 px.
+
+Hasta que copies tus archivos, el sitio usa un círculo de plantilla.
