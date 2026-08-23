@@ -13,6 +13,6 @@ http://localhost:5173/
 
 ## Producción
 
-GitHub Pages (gratis): `https://fabricionicolaesduarte.github.io/skadia-webgl/`
+GitHub Pages (gratis): https://fabricionicolasduarte.github.io/skadia-webgl/
 
 Cada publicación vuelve a generar `dist` y la rama `gh-pages`.
