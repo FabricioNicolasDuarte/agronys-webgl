@@ -1,0 +1,34 @@
+Dibujá vos la vaca y el maíz. El sitio los carga desde acá:
+
+  C:\Users\fabri\skadia-webgl\public\art\
+
+Archivos (no cambies el nombre):
+
+  vaca.svg     ganadería — mirando a la derecha
+  maiz.svg     agricultura — planta tipo maíz / forraje
+
+Formato
+  • SVG, fondo transparente (sin rectángulo de fondo).
+  • viewBox="0 0 400 400" (si usás otro, avisá).
+  • Los pies / la raíz abajo del recuadro (y cerca de 380), para que “apoyen” en la tierra nítida.
+  • Trazo sugerido: #6dff9a  (verde del HUD). Relleno suave o solo líneas.
+  • Polígonos (low-poly) o curvas Bézier: las dos sirven.
+    El mockup del portal es poligonal (triángulos + puntos en los vértices).
+    Las curvas quedan más “ilustración”; los polígonos más “HUD”.
+
+Nodos (opcional, recomendado)
+  En el mismo SVG, círculos clicables:
+
+  Vaca:
+    <circle class="hub-node" data-node="1" cx="…" cy="…" r="7" />   cuerpo → hacienda
+    <circle class="hub-node" data-node="2" cx="…" cy="…" r="7" />   cabeza → visión
+    <circle class="hub-node" data-node="4" cx="…" cy="…" r="7" />   pata / suelo → avisos
+
+  Maíz:
+    <circle class="hub-node" data-node="3" cx="…" cy="…" r="7" />   hoja → potrero/forraje
+    <circle class="hub-node" data-node="0" cx="…" cy="…" r="7" />   base → dato del lote
+
+  color nodo: fill="#fff" stroke="#c8ffe0"
+
+Cuando pises estos archivos, recargá http://localhost:5173/
+No hace falta avisar: el portal los lee solos.
