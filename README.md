@@ -13,4 +13,6 @@ http://localhost:5173/
 
 ## Producción
 
-GitHub Pages (gratis): el workflow en `.github/workflows/pages.yml` publica `dist` en cada push a `main`.
+GitHub Pages (gratis): `https://fabricionicolaesduarte.github.io/skadia-webgl/`
+
+Cada publicación vuelve a generar `dist` y la rama `gh-pages`.
