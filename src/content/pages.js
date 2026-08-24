@@ -3,72 +3,6 @@ import { getLang, t } from "../i18n.js";
 export const WA = "https://wa.me/543704022201";
 export const MAIL = "mailto:skadiagtech@gmail.com";
 
-const NUTROGAN_STACK = [
-  "Vue 3",
-  "Quasar",
-  "Vite",
-  "Pinia",
-  "Supabase",
-  "PostgreSQL",
-  "LocalForage",
-  "Leaflet",
-  "GeoServer",
-  "TensorFlow.js",
-  "PWA",
-];
-
-const SIGAG_STACK = [
-  "TypeScript",
-  "React Native",
-  "Expo",
-  "React Navigation",
-  "WatermelonDB",
-  "SQLite",
-  "LokiJS",
-  "Supabase",
-  "PostgreSQL",
-];
-
-const PRECISION_STACK = [
-  "Python",
-  "PySpark",
-  "Delta Lake",
-  "Apache Airflow",
-  "Streamlit",
-  "Pandas",
-  "Docker",
-  "PostgreSQL",
-  "Databricks",
-];
-
-function stackChips(items) {
-  return `<ul class="stack-chips">${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
-}
-
-function productShowcase(copy) {
-  return `
-    <h2>${copy.hn}</h2>
-    <p>${copy.pn}</p>
-    <div class="shot-grid">
-      <figure class="shot-mock">
-        <img src="./media/ui/nutrogan-mockup.png" alt="${copy.an}" />
-        <figcaption>${copy.cn}</figcaption>
-        ${stackChips(NUTROGAN_STACK)}
-      </figure>
-      <figure class="shot-mock">
-        <img src="./media/ui/sigag-mockup.png" alt="${copy.as}" />
-        <figcaption>${copy.cs}</figcaption>
-        ${stackChips(SIGAG_STACK)}
-      </figure>
-      <figure class="shot-mock">
-        <img src="./media/ui/dashboard-mockup.png" alt="${copy.ap}" />
-        <figcaption>${copy.cp}</figcaption>
-        ${stackChips(PRECISION_STACK)}
-      </figure>
-    </div>
-  `;
-}
-
 export function waDemoUrl(topic) {
   const msg = (t().askDemoMsg || "Hola, quiero pedir una demo de {topic}.").replace("{topic}", topic);
   return `${WA}?text=${encodeURIComponent(msg)}`;
@@ -115,50 +49,7 @@ const es = {
     </div>
   `,
   products: `
-    <p class="eyebrow">Productos</p>
-    <h1>Soluciones a medida</h1>
-    <p>No se ofrece un paquete cerrado. Cada despliegue se arma seg\u00fan las necesidades del cliente o de la empresa: alcance, infraestructura y ritmos de trabajo del establecimiento.</p>
-    <h2>Tipos de producto</h2>
-    <div class="cards">
-      <article><h2>Plataformas de campo</h2><p>Aplicaciones para captura y consulta en el lote, con o sin conectividad.</p></article>
-      <article><h2>Tableros de decisi\u00f3n</h2><p>Indicadores de hacienda, forraje y operaci\u00f3n, alineados a la oficina.</p></article>
-      <article><h2>M\u00f3dulos de visi\u00f3n</h2><p>Condici\u00f3n corporal, reconocimiento, anomal\u00edas (heridas y lesiones) y materia fecal para an\u00e1lisis, en lote, manga o corral.</p></article>
-      <article><h2>Alertas y orquestaci\u00f3n</h2><p>Avisos de calor, sanidad y manejo, conectados a los flujos del predio.</p></article>
-      <article><h2>Capas territoriales</h2><p>Potreros, carga, sat\u00e9lite y NDVI, integrados a la lectura ganadera o agr\u00edcola.</p></article>
-      <article><h2>Integraciones a medida</h2><p>Planillas, dispositivos, mensajer\u00eda y sistemas ya en uso en la empresa.</p></article>
-      <article><h2>Lakehouse de indicadores</h2><p>Pipeline medall\u00f3n (bronze / silver / gold) sobre pesadas, ocupaci\u00f3n, ITH y BCS: GMD, carga UA/ha y riesgo t\u00e9rmico para el lote.</p></article>
-    </div>
-    <h2>Tecnolog\u00edas y herramientas</h2>
-    <ul class="tech-chips" aria-label="Stack">
-      <li>Aplicaciones m\u00f3viles offline-first</li>
-      <li>Sincronizaci\u00f3n diferencial</li>
-      <li>Visi\u00f3n artificial</li>
-      <li>Esc\u00e1ner de anomal\u00edas</li>
-      <li>Esc\u00e1ner de materia fecal</li>
-      <li>Modelos de GMD / ITH / carga</li>
-      <li>Sanidad y next-best-action</li>
-      <li>Consulta conversacional</li>
-      <li>Automatizaci\u00f3n de flujos (n8n)</li>
-      <li>Ingenier\u00eda de datos</li>
-      <li>Lakehouse medall\u00f3n (Delta / Spark)</li>
-      <li>GIS y cartograf\u00eda</li>
-      <li>Im\u00e1genes satelitales y NDVI</li>
-      <li>APIs e integraci\u00f3n de planillas</li>
-      <li>Arquitectura local-first</li>
-    </ul>
-    ${productShowcase({
-      hn: "L\u00ednea de productos",
-      pn: "Tres l\u00edneas propias. Nutrogan: territorio, recursos y NDVI. SIGAG: visi\u00f3n, sanidad y operaci\u00f3n en el lote. Ganader\u00eda de precisi\u00f3n: lakehouse medall\u00f3n (planillas a indicadores GMD, carga, ITH y BCS). Cada una con stack propio.",
-      an: "Nutrogan: mockup de la app de campo (corral, recursos y potreros)",
-      cn: "Nutrogan \u00b7 app de campo",
-      as: "SIGAG: mockup de la app de visi\u00f3n y sanidad",
-      cs: "SIGAG \u00b7 visi\u00f3n y sanidad",
-      ap: "Ganader\u00eda de precisi\u00f3n: HUD del lakehouse (bronze, silver, gold) con GMD, UA/ha, ITH y BCS",
-      cp: "Ganader\u00eda de precisi\u00f3n \u00b7 lakehouse",
-    })}
-    <p class="demo-cta-wrap">
-      <a class="demo-cta" href="__DEMO_WA__" rel="noopener noreferrer" target="_blank">__ASK_DEMO__</a>
-    </p>
+    <div class="prod-root"></div>
   `,
   contact: `
     <p class="eyebrow">Contacto</p>
@@ -269,50 +160,7 @@ const en = {
     </div>
   `,
   products: `
-    <p class="eyebrow">Products</p>
-    <h1>Tailored solutions</h1>
-    <p>There is no closed package. Each deployment is built around the client or company: scope, infrastructure and how the farm already works.</p>
-    <h2>Product types</h2>
-    <div class="cards">
-      <article><h2>Field platforms</h2><p>Apps for capture and query in the lot, with or without connectivity.</p></article>
-      <article><h2>Decision dashboards</h2><p>Herd, forage and operations indicators aligned with the office.</p></article>
-      <article><h2>Vision modules</h2><p>Body condition, recognition, anomalies (wounds and lesions) and fecal matter for analysis, in the lot, chute or yard.</p></article>
-      <article><h2>Alerts and orchestration</h2><p>Heat, health and handling notices tied to on-farm flows.</p></article>
-      <article><h2>Territorial layers</h2><p>Paddocks, stocking, satellite and NDVI integrated with livestock or crop reading.</p></article>
-      <article><h2>Custom integrations</h2><p>Sheets, devices, messaging and systems already in use.</p></article>
-      <article><h2>Indicator lakehouse</h2><p>Medallion pipeline (bronze / silver / gold) on weighings, occupancy, THI and BCS: ADG, UA/ha stocking and heat risk for the lot.</p></article>
-    </div>
-    <h2>Technologies and tools</h2>
-    <ul class="tech-chips" aria-label="Stack">
-      <li>Offline-first mobile apps</li>
-      <li>Differential sync</li>
-      <li>Computer vision</li>
-      <li>Anomaly scanner</li>
-      <li>Fecal-matter scanner</li>
-      <li>ADG / THI / stocking models</li>
-      <li>Health and next-best-action</li>
-      <li>Conversational query</li>
-      <li>Flow automation (n8n)</li>
-      <li>Data engineering</li>
-      <li>Medallion lakehouse (Delta / Spark)</li>
-      <li>GIS and mapping</li>
-      <li>Satellite imagery and NDVI</li>
-      <li>APIs and spreadsheet integration</li>
-      <li>Local-first architecture</li>
-    </ul>
-    ${productShowcase({
-      hn: "Product line",
-      pn: "Three in-house lines. Nutrogan: territory, resources and NDVI. SIGAG: vision, animal health and lot operations. Precision livestock: medallion lakehouse (sheets to ADG, stocking, THI and BCS). Each with its own stack.",
-      an: "Nutrogan: field-app mockup (yard, resources and paddocks)",
-      cn: "Nutrogan \u00b7 field app",
-      as: "SIGAG: vision and animal-health app mockup",
-      cs: "SIGAG \u00b7 vision and health",
-      ap: "Precision livestock: lakehouse HUD (bronze, silver, gold) with ADG, UA/ha, THI and BCS",
-      cp: "Precision livestock \u00b7 lakehouse",
-    })}
-    <p class="demo-cta-wrap">
-      <a class="demo-cta" href="__DEMO_WA__" rel="noopener noreferrer" target="_blank">__ASK_DEMO__</a>
-    </p>
+    <div class="prod-root"></div>
   `,
   contact: `
     <p class="eyebrow">Contact</p>
@@ -423,50 +271,7 @@ const pt = {
     </div>
   `,
   products: `
-    <p class="eyebrow">Produtos</p>
-    <h1>Solu\u00e7\u00f5es sob medida</h1>
-    <p>N\u00e3o se oferece um pacote fechado. Cada implanta\u00e7\u00e3o se monta segundo as necessidades do cliente ou da empresa: alcance, infraestrutura e ritmos de trabalho do estabelecimento.</p>
-    <h2>Tipos de produto</h2>
-    <div class="cards">
-      <article><h2>Plataformas de campo</h2><p>Aplicativos para captura e consulta no lote, com ou sem conectividade.</p></article>
-      <article><h2>Pain\u00e9is de decis\u00e3o</h2><p>Indicadores de gado, forragem e opera\u00e7\u00e3o, alinhados ao escrit\u00f3rio.</p></article>
-      <article><h2>M\u00f3dulos de vis\u00e3o</h2><p>Condi\u00e7\u00e3o corporal, reconhecimento, anomalias (feridas e les\u00f5es) e mat\u00e9ria fecal para an\u00e1lise, no lote ou no curral.</p></article>
-      <article><h2>Alertas e orquestra\u00e7\u00e3o</h2><p>Avisos de calor, sanidade e manejo, ligados aos fluxos do predio.</p></article>
-      <article><h2>Camadas territoriais</h2><p>Piquetes, carga, sat\u00e9lite e NDVI, integrados \u00e0 leitura pecu\u00e1ria ou agr\u00edcola.</p></article>
-      <article><h2>Integra\u00e7\u00f5es sob medida</h2><p>Planilhas, dispositivos, mensageria e sistemas j\u00e1 em uso na empresa.</p></article>
-      <article><h2>Lakehouse de indicadores</h2><p>Pipeline medalh\u00e3o (bronze / silver / gold) sobre pesagens, ocupa\u00e7\u00e3o, ITH e BCS: GMD, carga UA/ha e risco t\u00e9rmico para o lote.</p></article>
-    </div>
-    <h2>Tecnologias e ferramentas</h2>
-    <ul class="tech-chips" aria-label="Stack">
-      <li>Aplicativos m\u00f3veis offline-first</li>
-      <li>Sincroniza\u00e7\u00e3o diferencial</li>
-      <li>Vis\u00e3o artificial</li>
-      <li>Scanner de anomalias</li>
-      <li>Scanner de mat\u00e9ria fecal</li>
-      <li>Modelos de GMD / ITH / carga</li>
-      <li>Sanidade e next-best-action</li>
-      <li>Consulta conversacional</li>
-      <li>Automa\u00e7\u00e3o de fluxos (n8n)</li>
-      <li>Engenharia de dados</li>
-      <li>Lakehouse medalh\u00e3o (Delta / Spark)</li>
-      <li>GIS e cartografia</li>
-      <li>Imagens satelitais e NDVI</li>
-      <li>APIs e integra\u00e7\u00e3o de planilhas</li>
-      <li>Arquitetura local-first</li>
-    </ul>
-    ${productShowcase({
-      hn: "Linha de produtos",
-      pn: "Tr\u00eas linhas pr\u00f3prias. Nutrogan: territ\u00f3rio, recursos e NDVI. SIGAG: vis\u00e3o, sanidade e opera\u00e7\u00e3o no lote. Pecu\u00e1ria de precis\u00e3o: lakehouse medalh\u00e3o (planilhas a GMD, carga, ITH e BCS). Cada uma com stack pr\u00f3prio.",
-      an: "Nutrogan: mockup do app de campo (curral, recursos e piquetes)",
-      cn: "Nutrogan \u00b7 app de campo",
-      as: "SIGAG: mockup do app de vis\u00e3o e sanidade",
-      cs: "SIGAG \u00b7 vis\u00e3o e sanidade",
-      ap: "Pecu\u00e1ria de precis\u00e3o: HUD do lakehouse (bronze, silver, gold) com GMD, UA/ha, ITH e BCS",
-      cp: "Pecu\u00e1ria de precis\u00e3o \u00b7 lakehouse",
-    })}
-    <p class="demo-cta-wrap">
-      <a class="demo-cta" href="__DEMO_WA__" rel="noopener noreferrer" target="_blank">__ASK_DEMO__</a>
-    </p>
+    <div class="prod-root"></div>
   `,
   contact: `
     <p class="eyebrow">Contato</p>
@@ -577,50 +382,7 @@ const zh = {
     </div>
   `,
   products: `
-    <p class="eyebrow">\u4ea7\u54c1</p>
-    <h1>\u5b9a\u5236\u89e3\u51b3\u65b9\u6848</h1>
-    <p>\u4e0d\u63d0\u4f9b\u5c01\u95ed\u5957\u9910\u3002\u6bcf\u6b21\u90e8\u7f72\u6309\u5ba2\u6237\u6216\u4f01\u4e1a\u9700\u6c42\u7ec4\u88c5\uff1a\u8303\u56f4\u3001\u57fa\u7840\u8bbe\u65bd\u4e0e\u7267\u573a\u8282\u594f\u3002</p>
-    <h2>\u4ea7\u54c1\u7c7b\u578b</h2>
-    <div class="cards">
-      <article><h2>\u7530\u95f4\u5e73\u53f0</h2><p>\u5728\u56f4\u680f\u91c7\u96c6\u4e0e\u67e5\u8be2\u7684\u5e94\u7528\uff0c\u652f\u6301\u6709\u7f51\u6216\u65e0\u7f51\u3002</p></article>
-      <article><h2>\u51b3\u7b56\u4eea\u8868\u76d8</h2><p>\u4e0e\u529e\u4e8b\u5904\u5bf9\u9f50\u7684\u725b\u7fa4\u3001\u9972\u8349\u4e0e\u4f5c\u4e1a\u6307\u6807\u3002</p></article>
-      <article><h2>\u89c6\u89c9\u6a21\u5757</h2><p>\u4f53\u51b5\u3001\u8bc6\u522b\u3001\u5f02\u5e38\uff08\u4f24\u53e3\u4e0e\u75c5\u7076\uff09\u4e0e\u7caa\u4fbf\u5206\u6790\uff0c\u7528\u4e8e\u56f4\u680f\u6216\u901a\u9053\u3002</p></article>
-      <article><h2>\u9884\u8b66\u4e0e\u7f16\u6392</h2><p>\u70ed\u5e94\u6fc0\u3001\u536b\u751f\u4e0e\u7ba1\u7406\u901a\u77e5\uff0c\u63a5\u5165\u7267\u573a\u6d41\u7a0b\u3002</p></article>
-      <article><h2>\u571f\u5730\u56fe\u5c42</h2><p>\u56f4\u680f\u3001\u8f7d\u755c\u3001\u536b\u661f\u4e0e NDVI\uff0c\u878d\u5165\u755c\u7267\u6216\u79cd\u690d\u8bfb\u6570\u3002</p></article>
-      <article><h2>\u5b9a\u5236\u96c6\u6210</h2><p>\u8868\u683c\u3001\u8bbe\u5907\u3001\u6d88\u606f\u4e0e\u4f01\u4e1a\u73b0\u6709\u7cfb\u7edf\u3002</p></article>
-      <article><h2>\u6307\u6807 lakehouse</h2><p>\u94dc/\u94f6/\u91d1\u5957\u7ba1\u7ebf\uff1a\u79f0\u91cd\u3001\u8f7d\u755c\u3001ITH \u4e0e BCS\uff0c\u5f97\u51fa GMD\u3001UA/ha \u4e0e\u70ed\u5e94\u6fc0\u98ce\u9669\u3002</p></article>
-    </div>
-    <h2>\u6280\u672f\u4e0e\u5de5\u5177</h2>
-    <ul class="tech-chips" aria-label="Stack">
-      <li>\u79bb\u7ebf\u4f18\u5148\u79fb\u52a8\u5e94\u7528</li>
-      <li>\u5dee\u91cf\u540c\u6b65</li>
-      <li>\u8ba1\u7b97\u673a\u89c6\u89c9</li>
-      <li>\u5f02\u5e38\u626b\u63cf</li>
-      <li>\u7caa\u4fbf\u626b\u63cf</li>
-      <li>GMD / ITH / \u8f7d\u755c\u6a21\u578b</li>
-      <li>\u536b\u751f\u4e0e next-best-action</li>
-      <li>\u5bf9\u8bdd\u5f0f\u67e5\u8be2</li>
-      <li>\u6d41\u7a0b\u81ea\u52a8\u5316\uff08n8n\uff09</li>
-      <li>\u6570\u636e\u5de5\u7a0b</li>
-      <li>Lakehouse \u5957\u7ba1\uff08Delta / Spark\uff09</li>
-      <li>GIS \u4e0e\u5236\u56fe</li>
-      <li>\u536b\u661f\u5f71\u50cf\u4e0e NDVI</li>
-      <li>API \u4e0e\u8868\u683c\u96c6\u6210</li>
-      <li>\u672c\u5730\u4f18\u5148\u67b6\u6784</li>
-    </ul>
-    ${productShowcase({
-      hn: "\u4ea7\u54c1\u7ebf",
-      pn: "\u4e09\u6761\u81ea\u6709\u4ea7\u7ebf\u3002Nutrogan\uff1a\u571f\u5730\u3001\u8d44\u6e90\u4e0e NDVI\u3002SIGAG\uff1a\u89c6\u89c9\u3001\u536b\u751f\u4e0e\u56f4\u680f\u4f5c\u4e1a\u3002\u7cbe\u51c6\u517b\u6b96\uff1alakehouse \u5957\u7ba1\uff08\u8868\u683c\u5230 GMD\u3001\u8f7d\u755c\u3001ITH \u4e0e BCS\uff09\u3002\u5404\u81ea\u6280\u672f\u6808\u3002",
-      an: "Nutrogan\uff1a\u7530\u95f4\u5e94\u7528\u6837\u673a\uff08\u5708\u680f\u3001\u8d44\u6e90\u4e0e\u56f4\u680f\uff09",
-      cn: "Nutrogan \u00b7 \u7530\u95f4\u5e94\u7528",
-      as: "SIGAG\uff1a\u89c6\u89c9\u4e0e\u536b\u751f\u5e94\u7528\u6837\u673a",
-      cs: "SIGAG \u00b7 \u89c6\u89c9\u4e0e\u536b\u751f",
-      ap: "\u7cbe\u51c6\u517b\u6b96\uff1alakehouse HUD\uff08bronze / silver / gold\uff09\u4e0e GMD\u3001UA/ha\u3001ITH\u3001BCS",
-      cp: "\u7cbe\u51c6\u517b\u6b96 \u00b7 lakehouse",
-    })}
-    <p class="demo-cta-wrap">
-      <a class="demo-cta" href="__DEMO_WA__" rel="noopener noreferrer" target="_blank">__ASK_DEMO__</a>
-    </p>
+    <div class="prod-root"></div>
   `,
   contact: `
     <p class="eyebrow">\u8054\u7cfb</p>

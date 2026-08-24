@@ -484,9 +484,173 @@ const LAYERS_ZH = [
   },
 ];
 
+const CASCADE = {
+  es: {
+    ganaderia: {
+      brief: "Registra pesajes, movimientos, destetes y atenciones de cada animal y del lote, para ver cómo evoluciona el rodeo en el tiempo.",
+      facts: [
+        "Sirve para seguir la campaña completa, no un único día de manga.",
+        "La carga del potrero queda ligada al historial del lote.",
+      ],
+    },
+    vision: {
+      brief: "En el predio, la cámara estima la condición corporal, reconoce al animal, detecta heridas u otras señales visibles y escanea materia fecal para análisis.",
+      facts: [
+        "Encargado, veterinario y productor trabajan con el mismo registro visual.",
+        "Complementa al personal: no reemplaza el diagnóstico veterinario ni el laboratorio.",
+      ],
+    },
+    datos: {
+      brief: "Hacienda o cultivo se registran en el lote, incluso sin red. Cuando vuelve la señal, se sincroniza con la oficina.",
+      facts: [
+        "No hay que volver a cargar lo que ya se capturó.",
+        "El mismo dispositivo sirve para hacienda y cultivo.",
+      ],
+    },
+    agro: {
+      brief: "Une carga animal, forraje y descanso del lote para decidir qué potrero puede recibir hacienda y cuál debe reposar.",
+      facts: [
+        "La lectura del potrero se ve junto con la del rodeo.",
+        "Reduce el sobrepastoreo cuando se decide solo a ojo.",
+      ],
+    },
+    satelital: {
+      brief: "Imágenes satelitales y el índice NDVI muestran el vigor del cultivo y del forraje, sin recorrer todo el establecimiento.",
+      facts: [
+        "Se marcan zonas de menor vigor que a campo pueden pasar desapercibidas.",
+        "Aplica tanto a agricultura como al forraje del rodeo.",
+      ],
+    },
+    orquestacion: {
+      brief: "Ordena avisos de calor, sanidad y manejo para que la notificación llegue a quien debe actuar en ese momento.",
+      facts: [
+        "La decisión operativa sigue en el establecimiento.",
+        "Se puede consultar el estado del campo en lenguaje natural.",
+      ],
+    },
+  },
+  en: {
+    ganaderia: {
+      brief: "It records weighings, movements, weanings and treatments for each animal and lot, so you can see how the herd changes over time.",
+      facts: [
+        "It follows the full campaign, not a single chute day.",
+        "Paddock stocking stays linked to the lot history.",
+      ],
+    },
+    vision: {
+      brief: "On the farm, the camera estimates body condition, recognizes the animal, flags wounds or other visible signs, and scans feces for analysis.",
+      facts: [
+        "Foreman, veterinarian and producer work from the same visual record.",
+        "It supports staff; it does not replace veterinary diagnosis or the lab.",
+      ],
+    },
+    datos: {
+      brief: "Cattle or crop data is entered in the lot, even without a network. When signal returns, it syncs with the office.",
+      facts: [
+        "Already captured records do not have to be typed again.",
+        "The same device handles cattle and crops.",
+      ],
+    },
+    agro: {
+      brief: "It combines stocking rate, forage and rest so you can decide which paddock can take cattle and which must recover.",
+      facts: [
+        "Paddock reading sits next to the herd reading.",
+        "It reduces overgrazing when the call is made by eye alone.",
+      ],
+    },
+    satelital: {
+      brief: "Satellite images and the NDVI index show crop and forage vigor without walking the entire property.",
+      facts: [
+        "Lower-vigor zones that are easy to miss on foot become visible.",
+        "It applies to cropping and to forage for the herd.",
+      ],
+    },
+    orquestacion: {
+      brief: "It orders heat, health and handling notices so the alert reaches whoever must act at that moment.",
+      facts: [
+        "Operational decisions remain with the farm.",
+        "Farm status can be queried in natural language.",
+      ],
+    },
+  },
+  pt: {
+    ganaderia: {
+      brief: "Regista pesagens, movimentações, desmames e atendimentos de cada animal e do lote, para ver como o rebanho evolui no tempo.",
+      facts: [
+        "Serve para acompanhar a campanha completa, não um único dia de curral.",
+        "A carga do piquete fica ligada ao histórico do lote.",
+      ],
+    },
+    vision: {
+      brief: "No predio, a câmera estima a condição corporal, reconhece o animal, detecta feridas ou outros sinais visíveis e faz o scanner de matéria fecal para análise.",
+      facts: [
+        "Encarregado, veterinário e produtor trabalham com o mesmo registro visual.",
+        "Complementa a equipe: não substitui o diagnóstico veterinário nem o laboratório.",
+      ],
+    },
+    datos: {
+      brief: "Gado ou cultivo registam-se no lote, mesmo sem rede. Quando o sinal volta, sincroniza com o escritório.",
+      facts: [
+        "Não é preciso recarregar o que já foi capturado.",
+        "O mesmo dispositivo serve para gado e cultivo.",
+      ],
+    },
+    agro: {
+      brief: "Une carga animal, forragem e descanso do lote para decidir qual piquete pode receber gado e qual deve repousar.",
+      facts: [
+        "A leitura do piquete aparece junto com a do rebanho.",
+        "Reduz o superpastejo quando a decisão é só a olho.",
+      ],
+    },
+    satelital: {
+      brief: "Imagens de satélite e o índice NDVI mostram o vigor da cultura e da forragem, sem percorrer todo o estabelecimento.",
+      facts: [
+        "Marcam-se zonas de menor vigor que no campo podem passar despercebidas.",
+        "Aplica-se à agricultura e à forragem do rebanho.",
+      ],
+    },
+    orquestacion: {
+      brief: "Ordena avisos de calor, sanidade e manejo para que a notificação chegue a quem deve atuar naquele momento.",
+      facts: [
+        "A decisão operacional permanece no estabelecimento.",
+        "Pode consultar-se o estado do campo em linguagem natural.",
+      ],
+    },
+  },
+  zh: {
+    ganaderia: {
+      brief: "记录每头牛及整批的称重、转群、断奶与处置，用来看牛群随时间如何变化。",
+      facts: ["跟进整季，而不是通道作业的某一天。", "围栏载畜与批次历史保持关联。"],
+    },
+    vision: {
+      brief: "在牧场，摄像头估计体况、识别个体、发现伤口或其他可见迹象，并扫描粪便以供分析。",
+      facts: ["场长、兽医与生产者共用同一份视觉记录。", "辅助人员；不替代兽医诊断或实验室。"],
+    },
+    datos: {
+      brief: "牲畜或作物在围栏录入，即使无网。信号恢复后与办公室同步。",
+      facts: ["已采集内容不必重录。", "同一设备可用于牲畜与作物。"],
+    },
+    agro: {
+      brief: "整合载畜、饲草与休牧，决定哪块可进牛、哪块须休息。",
+      facts: ["围栏读数与牛群读数一起看。", "减少仅凭肉眼造成的超牧。"],
+    },
+    satelital: {
+      brief: "卫星影像与 NDVI 显示作物与饲草长势，不必走遍全场。",
+      facts: ["标出田间容易漏看的弱区。", "适用于种植，也适用于牛群饲草。"],
+    },
+    orquestacion: {
+      brief: "整理热应激、卫生与管理通知，让该行动的人及时收到。",
+      facts: ["作业决策仍留在牧场。", "可用自然语言查询场况。"],
+    },
+  },
+};
+
 export function LAYERS() {
   const pack = { es: LAYERS_ES, en: LAYERS_EN, pt: LAYERS_PT, zh: LAYERS_ZH };
-  return pack[getLang()] || LAYERS_ES;
+  const lang = getLang();
+  const base = pack[lang] || LAYERS_ES;
+  const cards = CASCADE[lang] || CASCADE.es;
+  return base.map((layer) => (cards[layer.id] ? { ...layer, ...cards[layer.id] } : layer));
 }
 
 export function layerByNode(index) {

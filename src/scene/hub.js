@@ -1,6 +1,5 @@
 import { layerByNode } from "../content/skadia.js";
-import { paintLayer } from "../ui/layers.js";
-import { playTap } from "../ui/sound.js";
+import { openHubDetail } from "../ui/layers.js";
 
 const NS = "http://www.w3.org/2000/svg";
 const GOLD = /#ffc000/i;
@@ -109,45 +108,87 @@ async function inlineArt(groupId, url, box, kind) {
   if (kind === "maiz") markMaizNodes(nested);
 }
 
-function polyPoints(a, b, drift) {
-  const dir = b.x >= a.x ? 1 : -1;
-  const first = { x: a.x + dir * 22, y: a.y + drift * 0.15 };
-  const elbow = {
-    x: a.x + (b.x - a.x) * 0.52 + drift,
-    y: a.y + (b.y - a.y) * 0.18 + drift * 0.35,
-  };
-  const last = { x: b.x - dir * 16, y: b.y + drift * 0.12 };
-  return [a, first, elbow, last, b];
-}
-
 function toPath(pts) {
   return pts.map((p, i) => `${i ? "L" : "M"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
 }
 
-export function createConnectors(svg) {
-  const orbs = [...document.querySelectorAll(".orb[data-node]")].filter(Boolean);
+function vhToEdge(from, to, side, clear) {
+  const endX = side === "right" ? to.x - clear : to.x + clear;
+  return [from, { x: from.x, y: to.y }, { x: endX, y: to.y }];
+}
 
-  const groups = orbs.map((orb) => {
-    const right = Boolean(orb.closest(".col-right"));
-    const stroke = right ? "rgba(109,255,154,0.22)" : "rgba(73,236,253,0.22)";
-    const joint = right ? "rgba(109,255,154,0.28)" : "rgba(73,236,253,0.28)";
-    const path = document.createElementNS(NS, "path");
-    path.setAttribute("fill", "none");
-    path.setAttribute("stroke", stroke);
-    path.setAttribute("stroke-width", "1.05");
-    path.setAttribute("stroke-linejoin", "miter");
-    path.setAttribute("stroke-linecap", "butt");
-    path.setAttribute("stroke-miterlimit", "8");
-    svg.appendChild(path);
-    const joints = [0, 1, 2].map(() => {
-      const c = document.createElementNS(NS, "circle");
-      c.setAttribute("r", "1.6");
-      c.setAttribute("fill", joint);
-      svg.appendChild(c);
-      return c;
-    });
-    return { path, joints, orb, nodeIndex: String(orb.dataset.node) };
+function applyDash(path, reveal) {
+  let len = 0;
+  try {
+    len = path.getTotalLength();
+  } catch {
+    return;
+  }
+  if (!len) {
+    path.style.strokeDasharray = "";
+    path.style.strokeDashoffset = "";
+    return;
+  }
+  path.style.strokeDasharray = `${len}`;
+  path.style.strokeDashoffset = `${((1 - reveal) * len).toFixed(2)}`;
+}
+
+function makeLead(svg, right) {
+  const stroke = right ? "rgba(109,255,154,0.22)" : "rgba(73,236,253,0.22)";
+  const joint = right ? "rgba(109,255,154,0.28)" : "rgba(73,236,253,0.28)";
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("fill", "none");
+  path.setAttribute("stroke", stroke);
+  path.setAttribute("stroke-width", "1.05");
+  path.setAttribute("stroke-linejoin", "miter");
+  path.setAttribute("stroke-linecap", "butt");
+  path.setAttribute("stroke-miterlimit", "8");
+  svg.appendChild(path);
+  const joints = [0, 1].map(() => {
+    const c = document.createElementNS(NS, "circle");
+    c.setAttribute("r", "1.6");
+    c.setAttribute("fill", joint);
+    svg.appendChild(c);
+    return c;
   });
+  return { path, joints, right };
+}
+
+function styleLead(group, item) {
+  const right = Boolean(item.right);
+  const rgb = right ? "109,255,154" : "73,236,253";
+  const reveal = item.reveal == null ? 1 : item.reveal;
+  group.right = right;
+  group.path.style.filter = "none";
+  if (item.kind === "cascade") {
+    const a = 0.12 + 0.38 * reveal;
+    group.path.setAttribute("stroke", `rgba(${rgb},${a.toFixed(2)})`);
+    group.path.setAttribute("stroke-width", "1.2");
+    group.path.setAttribute("stroke-linecap", "round");
+    applyDash(group.path, reveal);
+    group.joints.forEach((c) => {
+      c.style.display = "none";
+    });
+    return;
+  }
+  group.path.style.strokeDasharray = "";
+  group.path.style.strokeDashoffset = "";
+  group.path.setAttribute("stroke-linecap", "butt");
+  group.path.setAttribute("stroke", `rgba(${rgb},0.22)`);
+  group.path.setAttribute("stroke-width", "1.05");
+  group.joints.forEach((c) => {
+    c.setAttribute("r", "1.6");
+    c.setAttribute("fill", `rgba(${rgb},0.28)`);
+  });
+}
+
+function orbClear(el) {
+  const r = el.getBoundingClientRect();
+  return Math.max(r.width, r.height) / 2 + 8;
+}
+
+export function createConnectors(svg) {
+  const pool = [];
 
   function center(el) {
     const r = el.getBoundingClientRect();
@@ -158,17 +199,103 @@ export function createConnectors(svg) {
     };
   }
 
+  function hubRoutes() {
+    const left = [];
+    const right = [];
+    document.querySelectorAll(".orb[data-node]").forEach((orb) => {
+      const nodeIndex = String(orb.dataset.node);
+      const from = document.querySelector(`.hub-node[data-node="${nodeIndex}"]`);
+      if (!from) return;
+      const side = orb.closest(".col-right") ? "right" : "left";
+      const item = { from, to: orb, right: side === "right" };
+      (side === "right" ? right : left).push(item);
+    });
+    left.sort((a, b) => center(a.to).y - center(b.to).y);
+    right.sort((a, b) => center(a.to).y - center(b.to).y);
+    left.forEach((it) => {
+      it.pts = vhToEdge(center(it.from), center(it.to), "left", orbClear(it.to));
+    });
+    right.forEach((it) => {
+      it.pts = vhToEdge(center(it.from), center(it.to), "right", orbClear(it.to));
+    });
+    return [...left, ...right];
+  }
+
+  function sideDock(el, side) {
+    const r = el.getBoundingClientRect();
+    const s = svg.getBoundingClientRect();
+    return {
+      x: (side === "left" ? r.left : r.right) - s.left,
+      y: r.top + r.height / 2 - s.top,
+    };
+  }
+
+  function leaveOrb(orb, toward) {
+    const o = center(orb);
+    const r = orb.getBoundingClientRect();
+    const rad = Math.max(r.width, r.height) / 2 + 8;
+    const dx = toward.x - o.x;
+    const dy = toward.y - o.y;
+    const d = Math.hypot(dx, dy) || 1;
+    return { x: o.x + (dx / d) * rad, y: o.y + (dy / d) * rad };
+  }
+
+  function cascadeReveal(i, n, host) {
+    const now = performance.now();
+    const step = 95;
+    const ms = 420;
+    if (host?.dataset.fold === "1") {
+      const t0 = Number(host.dataset.foldAt || now);
+      const delay = (n - 1 - i) * step;
+      return 1 - Math.max(0, Math.min(1, (now - t0 - delay) / ms));
+    }
+    const t0 = Number(host?.dataset.unroll || 0);
+    if (!t0) return 0;
+    const delay = i * step;
+    return Math.max(0, Math.min(1, (now - t0 - delay) / ms));
+  }
+
+  function cascadeRoutes() {
+    const origin = document.querySelector(".panel.is-hot .orb");
+    const host = document.querySelector("#cascade");
+    const cards = [...document.querySelectorAll("#cascade .cascade-card")];
+    if (!origin || !cards.length) return [];
+    const right = Boolean(origin.closest(".col-right"));
+    const n = cards.length;
+    return cards.map((card, i) => {
+      const end = sideDock(card, i === 0 ? (right ? "right" : "left") : "left");
+      const start =
+        i === 0 ? leaveOrb(origin, end) : sideDock(cards[i - 1], "right");
+      const pts =
+        Math.abs(start.y - end.y) < 2 ? [start, end] : [start, { x: start.x, y: end.y }, end];
+      return {
+        pts,
+        right,
+        kind: "cascade",
+        reveal: cascadeReveal(i, n, host),
+      };
+    });
+  }
+
   function update() {
-    groups.forEach(({ path, joints, orb, nodeIndex }) => {
-      const hot = document.querySelector(`.hub-node[data-node="${nodeIndex}"]`);
-      if (!hot) return;
-      const a = center(hot);
-      const b = center(orb);
-      const pts = polyPoints(a, b, 0);
-      path.setAttribute("d", toPath(pts));
-      [pts[1], pts[2], pts[3]].forEach((p, j) => {
-        joints[j].setAttribute("cx", p.x.toFixed(1));
-        joints[j].setAttribute("cy", p.y.toFixed(1));
+    const items = [...hubRoutes(), ...cascadeRoutes()];
+    while (pool.length < items.length) pool.push(makeLead(svg, items[pool.length]?.right || false));
+    pool.forEach((group, i) => {
+      const item = items[i];
+      const on = Boolean(item) && (item.reveal == null || item.reveal > 0.02);
+      group.path.style.display = on ? "" : "none";
+      group.joints.forEach((c) => {
+        c.style.display = on ? "" : "none";
+      });
+      if (!on) return;
+      group.path.setAttribute("d", toPath(item.pts));
+      styleLead(group, item);
+      const elbows = item.pts.slice(1, -1);
+      group.joints.forEach((c, j) => {
+        const p = elbows[j];
+        if (!p || item.kind === "cascade") return;
+        c.setAttribute("cx", p.x.toFixed(1));
+        c.setAttribute("cy", p.y.toFixed(1));
       });
     });
   }
@@ -189,7 +316,7 @@ export async function bindHub() {
     el.addEventListener("click", (e) => {
       e.stopPropagation();
       const layer = layerByNode(Number(el.dataset.node));
-      if (layer) paintLayer(layer.id, { open: true, sound: true });
+      if (layer) openHubDetail(layer.id, { sound: true });
     });
   });
   function tick() {

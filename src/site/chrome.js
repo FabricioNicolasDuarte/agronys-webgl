@@ -15,21 +15,35 @@ function ensureLangSwitch() {
 
 function bindLegalToggle() {
   document.querySelectorAll(".legal-toggle").forEach((btn) => {
-    const panel = document.getElementById(btn.getAttribute("aria-controls") || "legal-panel");
-    if (!panel) return;
+    const wrap = btn.closest(".legal-mini");
+    const panel = wrap?.querySelector(".legal-panel") || document.getElementById(btn.getAttribute("aria-controls") || "legal-panel");
+    if (!wrap || !panel) return;
     const setOpen = (open) => {
       btn.setAttribute("aria-expanded", open ? "true" : "false");
       panel.hidden = !open;
     };
     btn.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
       setOpen(btn.getAttribute("aria-expanded") !== "true");
     });
-    document.addEventListener("click", (e) => {
-      if (!btn.closest(".legal-mini")?.contains(e.target)) setOpen(false);
+  });
+  if (document.documentElement.dataset.legalBound === "1") return;
+  document.documentElement.dataset.legalBound = "1";
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".legal-mini")) return;
+    document.querySelectorAll(".legal-toggle").forEach((btn) => {
+      btn.setAttribute("aria-expanded", "false");
     });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") setOpen(false);
+    document.querySelectorAll(".legal-panel").forEach((panel) => {
+      panel.hidden = true;
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll(".legal-toggle").forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+    document.querySelectorAll(".legal-panel").forEach((panel) => {
+      panel.hidden = true;
     });
   });
 }
