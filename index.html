@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Skadia: herramientas de campo para ganaderia de precision en Argentina y Paraguay. El dato nace en el potrero." />
     <title>Skadia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/main-C8a5Z3NW.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/bgVideo-lTtZnRox.js">
-    <link rel="stylesheet" crossorigin href="./assets/bgVideo-BWcHLCH6.css">
+    <script type="module" crossorigin src="./assets/main-CH56T2RC.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/bgVideo-BjIrEE0R.js">
+    <link rel="stylesheet" crossorigin href="./assets/bgVideo-C_4HZ8vG.css">
   </head>
   <body data-page="index">
     <a class="skip-link" href="#contenido" data-i18n="skip">Saltar al contenido</a>
@@ -50,44 +52,21 @@
 
         <main id="contenido" class="board">
           <div class="col col-left">
-            <article class="panel" data-layer="ganaderia" tabindex="0" aria-label="Monitoreo 360 con IA">
-              <div class="panel-head">
-                <span class="orb" data-node="1" aria-hidden="true">
-                  <img src="./icons/ganaderia.svg" alt="" width="22" height="22" />
-                </span>
-                <div>
-                  <h2>Monitoreo 360° con IA</h2>
-                  <p class="panel-kicker">Rodeo e historial productivo</p>
-                </div>
-              </div>
-              <p class="note">Registro de pesajes, movimientos y atenciones. Permite evaluar la evolución de cada animal y del lote a lo largo del tiempo.</p>
-            </article>
-
-            <article class="panel" data-layer="vision" tabindex="0" aria-label="Vision artificial">
-              <div class="panel-head">
-                <span class="orb" data-node="2" aria-hidden="true">
-                  <img src="./icons/vision.svg" alt="" width="22" height="22" />
-                </span>
-                <div>
-                  <h2>Visión artificial</h2>
-                  <p class="panel-kicker">Condición, anomalías y materia fecal</p>
-                </div>
-              </div>
-              <p class="note">Condición corporal, reconocimiento, escáner de anomalías (heridas y lesiones) y escáner de materia fecal para análisis.</p>
-            </article>
-
-            <article class="panel" data-layer="orquestacion" tabindex="0" aria-label="Sistema de monitoreo y alertas">
-              <div class="panel-head">
-                <span class="orb" data-node="4" aria-hidden="true">
-                  <img src="./icons/orquestacion.svg" alt="" width="22" height="22" />
-                </span>
-                <div>
-                  <h2>Sistema de monitoreo y alertas</h2>
-                  <p class="panel-kicker">Sanidad, calor y manejo</p>
-                </div>
-              </div>
-              <p class="note">Notificaciones priorizadas cuando un animal o un lote requiere intervención. La decisión operativa permanece en el establecimiento.</p>
-            </article>
+            <button type="button" class="panel" data-layer="vision" aria-label="Vision artificial">
+              <span class="orb" data-node="2" aria-hidden="true">
+                <img src="./icons/vision.svg" alt="" width="22" height="22" />
+              </span>
+            </button>
+            <button type="button" class="panel" data-layer="ganaderia" aria-label="Monitoreo 360 con IA">
+              <span class="orb" data-node="1" aria-hidden="true">
+                <img src="./icons/ganaderia.svg" alt="" width="22" height="22" />
+              </span>
+            </button>
+            <button type="button" class="panel" data-layer="orquestacion" aria-label="Sistema de monitoreo y alertas">
+              <span class="orb" data-node="4" aria-hidden="true">
+                <img src="./icons/orquestacion.svg" alt="" width="22" height="22" />
+              </span>
+            </button>
           </div>
 
           <div class="hub">
@@ -98,44 +77,21 @@
           </div>
 
           <div class="col col-right">
-            <article class="panel" data-layer="agro" tabindex="0" aria-label="Gestion de potreros">
-              <div class="panel-head">
-                <span class="orb" data-node="3" aria-hidden="true">
-                  <img src="./icons/agro.svg" alt="" width="22" height="22" />
-                </span>
-                <div>
-                  <h2>Gestión de potreros</h2>
-                  <p class="panel-kicker">Carga, forraje y descanso</p>
-                </div>
-              </div>
-              <p class="note">Integra el estado del lote con el rodeo: qué potrero puede recibir hacienda y cuál requiere reposo.</p>
-            </article>
-
-            <article class="panel" data-layer="satelital" tabindex="0" aria-label="Monitoreo satelital y NDVI">
-              <div class="panel-head">
-                <span class="orb" data-node="5" aria-hidden="true">
-                  <img src="./icons/satelital.svg" alt="" width="22" height="22" />
-                </span>
-                <div>
-                  <h2>Monitoreo satelital y NDVI</h2>
-                  <p class="panel-kicker">Vigor del cultivo y del forraje</p>
-                </div>
-              </div>
-              <p class="note">Seguimiento del establecimiento con imágenes satelitales. Identifica zonas de mayor o menor verdor sin recorrer la totalidad del campo.</p>
-            </article>
-
-            <article class="panel" data-layer="datos" tabindex="0" aria-label="Captura de datos en campo">
-              <div class="panel-head">
-                <span class="orb" data-node="0" aria-hidden="true">
-                  <img src="./icons/datos.svg" alt="" width="22" height="22" />
-                </span>
-                <div>
-                  <h2>Captura de datos en campo</h2>
-                  <p class="panel-kicker">Registro en el lote</p>
-                </div>
-              </div>
-              <p class="note">La información se carga donde ocurre el trabajo. Al restablecerse la conectividad, se sincroniza con la oficina.</p>
-            </article>
+            <button type="button" class="panel" data-layer="satelital" aria-label="Monitoreo satelital y NDVI">
+              <span class="orb" data-node="5" aria-hidden="true">
+                <img src="./icons/satelital.svg" alt="" width="22" height="22" />
+              </span>
+            </button>
+            <button type="button" class="panel" data-layer="agro" aria-label="Gestion de potreros">
+              <span class="orb" data-node="3" aria-hidden="true">
+                <img src="./icons/agro.svg" alt="" width="22" height="22" />
+              </span>
+            </button>
+            <button type="button" class="panel" data-layer="datos" aria-label="Captura de datos en campo">
+              <span class="orb" data-node="0" aria-hidden="true">
+                <img src="./icons/datos.svg" alt="" width="22" height="22" />
+              </span>
+            </button>
           </div>
         </main>
 
@@ -163,6 +119,7 @@
           </footer>
         </div>
       </div>
+      <div id="cascade" class="cascade" hidden></div>
     </div>
 
     <div id="cookies-bar" class="cookies" hidden>
