@@ -1,0 +1,11 @@
+Logos Agronys (usar estos en UI)
+
+  logo-texto-blanco.svg   header / barra (fondo oscuro)
+  logo-texto-negro.svg    fondos claros
+  logo-blanco.svg         isotipo blanco
+  logo-solo.svg           isotipo color
+  logo-arriba-texto-abajo.svg  stacked
+  icono-con-logo.svg      app / share
+  favicon.svg             favicon del sitio
+
+Los archivos marca-agronys*.svg en /icons son legado; no usar.
