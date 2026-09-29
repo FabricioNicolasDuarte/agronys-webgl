@@ -24,15 +24,15 @@
     <h1>Capacidades para el establecimiento</h1>
     <p>Líneas de trabajo que el equipo configura a medida. La decisión operativa permanece en el predio.</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>Monitoreo 360° con IA</h2></div><p>Pesajes, movimientos y atenciones en un mismo registro. Evolución del animal y del lote a lo largo de la campaña.</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>Visión artificial</h2></div><p>Condición corporal, reconocimiento, escáner de anomalías (heridas, lesiones y otras señales visibles) y escáner de materia fecal para análisis. No sustituye el diagnóstico veterinario ni el laboratorio.</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>Monitoreo y alertas</h2></div><p>Notificaciones priorizadas de calor, sanidad y manejo.</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>Gestión de potreros</h2></div><p>Carga, forraje y descanso en la misma lectura que el rodeo.</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>Monitoreo satelital y NDVI</h2></div><p>Seguimiento de vigor de cultivo y forraje.</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>Captura en campo</h2></div><p>Registro en el lote, con o sin red. Sincronización al restablecerse la conectividad.</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>Automatización</h2></div><p>Flujos disparados por un evento: notificación, planilla o mensaje.</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>Ingeniería de datos</h2></div><p>Integración de dispositivo, planillas y oficina.</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>Arquitectura offline-first</h2></div><p>Operación continua sin cobertura. Sincronización al recuperar señal.</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>Monitoreo 360° con IA</h2></div><p>Pesajes, movimientos y atenciones en un mismo registro. Evolución del animal y del lote a lo largo de la campaña.</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>Visión artificial</h2></div><p>Condición corporal, reconocimiento, escáner de anomalías (heridas, lesiones y otras señales visibles) y escáner de materia fecal para análisis. No sustituye el diagnóstico veterinario ni el laboratorio.</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>Monitoreo y alertas</h2></div><p>Notificaciones priorizadas de calor, sanidad y manejo.</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>Gestión de potreros</h2></div><p>Carga, forraje y descanso en la misma lectura que el rodeo.</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>Monitoreo satelital y NDVI</h2></div><p>Seguimiento de vigor de cultivo y forraje.</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>Captura en campo</h2></div><p>Registro en el lote, con o sin red. Sincronización al restablecerse la conectividad.</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>Automatización</h2></div><p>Flujos disparados por un evento: notificación, planilla o mensaje.</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>Ingeniería de datos</h2></div><p>Integración de dispositivo, planillas y oficina.</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>Arquitectura offline-first</h2></div><p>Operación continua sin cobertura. Sincronización al recuperar señal.</p></article>
     </div>
   `,products:`
     <div class="prod-root"></div>
@@ -52,7 +52,7 @@
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="Presencia operativa: Chaco, Corrientes, Misiones, Formosa y Paraguay" />
+        <img src="/art/nea.png" alt="Presencia operativa: Chaco, Corrientes, Misiones, Formosa y Paraguay" />
         <figcaption>Presencia en el NEA argentino y Paraguay</figcaption>
       </figure>
     </div>
@@ -122,15 +122,15 @@
     <h1>Capabilities for the farm</h1>
     <p>Work lines the team configures to each property. Operational decisions stay on the farm.</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>360° monitoring with AI</h2></div><p>Weighings, movements and treatments in one record.</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>Computer vision</h2></div><p>Body condition, recognition, anomaly scanning (wounds, lesions and other visible signs) and fecal-matter scanning for analysis. It does not replace veterinary diagnosis or the lab.</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>Monitoring and alerts</h2></div><p>Prioritized notices for heat, health and handling.</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>Paddock management</h2></div><p>Stocking, forage and rest in the same reading as the herd.</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>Satellite monitoring and NDVI</h2></div><p>Crop and forage vigor follow-up.</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>Field capture</h2></div><p>Logging in the lot, with or without a network.</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>Automation</h2></div><p>Flows triggered by an event: notice, sheet or message.</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>Data engineering</h2></div><p>Integration of device, sheets and office.</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>Offline-first architecture</h2></div><p>Continuous operation without coverage.</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>360° monitoring with AI</h2></div><p>Weighings, movements and treatments in one record.</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>Computer vision</h2></div><p>Body condition, recognition, anomaly scanning (wounds, lesions and other visible signs) and fecal-matter scanning for analysis. It does not replace veterinary diagnosis or the lab.</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>Monitoring and alerts</h2></div><p>Prioritized notices for heat, health and handling.</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>Paddock management</h2></div><p>Stocking, forage and rest in the same reading as the herd.</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>Satellite monitoring and NDVI</h2></div><p>Crop and forage vigor follow-up.</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>Field capture</h2></div><p>Logging in the lot, with or without a network.</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>Automation</h2></div><p>Flows triggered by an event: notice, sheet or message.</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>Data engineering</h2></div><p>Integration of device, sheets and office.</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>Offline-first architecture</h2></div><p>Continuous operation without coverage.</p></article>
     </div>
   `,products:`
     <div class="prod-root"></div>
@@ -150,7 +150,7 @@
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="Operating presence: Chaco, Corrientes, Misiones, Formosa and Paraguay" />
+        <img src="/art/nea.png" alt="Operating presence: Chaco, Corrientes, Misiones, Formosa and Paraguay" />
         <figcaption>Presence in Argentina\u2019s NEA and Paraguay</figcaption>
       </figure>
     </div>
@@ -220,15 +220,15 @@
     <h1>Capacidades para o estabelecimento</h1>
     <p>Linhas de trabalho que a equipe configura sob medida. A decisão operacional permanece no predio.</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>Monitoramento 360° com IA</h2></div><p>Pesagens, movimentações e atendimentos no mesmo registro. Evolução do animal e do lote ao longo da campanha.</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>Visão artificial</h2></div><p>Condição corporal, reconhecimento, scanner de anomalias (feridas, lesões e outros sinais visíveis) e scanner de matéria fecal para análise. Não substitui o diagnóstico veterinário nem o laboratório.</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>Monitoramento e alertas</h2></div><p>Notificações priorizadas de calor, sanidade e manejo.</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>Gestão de piquetes</h2></div><p>Carga, forragem e descanso na mesma leitura que o rebanho.</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>Monitoramento satelital e NDVI</h2></div><p>Acompanhamento do vigor da cultura e da forragem.</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>Captura em campo</h2></div><p>Registro no lote, com ou sem rede. Sincronização ao restabelecer a conectividade.</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>Automação</h2></div><p>Fluxos disparados por um evento: notificação, planilha ou mensagem.</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>Engenharia de dados</h2></div><p>Integração de dispositivo, planilhas e escritório.</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>Arquitetura offline-first</h2></div><p>Operação contínua sem cobertura. Sincronização ao recuperar o sinal.</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>Monitoramento 360° com IA</h2></div><p>Pesagens, movimentações e atendimentos no mesmo registro. Evolução do animal e do lote ao longo da campanha.</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>Visão artificial</h2></div><p>Condição corporal, reconhecimento, scanner de anomalias (feridas, lesões e outros sinais visíveis) e scanner de matéria fecal para análise. Não substitui o diagnóstico veterinário nem o laboratório.</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>Monitoramento e alertas</h2></div><p>Notificações priorizadas de calor, sanidade e manejo.</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>Gestão de piquetes</h2></div><p>Carga, forragem e descanso na mesma leitura que o rebanho.</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>Monitoramento satelital e NDVI</h2></div><p>Acompanhamento do vigor da cultura e da forragem.</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>Captura em campo</h2></div><p>Registro no lote, com ou sem rede. Sincronização ao restabelecer a conectividade.</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>Automação</h2></div><p>Fluxos disparados por um evento: notificação, planilha ou mensagem.</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>Engenharia de dados</h2></div><p>Integração de dispositivo, planilhas e escritório.</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>Arquitetura offline-first</h2></div><p>Operação contínua sem cobertura. Sincronização ao recuperar o sinal.</p></article>
     </div>
   `,products:`
     <div class="prod-root"></div>
@@ -248,7 +248,7 @@
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="Presen\u00e7a operacional: Chaco, Corrientes, Misiones, Formosa e Paraguai" />
+        <img src="/art/nea.png" alt="Presen\u00e7a operacional: Chaco, Corrientes, Misiones, Formosa e Paraguai" />
         <figcaption>Presen\u00e7a no NEA argentino e no Paraguai</figcaption>
       </figure>
     </div>
@@ -318,15 +318,15 @@
     <h1>面向牧场的能力</h1>
     <p>团队按需配置的工作线。作业决策留在牧场。</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>AI 360° 监测</h2></div><p>称重、转群与处置同档。动物与整批随季节演化。</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>计算机视觉</h2></div><p>体况、识别、异常扫描（伤口、病灶及其他可见迹象）以及粪便扫描供分析。不取代兽医诊断或实验室。</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>监测与预警</h2></div><p>热应激、卫生与管理的优先通知。</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>围栏管理</h2></div><p>载畜、饲草与休息与牛群同一读数。</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>卫星监测与 NDVI</h2></div><p>跟踪作物与饲草势。</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>田间采集</h2></div><p>在围栏记录，无论有无网络。连接恢复后同步。</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>自动化</h2></div><p>由事件触发的流程：通知、表格或消息。</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>数据工程</h2></div><p>设备、表格与办事处整合。</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>离线优先架构</h2></div><p>无覆盖也可连续作业。</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>AI 360° 监测</h2></div><p>称重、转群与处置同档。动物与整批随季节演化。</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>计算机视觉</h2></div><p>体况、识别、异常扫描（伤口、病灶及其他可见迹象）以及粪便扫描供分析。不取代兽医诊断或实验室。</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>监测与预警</h2></div><p>热应激、卫生与管理的优先通知。</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>围栏管理</h2></div><p>载畜、饲草与休息与牛群同一读数。</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>卫星监测与 NDVI</h2></div><p>跟踪作物与饲草势。</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>田间采集</h2></div><p>在围栏记录，无论有无网络。连接恢复后同步。</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>自动化</h2></div><p>由事件触发的流程：通知、表格或消息。</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>数据工程</h2></div><p>设备、表格与办事处整合。</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>离线优先架构</h2></div><p>无覆盖也可连续作业。</p></article>
     </div>
   `,products:`
     <div class="prod-root"></div>
@@ -346,7 +346,7 @@
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="\u8fd0\u8425\u8303\u56f4\uff1a\u67e5\u79d1\u3001\u79d1\u91cc\u5c14\u7279\u65af\u3001\u7c73\u897f\u5965\u5185\u65af\u3001\u798f\u83ab\u8428\u4e0e\u5df4\u62c9\u572d" />
+        <img src="/art/nea.png" alt="\u8fd0\u8425\u8303\u56f4\uff1a\u67e5\u79d1\u3001\u79d1\u91cc\u5c14\u7279\u65af\u3001\u7c73\u897f\u5965\u5185\u65af\u3001\u798f\u83ab\u8428\u4e0e\u5df4\u62c9\u572d" />
         <figcaption>\u8986\u76d6\u963f\u6839\u5ef7 NEA \u4e0e\u5df4\u62c9\u572d</figcaption>
       </figure>
     </div>
