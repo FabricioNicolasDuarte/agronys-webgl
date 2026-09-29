@@ -1,23 +1,26 @@
 import { getLang } from "../i18n.js";
 import { waDemoUrl } from "../content/pages.js";
 
+const NUTROGAN_APP_URL = "https://www.nutrogan.site";
+
 const LINES = [
   {
     id: "nutrogan",
     idx: "01",
-    img: "./media/ui/nutrogan-mockup.png",
+    img: "/media/ui/nutrogan-mockup.png",
+    appUrl: NUTROGAN_APP_URL,
     stack: ["Vue 3", "Quasar", "Vite", "Pinia", "Supabase", "PostgreSQL", "LocalForage", "Leaflet", "GeoServer", "TensorFlow.js", "PWA"],
   },
   {
     id: "sigag",
     idx: "02",
-    img: "./media/ui/sigag-mockup.png",
+    img: "/media/ui/sigag-mockup.png",
     stack: ["TypeScript", "React Native", "Expo", "React Navigation", "WatermelonDB", "SQLite", "LokiJS", "Supabase", "PostgreSQL"],
   },
   {
     id: "dashboard",
     idx: "03",
-    img: "./media/ui/dashboard-mockup.png",
+    img: "/media/ui/dashboard-mockup.png",
     stack: ["Python", "PySpark", "Delta Lake", "Apache Airflow", "Streamlit", "Pandas", "Docker", "PostgreSQL", "Databricks"],
   },
 ];
@@ -31,6 +34,7 @@ const COPY = {
     work: "Qu\u00e9 se hace",
     out: "Qu\u00e9 se obtiene",
     demo: "Pedir demo de",
+    visitApp: "Abrir app",
     lines: {
       nutrogan: {
         name: "Nutrogan",
@@ -73,6 +77,7 @@ const COPY = {
     work: "What is done",
     out: "What you get",
     demo: "Request a demo of",
+    visitApp: "Open app",
     lines: {
       nutrogan: {
         name: "Nutrogan",
@@ -115,6 +120,7 @@ const COPY = {
     work: "O que se faz",
     out: "O que se obt\u00e9m",
     demo: "Pedir demo de",
+    visitApp: "Abrir app",
     lines: {
       nutrogan: {
         name: "Nutrogan",
@@ -157,6 +163,7 @@ const COPY = {
     work: "\u505a\u4ec0\u4e48",
     out: "\u5f97\u5230\u4ec0\u4e48",
     demo: "\u7533\u8bf7\u6f14\u793a",
+    visitApp: "\u6253\u5f00\u5e94\u7528",
     lines: {
       nutrogan: {
         name: "Nutrogan",
@@ -216,6 +223,7 @@ function paint(root, id) {
   const out = root.querySelector("[data-step=out] .prod-copy");
   const stack = root.querySelector(".prod-view .prod-tick");
   const demo = root.querySelector(".prod-demo");
+  const app = root.querySelector(".prod-app");
   if (shot) {
     shot.src = line.img;
     shot.alt = meta.name;
@@ -239,6 +247,15 @@ function paint(root, id) {
   if (demo) {
     demo.href = waDemoUrl(meta.name);
     demo.textContent = `${c.demo} ${meta.name}`;
+  }
+  if (app) {
+    if (line.appUrl) {
+      app.hidden = false;
+      app.href = line.appUrl;
+      app.textContent = `${c.visitApp || "Open app"} · www.nutrogan.site`;
+    } else {
+      app.hidden = true;
+    }
   }
 }
 
@@ -286,7 +303,7 @@ export function mountProductDeck(host) {
         <div class="prod-view">
           <p class="prod-live"></p>
           <figure class="prod-scope">
-            <img class="prod-shot" src="./media/ui/nutrogan-mockup.png" alt="" />
+            <img class="prod-shot" src="/media/ui/nutrogan-mockup.png" alt="" />
           </figure>
           <ul class="prod-tick" aria-label="stack"></ul>
         </div>
@@ -296,7 +313,10 @@ export function mountProductDeck(host) {
           <li data-step="out"><span>03</span><div><b>${c.out}</b><p class="prod-copy"></p></div></li>
         </ol>
       </div>
-      <a class="demo-cta prod-demo" rel="noopener noreferrer" target="_blank"></a>
+      <div class="prod-actions">
+        <a class="demo-cta prod-demo" rel="noopener noreferrer" target="_blank"></a>
+        <a class="demo-cta prod-app" rel="noopener noreferrer" target="_blank" hidden></a>
+      </div>
     </section>
   `;
 

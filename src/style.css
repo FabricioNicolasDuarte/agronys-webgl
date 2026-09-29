@@ -208,7 +208,7 @@ body {
   height: var(--pill-h);
   width: auto;
   max-height: var(--pill-h);
-  max-width: min(52vw, 280px);
+  max-width: min(58vw, 320px);
   object-fit: contain;
   object-position: center;
 }
@@ -1050,6 +1050,17 @@ body.doc .doc-head {
 
 .prod-demo {
   justify-self: start;
+}
+
+.prod-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-self: start;
+}
+
+.prod-app {
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 @media (max-width: 700px) {
@@ -2147,7 +2158,7 @@ body.doc .doc-head {
   .brand-logo {
     height: 38px;
     max-height: 38px;
-    max-width: min(46vw, 210px);
+    max-width: min(52vw, 240px);
   }
 
   .topbar .svc {
