@@ -380,7 +380,7 @@ export function WeatherFx() {
       try {
         draw(time);
       } catch (err) {
-        canvas.dataset.err = err instanceof Error ? err.message : String(err);
+        if (canvas) canvas.dataset.err = err instanceof Error ? err.message : String(err);
         return;
       }
       if (kind() && !reduce) frame = requestAnimationFrame(loop);

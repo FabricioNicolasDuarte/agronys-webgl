@@ -262,7 +262,7 @@ function reducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function wipeCascade(root: ParentNode) {
+function wipeCascade(root: Element) {
   window.clearTimeout(cascadeTimer);
   cascadeId = null;
   const host = root.querySelector<HTMLElement>("#cascade");
@@ -289,7 +289,7 @@ function foldTowardIcon(el: HTMLElement, origin: Element | null) {
   el.style.transformOrigin = `${ox}% ${oy}%`;
 }
 
-function updateTails(root: ParentNode) {
+function updateTails(root: Element) {
   const svg = root.querySelector<SVGSVGElement>("#tails");
   if (!svg) return;
   const host = root.querySelector<HTMLElement>("#cascade");
@@ -333,7 +333,7 @@ function updateTails(root: ParentNode) {
   });
 }
 
-function placeCascade(root: ParentNode) {
+function placeCascade(root: Element) {
   const host = root.querySelector<HTMLElement>("#cascade");
   if (!host || host.hidden) return;
   const cards = [...host.querySelectorAll<HTMLElement>(".cascade-card")];
@@ -367,7 +367,7 @@ function placeCascade(root: ParentNode) {
   });
 }
 
-function closeCascade(root: ParentNode) {
+function closeCascade(root: Element) {
   const host = root.querySelector<HTMLElement>("#cascade");
   if (!host || host.hidden) {
     wipeCascade(root);
@@ -410,7 +410,7 @@ function fillCascade(host: HTMLElement, layer: Layer, tone: string) {
     </article>`;
 }
 
-function openCascade(root: ParentNode, id: string, refresh = false) {
+function openCascade(root: Element, id: string, refresh = false) {
   const layer = layerById(id);
   const host = root.querySelector<HTMLElement>("#cascade");
   if (!layer || !host) return;
@@ -458,7 +458,7 @@ function openCascade(root: ParentNode, id: string, refresh = false) {
   });
 }
 
-function clearSleepMarks(root: ParentNode) {
+function clearSleepMarks(root: Element) {
   root.querySelectorAll(".sleep-z").forEach((el) => el.remove());
 }
 

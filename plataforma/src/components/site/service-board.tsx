@@ -22,7 +22,7 @@ const TONE: Record<Tone, string> = {
   automatizacion: "#ff9a3c",
 };
 
-const GROUPS = KINDS.filter((item): item is { id: Tone; label: string } => item.id !== "todo");
+const GROUPS = KINDS.flatMap((item) => (item.id === "todo" ? [] : [{ id: item.id, label: item.label }]));
 
 export function ServiceBoard() {
   const [kind, setKind] = useState<Kind>("todo");

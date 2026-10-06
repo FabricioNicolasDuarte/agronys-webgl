@@ -55,11 +55,14 @@ function tipId(now: Forecast, phase: string): TipId {
   return "clear";
 }
 
-function seasonOf(date: Date, latitude: number) {
+type Season = "summer" | "autumn" | "winter" | "spring";
+
+function seasonOf(date: Date, latitude: number): Season {
   const month = date.getMonth();
-  const north = month === 11 || month < 2 ? "winter" : month < 5 ? "spring" : month < 8 ? "summer" : "autumn";
+  const north: Season = month === 11 || month < 2 ? "winter" : month < 5 ? "spring" : month < 8 ? "summer" : "autumn";
   if (latitude >= 0) return north;
-  return { winter: "summer", spring: "autumn", summer: "winter", autumn: "spring" }[north];
+  const flip: Record<Season, Season> = { winter: "summer", spring: "autumn", summer: "winter", autumn: "spring" };
+  return flip[north];
 }
 
 function localHour(date: Date, timeZone: string) {
@@ -187,6 +190,7 @@ export function Hub() {
     } as const;
 
     function paint() {
+      if (!root) return;
       const over = getSkyOverride();
       if (over?.lat != null && over.lon != null) {
         lat = over.lat;
