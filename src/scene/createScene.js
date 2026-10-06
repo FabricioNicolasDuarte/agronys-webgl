@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { createPlant } from "./plant.js";
 import { createCow } from "./cow.js";
 import { createConnectors } from "./connectors.js";
-import { layerByNode } from "../content/skadia.js";
+import { layerByNode } from "../content/agronys.js";
 import { paintLayer } from "../ui/layers.js";
 
 export function createScene(canvas) {
@@ -36,7 +36,7 @@ export function createScene(canvas) {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const clock = new THREE.Clock();
 
-  window.addEventListener("skadia:layer", (e) => {
+  window.addEventListener("agronys:layer", (e) => {
     selectedNode = e.detail.node;
   });
 

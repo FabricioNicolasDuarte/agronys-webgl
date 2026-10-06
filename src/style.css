@@ -804,7 +804,7 @@ body.doc .doc-head {
   --prod-dim: rgba(109, 255, 154, 0.16);
 }
 
-.prod-deck[data-tone='dashboard'] {
+.prod-deck[data-tone='potrero'] {
   --prod: #ffc000;
   --prod-dim: rgba(255, 192, 0, 0.16);
 }

@@ -1,4 +1,4 @@
-import { layerByNode } from "../content/skadia.js";
+import { layerByNode } from "../content/agronys.js";
 import { openHubDetail } from "../ui/layers.js";
 
 const NS = "http://www.w3.org/2000/svg";
@@ -306,8 +306,8 @@ export function createConnectors(svg) {
 export async function bindHub() {
   const svg = document.querySelector("#leads");
   await Promise.all([
-    inlineArt("art-vaca", "./art/vaca.svg", { x: 95, y: 370, w: 560, h: 390 }, "cow"),
-    inlineArt("art-maiz", "./art/maiz.svg", { x: 470, y: 4, w: 520, h: 756 }, "maiz"),
+    inlineArt("art-vaca", "/art/vaca.svg", { x: 95, y: 370, w: 560, h: 390 }, "cow"),
+    inlineArt("art-maiz", "/art/maiz.svg", { x: 470, y: 4, w: 520, h: 756 }, "maiz"),
   ]);
   if (!svg) return;
   const connectors = createConnectors(svg);

@@ -1,0 +1,91 @@
+:root {
+  color-scheme: dark;
+  --bg: #07110c;
+  --panel: #101910;
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f4faf6;
+  --muted: rgba(244, 250, 246, 0.72);
+  --gold: #ffc000;
+  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+a { color: var(--gold); }
+
+button, input, select {
+  font: inherit;
+  color: inherit;
+}
+
+.login, .shell { min-height: 100vh; }
+
+.login {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card, .panel, .nav {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.card { width: min(420px, 100%); padding: 28px; display: grid; gap: 12px; }
+
+h1 { font-size: 1.6rem; margin: 0; font-weight: 560; }
+h2 { font-size: 1.15rem; margin: 0 0 12px; font-weight: 560; }
+p { line-height: 1.45; }
+.muted { color: var(--muted); }
+
+label { display: grid; gap: 6px; font-size: 0.92rem; }
+input, select {
+  background: #07110c;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+button, .linkish {
+  background: var(--gold);
+  color: #1a1400;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.shell { display: grid; grid-template-columns: 240px 1fr; }
+.nav { margin: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.nav button { text-align: left; background: transparent; color: var(--text); border: 1px solid transparent; }
+.nav button[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.main { padding: 16px 16px 16px 0; }
+.panel { padding: 20px; display: grid; gap: 16px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.err { color: #ffb4a8; }
+.ok { color: #b6f5c2; }
+
+@media (max-width: 800px) {
+  .shell { grid-template-columns: 1fr; }
+  .main { padding: 0 16px 16px; }
+}

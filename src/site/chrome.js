@@ -48,14 +48,17 @@ function bindLegalToggle() {
   });
 }
 
-function pageName() {
-  const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  return file || "index.html";
+/** First path segment: "" for home, "contacto" for /contacto/, etc. */
+function pageSlug() {
+  const parts = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+  const last = parts[parts.length - 1] || "";
+  if (last.endsWith(".html")) return last.replace(/\.html$/i, "") || "";
+  return parts[0] || "";
 }
 
 function dockLink(href, label, key) {
-  const current = pageName();
-  const on = current === href.replace("./", "");
+  const slug = href.replace(/^\/|\/$/g, "");
+  const on = pageSlug() === slug;
   return `<a class="dock-link" href="${href}" data-i18n="${key}"${on ? ' aria-current="page"' : ""}>${label}</a>`;
 }
 
@@ -75,21 +78,21 @@ export function mountDocFrame() {
       <div class="doc-ui">
         <header class="topbar">
           <nav class="dock doc-dock" data-i18n-aria="navDock">
-            ${dockLink("./index.html", "Portal", "navPortal")}
-            ${dockLink("./quienes-somos.html", "Quienes somos", "navAbout")}
-            ${dockLink("./enfoque.html", "Enfoque", "navApproach")}
-            ${dockLink("./servicios.html", "Servicios", "navServices")}
-            ${dockLink("./productos.html", "Productos", "navProducts")}
-            ${dockLink("./contacto.html", "Contacto", "navContact")}
+            ${dockLink("/", "Portal", "navPortal")}
+            ${dockLink("/quienes-somos/", "Quienes somos", "navAbout")}
+            ${dockLink("/enfoque/", "Enfoque", "navApproach")}
+            ${dockLink("/servicios/", "Servicios", "navServices")}
+            ${dockLink("/productos/", "Productos", "navProducts")}
+            ${dockLink("/contacto/", "Contacto", "navContact")}
           </nav>
           <p class="brand">
-            <a href="./index.html">
-              <img class="brand-logo" src="./icons/marca-skadia.svg" alt="Skadia" />
+            <a href="/">
+              <img class="brand-logo" src="/logos/logo-texto-blanco.svg" alt="Agronys" />
             </a>
           </p>
           <div class="top-actions">
             <div class="lang-switch" role="group" data-i18n-aria="lang"></div>
-            <a class="profile" href="./contacto.html" data-i18n-aria="profile">
+            <a class="profile" href="/entrar/" data-i18n-aria="profile">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5" />
                 <path d="M5 19c1.2-3.2 3.8-5 7-5s5.8 1.8 7 5" fill="none" stroke="currentColor" stroke-width="1.5" />
@@ -105,12 +108,12 @@ export function mountDocFrame() {
           <span class="legal-copy">\u00a9 <span id="y"></span></span>
         </button>
         <nav id="legal-panel" class="legal-panel" hidden data-i18n-aria="legal">
-          <a href="./aviso-legal.html" data-i18n="legalNotice">Aviso legal</a>
-          <a href="./privacidad.html" data-i18n="privacy">Privacidad</a>
-          <a href="./cookies.html" data-i18n="cookiesLink">Cookies</a>
-          <a href="./terminos.html" data-i18n="terms">Terminos</a>
-          <a href="./accesibilidad.html" data-i18n="a11y">Accesibilidad</a>
-          <a href="./contacto.html" data-i18n="contact">Contacto</a>
+          <a href="/aviso-legal/" data-i18n="legalNotice">Aviso legal</a>
+          <a href="/privacidad/" data-i18n="privacy">Privacidad</a>
+          <a href="/cookies/" data-i18n="cookiesLink">Cookies</a>
+          <a href="/terminos/" data-i18n="terms">Terminos</a>
+          <a href="/accesibilidad/" data-i18n="a11y">Accesibilidad</a>
+          <a href="/contacto/" data-i18n="contact">Contacto</a>
         </nav>
       </footer>
     `;
@@ -136,13 +139,13 @@ export function bindSiteChrome() {
   const bar = document.querySelector("#cookies-bar");
   const ok = document.querySelector("#cookies-ok");
   try {
-    if (bar && !localStorage.getItem("skadia-cookies")) bar.hidden = false;
+    if (bar && !localStorage.getItem("agronys-cookies")) bar.hidden = false;
   } catch {
     if (bar) bar.hidden = false;
   }
   ok?.addEventListener("click", () => {
     try {
-      localStorage.setItem("skadia-cookies", "1");
+      localStorage.setItem("agronys-cookies", "1");
     } catch {
       /* ignore */
     }

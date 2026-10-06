@@ -1,7 +1,7 @@
 import { getLang, t } from "../i18n.js";
 
 export const WA = "https://wa.me/543704022201";
-export const MAIL = "mailto:skadiagtech@gmail.com";
+export const MAIL = "mailto:contacto@agronys.com";
 
 export function waDemoUrl(topic) {
   const msg = (t().askDemoMsg || "Hola, quiero pedir una demo de {topic}.").replace("{topic}", topic);
@@ -12,14 +12,14 @@ const es = {
   about: `
     <p class="eyebrow">Qui\u00e9nes somos</p>
     <h1>Equipo AgTech para el establecimiento.</h1>
-    <p>Skadia es una startup AgTech argentina (desde 2022). El equipo desarrolla herramientas de <strong>ganader\u00eda de precisi\u00f3n</strong>: el registro se origina en el potrero, donde est\u00e1 la hacienda y con frecuencia no hay cobertura de red.</p>
+    <p>Agronys es una startup AgTech argentina (desde 2022). El equipo desarrolla herramientas de <strong>ganader\u00eda de precisi\u00f3n</strong>: el registro se origina en el potrero, donde est\u00e1 la hacienda y con frecuencia no hay cobertura de red.</p>
     <div class="fact-row">
       <p class="fact"><b>Origen</b><span>Argentina \u00b7 2022</span></p>
       <p class="fact"><b>Base operativa</b><span>NEA y Paraguay</span></p>
       <p class="fact"><b>Alcance</b><span>Soluciones a medida</span></p>
     </div>
     <p>El trabajo se sostiene sobre una l\u00ednea t\u00e9cnica de campo (captura offline, indicadores, visi\u00f3n y lectura territorial), con desarrollo en el NEA.</p>
-    <p>Skadia no sustituye al veterinario ni al encargado. El equipo ordena la informaci\u00f3n para que el establecimiento decida.</p>
+    <p>Agronys no sustituye al veterinario ni al encargado. El equipo ordena la informaci\u00f3n para que el establecimiento decida.</p>
   `,
   approach: `
     <p class="eyebrow">Enfoque \u00b7 desde 2022</p>
@@ -35,17 +35,17 @@ const es = {
   services: `
     <p class="eyebrow">Servicios</p>
     <h1>Capacidades para el establecimiento</h1>
-    <p>L\u00edneas de trabajo que el equipo configura a medida. La decisi\u00f3n operativa permanece en el predio.</p>
+    <p>Tres l\u00edneas de software: agricultura, ganader\u00eda y el campo mixto. La caravana, el dron o el sensor se integran solo si el establecimiento ya los tiene. La decisi\u00f3n operativa permanece en el predio.</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>Monitoreo 360\u00b0 con IA</h2></div><p>Pesajes, movimientos y atenciones en un mismo registro. Evoluci\u00f3n del animal y del lote a lo largo de la campa\u00f1a.</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>Visi\u00f3n artificial</h2></div><p>Condici\u00f3n corporal, reconocimiento, esc\u00e1ner de anomal\u00edas (heridas, lesiones y otras se\u00f1ales visibles) y esc\u00e1ner de materia fecal para an\u00e1lisis. No sustituye el diagn\u00f3stico veterinario ni el laboratorio.</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>Monitoreo y alertas</h2></div><p>Notificaciones priorizadas de calor, sanidad y manejo.</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>Gesti\u00f3n de potreros</h2></div><p>Carga, forraje y descanso en la misma lectura que el rodeo.</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>Monitoreo satelital y NDVI</h2></div><p>Seguimiento de vigor de cultivo y forraje.</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>Captura en campo</h2></div><p>Registro en el lote, con o sin red. Sincronizaci\u00f3n al restablecerse la conectividad.</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>Automatizaci\u00f3n</h2></div><p>Flujos disparados por un evento: notificaci\u00f3n, planilla o mensaje.</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>Ingenier\u00eda de datos</h2></div><p>Integraci\u00f3n de dispositivo, planillas y oficina.</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>Arquitectura offline-first</h2></div><p>Operaci\u00f3n continua sin cobertura. Sincronizaci\u00f3n al recuperar se\u00f1al.</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>Monitoreo 360\u00b0 con IA</h2></div><p>Pesajes, movimientos y atenciones en un mismo registro. Evoluci\u00f3n del animal y del lote a lo largo de la campa\u00f1a.</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>Visi\u00f3n artificial</h2></div><p>Condici\u00f3n corporal, reconocimiento, esc\u00e1ner de anomal\u00edas (heridas, lesiones y otras se\u00f1ales visibles) y esc\u00e1ner de materia fecal para an\u00e1lisis. No sustituye el diagn\u00f3stico veterinario ni el laboratorio.</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>Monitoreo y alertas</h2></div><p>Notificaciones priorizadas de calor, sanidad y manejo.</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>Gesti\u00f3n de potreros</h2></div><p>Carga, forraje y descanso en la misma lectura que el rodeo.</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>Monitoreo satelital y NDVI</h2></div><p>Seguimiento de vigor de cultivo y forraje.</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>Captura en campo</h2></div><p>Registro en el lote, con o sin red. Sincronizaci\u00f3n al restablecerse la conectividad.</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>Automatizaci\u00f3n</h2></div><p>Flujos disparados por un evento: notificaci\u00f3n, planilla o mensaje.</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>Ingenier\u00eda de datos</h2></div><p>Integraci\u00f3n de dispositivo, planillas y oficina.</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>Arquitectura offline-first</h2></div><p>Operaci\u00f3n continua sin cobertura. Sincronizaci\u00f3n al recuperar se\u00f1al.</p></article>
     </div>
   `,
   products: `
@@ -59,7 +59,7 @@ const es = {
       <div class="reach">
         <a class="reach-btn" href="${MAIL}">
           <span class="reach-ico" aria-hidden="true">${mailSvg()}</span>
-          <span>Correo del equipo</span>
+          <span>contacto@agronys.com</span>
         </a>
         <a class="reach-btn" href="${WA}" rel="noopener noreferrer" target="_blank">
           <span class="reach-ico" aria-hidden="true">${waSvg()}</span>
@@ -67,7 +67,7 @@ const es = {
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="Presencia operativa: Chaco, Corrientes, Misiones, Formosa y Paraguay" />
+        <img src="/art/nea.png" alt="Presencia operativa: Chaco, Corrientes, Misiones, Formosa y Paraguay" />
         <figcaption>Presencia en el NEA argentino y Paraguay</figcaption>
       </figure>
     </div>
@@ -76,7 +76,7 @@ const es = {
     <p class="eyebrow">Marco legal</p>
     <h1>Aviso legal</h1>
     <div class="legal-grid">
-      <article><span class="hud-n">01</span><div><strong>Titular del sitio</strong><p>Este sitio informa sobre Skadia y las soluciones de campo que ofrece el equipo. Operaci\u00f3n: equipo Skadia, Argentina.</p></div></article>
+      <article><span class="hud-n">01</span><div><strong>Titular del sitio</strong><p>Este sitio informa sobre Agronys y las soluciones de campo que ofrece el equipo. Operaci\u00f3n: equipo Agronys, Argentina.</p></div></article>
       <article><span class="hud-n">02</span><div><strong>Car\u00e1cter informativo</strong><p>El contenido no constituye asesoramiento veterinario ni agron\u00f3mico, ni garantiza resultados productivos.</p></div></article>
       <article><span class="hud-n">03</span><div><strong>Alcance</strong><p>Las descripciones de capacidades y tecnolog\u00edas son orientativas. Cada despliegue se define con el establecimiento.</p></div></article>
     </div>
@@ -86,7 +86,7 @@ const es = {
     <h1>Privacidad</h1>
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>Datos de consulta</strong><p>Los datos enviados por correo o WhatsApp se usan \u00fanicamente para responder. No se comercializan bases.</p></div></article>
-      <article><span class="hud-n">02</span><div><strong>Responsable</strong><p>Contacto: <a href="${MAIL}">skadiagtech@gmail.com</a>. Responsable: el equipo Skadia.</p></div></article>
+      <article><span class="hud-n">02</span><div><strong>Responsable</strong><p>Contacto: <a href="${MAIL}">contacto@agronys.com</a>. Responsable: el equipo Agronys.</p></div></article>
       <article><span class="hud-n">03</span><div><strong>Conservaci\u00f3n y derechos</strong><p>Plazo: relaci\u00f3n comercial o Ley 25.326. Puede solicitar acceso, rectificaci\u00f3n o supresi\u00f3n por ese correo.</p></div></article>
       <article><span class="hud-n">04</span><div><strong>Anal\u00edtica</strong><p>Esta versi\u00f3n del sitio no incorpora publicidad de terceros ni anal\u00edtica de marketing.</p></div></article>
     </div>
@@ -114,7 +114,7 @@ const es = {
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>Recorrido</strong><p>Idioma espa\u00f1ol, salto al contenido, contraste sobre fondo oscuro, foco visible y encabezados.</p></div></article>
       <article><span class="hud-n">02</span><div><strong>Portal</strong><p>El dibujo del portal es ilustrativo; la misma informaci\u00f3n est\u00e1 en Enfoque, Servicios y Productos. Se respeta reducir movimiento.</p></div></article>
-      <article><span class="hud-n">03</span><div><strong>Aviso</strong><p>Si un recorrido no es usable: <a href="${MAIL}">skadiagtech@gmail.com</a>.</p></div></article>
+      <article><span class="hud-n">03</span><div><strong>Aviso</strong><p>Si un recorrido no es usable: <a href="${MAIL}">contacto@agronys.com</a>.</p></div></article>
     </div>
   `,
 };
@@ -123,14 +123,14 @@ const en = {
   about: `
     <p class="eyebrow">About us</p>
     <h1>An AgTech team for the farm.</h1>
-    <p>Skadia is an Argentine AgTech startup (since 2022). The team builds <strong>precision livestock</strong> tools: records start in the paddock, where cattle are and coverage is often missing.</p>
+    <p>Agronys is an Argentine AgTech startup (since 2022). The team builds <strong>precision livestock</strong> tools: records start in the paddock, where cattle are and coverage is often missing.</p>
     <div class="fact-row">
       <p class="fact"><b>Origin</b><span>Argentina \u00b7 2022</span></p>
       <p class="fact"><b>Operating base</b><span>NEA and Paraguay</span></p>
       <p class="fact"><b>Scope</b><span>Tailored solutions</span></p>
     </div>
     <p>The work rests on a field-technical line (offline capture, indicators, vision and territorial reading), with development in the NEA.</p>
-    <p>Skadia does not replace the veterinarian or the foreman. The team organizes information so the farm can decide.</p>
+    <p>Agronys does not replace the veterinarian or the foreman. The team organizes information so the farm can decide.</p>
   `,
   approach: `
     <p class="eyebrow">Approach \u00b7 since 2022</p>
@@ -148,15 +148,15 @@ const en = {
     <h1>Capabilities for the farm</h1>
     <p>Work lines the team configures to each property. Operational decisions stay on the farm.</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>360\u00b0 monitoring with AI</h2></div><p>Weighings, movements and treatments in one record.</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>Computer vision</h2></div><p>Body condition, recognition, anomaly scanning (wounds, lesions and other visible signs) and fecal-matter scanning for analysis. It does not replace veterinary diagnosis or the lab.</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>Monitoring and alerts</h2></div><p>Prioritized notices for heat, health and handling.</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>Paddock management</h2></div><p>Stocking, forage and rest in the same reading as the herd.</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>Satellite monitoring and NDVI</h2></div><p>Crop and forage vigor follow-up.</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>Field capture</h2></div><p>Logging in the lot, with or without a network.</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>Automation</h2></div><p>Flows triggered by an event: notice, sheet or message.</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>Data engineering</h2></div><p>Integration of device, sheets and office.</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>Offline-first architecture</h2></div><p>Continuous operation without coverage.</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>360\u00b0 monitoring with AI</h2></div><p>Weighings, movements and treatments in one record.</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>Computer vision</h2></div><p>Body condition, recognition, anomaly scanning (wounds, lesions and other visible signs) and fecal-matter scanning for analysis. It does not replace veterinary diagnosis or the lab.</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>Monitoring and alerts</h2></div><p>Prioritized notices for heat, health and handling.</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>Paddock management</h2></div><p>Stocking, forage and rest in the same reading as the herd.</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>Satellite monitoring and NDVI</h2></div><p>Crop and forage vigor follow-up.</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>Field capture</h2></div><p>Logging in the lot, with or without a network.</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>Automation</h2></div><p>Flows triggered by an event: notice, sheet or message.</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>Data engineering</h2></div><p>Integration of device, sheets and office.</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>Offline-first architecture</h2></div><p>Continuous operation without coverage.</p></article>
     </div>
   `,
   products: `
@@ -170,7 +170,7 @@ const en = {
       <div class="reach">
         <a class="reach-btn" href="${MAIL}">
           <span class="reach-ico" aria-hidden="true">${mailSvg()}</span>
-          <span>Team email</span>
+          <span>contacto@agronys.com</span>
         </a>
         <a class="reach-btn" href="${WA}" rel="noopener noreferrer" target="_blank">
           <span class="reach-ico" aria-hidden="true">${waSvg()}</span>
@@ -178,7 +178,7 @@ const en = {
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="Operating presence: Chaco, Corrientes, Misiones, Formosa and Paraguay" />
+        <img src="/art/nea.png" alt="Operating presence: Chaco, Corrientes, Misiones, Formosa and Paraguay" />
         <figcaption>Presence in Argentina\u2019s NEA and Paraguay</figcaption>
       </figure>
     </div>
@@ -187,7 +187,7 @@ const en = {
     <p class="eyebrow">Legal framework</p>
     <h1>Legal notice</h1>
     <div class="legal-grid">
-      <article><span class="hud-n">01</span><div><strong>Site operator</strong><p>This site informs about Skadia and the field solutions the team offers. Operation: Skadia team, Argentina.</p></div></article>
+      <article><span class="hud-n">01</span><div><strong>Site operator</strong><p>This site informs about Agronys and the field solutions the team offers. Operation: Agronys team, Argentina.</p></div></article>
       <article><span class="hud-n">02</span><div><strong>Informational only</strong><p>Content is not veterinary or agronomic advice and does not guarantee production results.</p></div></article>
       <article><span class="hud-n">03</span><div><strong>Scope</strong><p>Capability and technology descriptions are indicative. Each deployment is defined with the farm.</p></div></article>
     </div>
@@ -197,7 +197,7 @@ const en = {
     <h1>Privacy</h1>
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>Inquiry data</strong><p>Data sent by email or WhatsApp is used only to answer. Databases are not sold.</p></div></article>
-      <article><span class="hud-n">02</span><div><strong>Controller</strong><p>Contact: <a href="${MAIL}">skadiagtech@gmail.com</a>. Controller: the Skadia team.</p></div></article>
+      <article><span class="hud-n">02</span><div><strong>Controller</strong><p>Contact: <a href="${MAIL}">contacto@agronys.com</a>. Controller: the Agronys team.</p></div></article>
       <article><span class="hud-n">03</span><div><strong>Retention and rights</strong><p>Term: the commercial relationship or Law 25.326. Access, rectification or deletion via that address.</p></div></article>
       <article><span class="hud-n">04</span><div><strong>Analytics</strong><p>This version has no third-party ads or marketing analytics.</p></div></article>
     </div>
@@ -225,7 +225,7 @@ const en = {
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>Path</strong><p>Spanish language, skip to content, dark-background contrast, visible focus and headings.</p></div></article>
       <article><span class="hud-n">02</span><div><strong>Portal</strong><p>The portal drawing is illustrative; the same information is in Approach, Services and Products. Reduced motion is respected.</p></div></article>
-      <article><span class="hud-n">03</span><div><strong>Report</strong><p>If a path is unusable: <a href="${MAIL}">skadiagtech@gmail.com</a>.</p></div></article>
+      <article><span class="hud-n">03</span><div><strong>Report</strong><p>If a path is unusable: <a href="${MAIL}">contacto@agronys.com</a>.</p></div></article>
     </div>
   `,
 };
@@ -234,14 +234,14 @@ const pt = {
   about: `
     <p class="eyebrow">Quem somos</p>
     <h1>Equipe AgTech para o estabelecimento.</h1>
-    <p>Skadia \u00e9 uma startup AgTech argentina (desde 2022). A equipe desenvolve ferramentas de <strong>pecu\u00e1ria de precis\u00e3o</strong>: o registro nasce no piquete, onde est\u00e1 o gado e muitas vezes n\u00e3o h\u00e1 cobertura de rede.</p>
+    <p>Agronys \u00e9 uma startup AgTech argentina (desde 2022). A equipe desenvolve ferramentas de <strong>pecu\u00e1ria de precis\u00e3o</strong>: o registro nasce no piquete, onde est\u00e1 o gado e muitas vezes n\u00e3o h\u00e1 cobertura de rede.</p>
     <div class="fact-row">
       <p class="fact"><b>Origem</b><span>Argentina \u00b7 2022</span></p>
       <p class="fact"><b>Base operacional</b><span>NEA e Paraguai</span></p>
       <p class="fact"><b>Alcance</b><span>Solu\u00e7\u00f5es sob medida</span></p>
     </div>
     <p>O trabalho se apoia em uma linha t\u00e9cnica de campo (captura offline, indicadores, vis\u00e3o e leitura territorial), com desenvolvimento no NEA.</p>
-    <p>Skadia n\u00e3o substitui o veterin\u00e1rio nem o encarregado. A equipe organiza a informa\u00e7\u00e3o para o estabelecimento decidir.</p>
+    <p>Agronys n\u00e3o substitui o veterin\u00e1rio nem o encarregado. A equipe organiza a informa\u00e7\u00e3o para o estabelecimento decidir.</p>
   `,
   approach: `
     <p class="eyebrow">Abordagem \u00b7 desde 2022</p>
@@ -259,15 +259,15 @@ const pt = {
     <h1>Capacidades para o estabelecimento</h1>
     <p>Linhas de trabalho que a equipe configura sob medida. A decis\u00e3o operacional permanece no predio.</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>Monitoramento 360\u00b0 com IA</h2></div><p>Pesagens, movimenta\u00e7\u00f5es e atendimentos no mesmo registro. Evolu\u00e7\u00e3o do animal e do lote ao longo da campanha.</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>Vis\u00e3o artificial</h2></div><p>Condi\u00e7\u00e3o corporal, reconhecimento, scanner de anomalias (feridas, les\u00f5es e outros sinais vis\u00edveis) e scanner de mat\u00e9ria fecal para an\u00e1lise. N\u00e3o substitui o diagn\u00f3stico veterin\u00e1rio nem o laborat\u00f3rio.</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>Monitoramento e alertas</h2></div><p>Notifica\u00e7\u00f5es priorizadas de calor, sanidade e manejo.</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>Gest\u00e3o de piquetes</h2></div><p>Carga, forragem e descanso na mesma leitura que o rebanho.</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>Monitoramento satelital e NDVI</h2></div><p>Acompanhamento do vigor da cultura e da forragem.</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>Captura em campo</h2></div><p>Registro no lote, com ou sem rede. Sincroniza\u00e7\u00e3o ao restabelecer a conectividade.</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>Automa\u00e7\u00e3o</h2></div><p>Fluxos disparados por um evento: notifica\u00e7\u00e3o, planilha ou mensagem.</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>Engenharia de dados</h2></div><p>Integra\u00e7\u00e3o de dispositivo, planilhas e escrit\u00f3rio.</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>Arquitetura offline-first</h2></div><p>Opera\u00e7\u00e3o cont\u00ednua sem cobertura. Sincroniza\u00e7\u00e3o ao recuperar o sinal.</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>Monitoramento 360\u00b0 com IA</h2></div><p>Pesagens, movimenta\u00e7\u00f5es e atendimentos no mesmo registro. Evolu\u00e7\u00e3o do animal e do lote ao longo da campanha.</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>Vis\u00e3o artificial</h2></div><p>Condi\u00e7\u00e3o corporal, reconhecimento, scanner de anomalias (feridas, les\u00f5es e outros sinais vis\u00edveis) e scanner de mat\u00e9ria fecal para an\u00e1lise. N\u00e3o substitui o diagn\u00f3stico veterin\u00e1rio nem o laborat\u00f3rio.</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>Monitoramento e alertas</h2></div><p>Notifica\u00e7\u00f5es priorizadas de calor, sanidade e manejo.</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>Gest\u00e3o de piquetes</h2></div><p>Carga, forragem e descanso na mesma leitura que o rebanho.</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>Monitoramento satelital e NDVI</h2></div><p>Acompanhamento do vigor da cultura e da forragem.</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>Captura em campo</h2></div><p>Registro no lote, com ou sem rede. Sincroniza\u00e7\u00e3o ao restabelecer a conectividade.</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>Automa\u00e7\u00e3o</h2></div><p>Fluxos disparados por um evento: notifica\u00e7\u00e3o, planilha ou mensagem.</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>Engenharia de dados</h2></div><p>Integra\u00e7\u00e3o de dispositivo, planilhas e escrit\u00f3rio.</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>Arquitetura offline-first</h2></div><p>Opera\u00e7\u00e3o cont\u00ednua sem cobertura. Sincroniza\u00e7\u00e3o ao recuperar o sinal.</p></article>
     </div>
   `,
   products: `
@@ -281,7 +281,7 @@ const pt = {
       <div class="reach">
         <a class="reach-btn" href="${MAIL}">
           <span class="reach-ico" aria-hidden="true">${mailSvg()}</span>
-          <span>E-mail da equipe</span>
+          <span>contacto@agronys.com</span>
         </a>
         <a class="reach-btn" href="${WA}" rel="noopener noreferrer" target="_blank">
           <span class="reach-ico" aria-hidden="true">${waSvg()}</span>
@@ -289,7 +289,7 @@ const pt = {
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="Presen\u00e7a operacional: Chaco, Corrientes, Misiones, Formosa e Paraguai" />
+        <img src="/art/nea.png" alt="Presen\u00e7a operacional: Chaco, Corrientes, Misiones, Formosa e Paraguai" />
         <figcaption>Presen\u00e7a no NEA argentino e no Paraguai</figcaption>
       </figure>
     </div>
@@ -298,7 +298,7 @@ const pt = {
     <p class="eyebrow">Marco legal</p>
     <h1>Aviso legal</h1>
     <div class="legal-grid">
-      <article><span class="hud-n">01</span><div><strong>Titular do site</strong><p>Este site informa sobre a Skadia e as solu\u00e7\u00f5es de campo que a equipe oferece. Opera\u00e7\u00e3o: equipe Skadia, Argentina.</p></div></article>
+      <article><span class="hud-n">01</span><div><strong>Titular do site</strong><p>Este site informa sobre a Agronys e as solu\u00e7\u00f5es de campo que a equipe oferece. Opera\u00e7\u00e3o: equipe Agronys, Argentina.</p></div></article>
       <article><span class="hud-n">02</span><div><strong>Car\u00e1ter informativo</strong><p>O conte\u00fado n\u00e3o constitui assessoria veterin\u00e1ria nem agron\u00f4mica, nem garante resultados produtivos.</p></div></article>
       <article><span class="hud-n">03</span><div><strong>Alcance</strong><p>As descri\u00e7\u00f5es de capacidades e tecnologias s\u00e3o orientativas. Cada implanta\u00e7\u00e3o se define com o estabelecimento.</p></div></article>
     </div>
@@ -308,7 +308,7 @@ const pt = {
     <h1>Privacidade</h1>
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>Dados de consulta</strong><p>Os dados enviados por e-mail ou WhatsApp s\u00e3o usados apenas para responder. N\u00e3o se comercializam bases.</p></div></article>
-      <article><span class="hud-n">02</span><div><strong>Respons\u00e1vel</strong><p>Contato: <a href="${MAIL}">skadiagtech@gmail.com</a>. Respons\u00e1vel: a equipe Skadia.</p></div></article>
+      <article><span class="hud-n">02</span><div><strong>Respons\u00e1vel</strong><p>Contato: <a href="${MAIL}">contacto@agronys.com</a>. Respons\u00e1vel: a equipe Agronys.</p></div></article>
       <article><span class="hud-n">03</span><div><strong>Conserva\u00e7\u00e3o e direitos</strong><p>Prazo: rela\u00e7\u00e3o comercial ou Lei 25.326. Pode solicitar acesso, retifica\u00e7\u00e3o ou exclus\u00e3o por esse e-mail.</p></div></article>
       <article><span class="hud-n">04</span><div><strong>Anal\u00edtica</strong><p>Esta vers\u00e3o do site n\u00e3o incorpora publicidade de terceiros nem anal\u00edtica de marketing.</p></div></article>
     </div>
@@ -336,7 +336,7 @@ const pt = {
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>Percurso</strong><p>Idioma selecion\u00e1vel, salto ao conte\u00fado, contraste sobre fundo escuro, foco vis\u00edvel e t\u00edtulos.</p></div></article>
       <article><span class="hud-n">02</span><div><strong>Portal</strong><p>O desenho do portal \u00e9 ilustrativo; a mesma informa\u00e7\u00e3o est\u00e1 em Abordagem, Servi\u00e7os e Produtos. Respeita-se reduzir movimento.</p></div></article>
-      <article><span class="hud-n">03</span><div><strong>Aviso</strong><p>Se um percurso n\u00e3o for us\u00e1vel: <a href="${MAIL}">skadiagtech@gmail.com</a>.</p></div></article>
+      <article><span class="hud-n">03</span><div><strong>Aviso</strong><p>Se um percurso n\u00e3o for us\u00e1vel: <a href="${MAIL}">contacto@agronys.com</a>.</p></div></article>
     </div>
   `,
 };
@@ -345,14 +345,14 @@ const zh = {
   about: `
     <p class="eyebrow">\u5173\u4e8e\u6211\u4eec</p>
     <h1>\u9762\u5411\u7267\u573a\u7684\u519c\u4e1a\u79d1\u6280\u56e2\u961f\u3002</h1>
-    <p>Skadia \u662f\u4e00\u5bb6\u963f\u6839\u5ef7 AgTech \u521b\u4e1a\u516c\u53f8\uff08\u81ea 2022 \u5e74\uff09\u3002\u56e2\u961f\u6253\u9020<strong>\u7cbe\u51c6\u755c\u7267</strong>\u5de5\u5177\uff1a\u8bb0\u5f55\u8d77\u6e90\u4e8e\u56f4\u680f\u2014\u2014\u725b\u7fa4\u6240\u5728\u4e14\u5e38\u5e38\u6ca1\u6709\u7f51\u7edc\u8986\u76d6\u7684\u5730\u65b9\u3002</p>
+    <p>Agronys \u662f\u4e00\u5bb6\u963f\u6839\u5ef7 AgTech \u521b\u4e1a\u516c\u53f8\uff08\u81ea 2022 \u5e74\uff09\u3002\u56e2\u961f\u6253\u9020<strong>\u7cbe\u51c6\u755c\u7267</strong>\u5de5\u5177\uff1a\u8bb0\u5f55\u8d77\u6e90\u4e8e\u56f4\u680f\u2014\u2014\u725b\u7fa4\u6240\u5728\u4e14\u5e38\u5e38\u6ca1\u6709\u7f51\u7edc\u8986\u76d6\u7684\u5730\u65b9\u3002</p>
     <div class="fact-row">
       <p class="fact"><b>\u8d77\u6e90</b><span>\u963f\u6839\u5ef7 \u00b7 2022</span></p>
       <p class="fact"><b>\u8fd0\u8425\u57fa\u5730</b><span>NEA \u4e0e\u5df4\u62c9\u572d</span></p>
       <p class="fact"><b>\u8303\u56f4</b><span>\u5b9a\u5236\u89e3\u51b3\u65b9\u6848</span></p>
     </div>
     <p>\u5de5\u4f5c\u57fa\u4e8e\u7530\u95f4\u6280\u672f\u4e3b\u7ebf\uff08\u79bb\u7ebf\u91c7\u96c6\u3001\u6307\u6807\u3001\u89c6\u89c9\u4e0e\u571f\u5730\u89e3\u8bfb\uff09\uff0c\u7814\u53d1\u4f4d\u4e8e NEA\u3002</p>
-    <p>Skadia \u4e0d\u53d6\u4ee3\u517d\u533b\u6216\u573a\u957f\u3002\u56e2\u961f\u6574\u7406\u4fe1\u606f\uff0c\u4f9b\u7267\u573a\u51b3\u7b56\u3002</p>
+    <p>Agronys \u4e0d\u53d6\u4ee3\u517d\u533b\u6216\u573a\u957f\u3002\u56e2\u961f\u6574\u7406\u4fe1\u606f\uff0c\u4f9b\u7267\u573a\u51b3\u7b56\u3002</p>
   `,
   approach: `
     <p class="eyebrow">\u65b9\u6cd5 \u00b7 \u81ea 2022 \u5e74</p>
@@ -370,15 +370,15 @@ const zh = {
     <h1>\u9762\u5411\u7267\u573a\u7684\u80fd\u529b</h1>
     <p>\u56e2\u961f\u6309\u9700\u914d\u7f6e\u7684\u5de5\u4f5c\u7ebf\u3002\u4f5c\u4e1a\u51b3\u7b56\u7559\u5728\u7267\u573a\u3002</p>
     <div class="cards">
-      <article><div class="svc-head"><img src="./icons/ganaderia.svg" alt="" /><h2>AI 360\u00b0 \u76d1\u6d4b</h2></div><p>\u79f0\u91cd\u3001\u8f6c\u7fa4\u4e0e\u5904\u7f6e\u540c\u6863\u3002\u52a8\u7269\u4e0e\u6574\u6279\u968f\u5b63\u8282\u6f14\u5316\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/vision.svg" alt="" /><h2>\u8ba1\u7b97\u673a\u89c6\u89c9</h2></div><p>\u4f53\u51b5\u3001\u8bc6\u522b\u3001\u5f02\u5e38\u626b\u63cf\uff08\u4f24\u53e3\u3001\u75c5\u7076\u53ca\u5176\u4ed6\u53ef\u89c1\u8ff9\u8c61\uff09\u4ee5\u53ca\u7caa\u4fbf\u626b\u63cf\u4f9b\u5206\u6790\u3002\u4e0d\u53d6\u4ee3\u517d\u533b\u8bca\u65ad\u6216\u5b9e\u9a8c\u5ba4\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/orquestacion.svg" alt="" /><h2>\u76d1\u6d4b\u4e0e\u9884\u8b66</h2></div><p>\u70ed\u5e94\u6fc0\u3001\u536b\u751f\u4e0e\u7ba1\u7406\u7684\u4f18\u5148\u901a\u77e5\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/agro.svg" alt="" /><h2>\u56f4\u680f\u7ba1\u7406</h2></div><p>\u8f7d\u755c\u3001\u9972\u8349\u4e0e\u4f11\u606f\u4e0e\u725b\u7fa4\u540c\u4e00\u8bfb\u6570\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/satelital.svg" alt="" /><h2>\u536b\u661f\u76d1\u6d4b\u4e0e NDVI</h2></div><p>\u8ddf\u8e2a\u4f5c\u7269\u4e0e\u9972\u8349\u52bf\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/datos.svg" alt="" /><h2>\u7530\u95f4\u91c7\u96c6</h2></div><p>\u5728\u56f4\u680f\u8bb0\u5f55\uff0c\u65e0\u8bba\u6709\u65e0\u7f51\u7edc\u3002\u8fde\u63a5\u6062\u590d\u540e\u540c\u6b65\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/automat.svg" alt="" /><h2>\u81ea\u52a8\u5316</h2></div><p>\u7531\u4e8b\u4ef6\u89e6\u53d1\u7684\u6d41\u7a0b\uff1a\u901a\u77e5\u3001\u8868\u683c\u6216\u6d88\u606f\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/dataeng.svg" alt="" /><h2>\u6570\u636e\u5de5\u7a0b</h2></div><p>\u8bbe\u5907\u3001\u8868\u683c\u4e0e\u529e\u4e8b\u5904\u6574\u5408\u3002</p></article>
-      <article><div class="svc-head"><img src="./icons/offline.svg" alt="" /><h2>\u79bb\u7ebf\u4f18\u5148\u67b6\u6784</h2></div><p>\u65e0\u8986\u76d6\u4e5f\u53ef\u8fde\u7eed\u4f5c\u4e1a\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/ganaderia.svg" alt="" /><h2>AI 360\u00b0 \u76d1\u6d4b</h2></div><p>\u79f0\u91cd\u3001\u8f6c\u7fa4\u4e0e\u5904\u7f6e\u540c\u6863\u3002\u52a8\u7269\u4e0e\u6574\u6279\u968f\u5b63\u8282\u6f14\u5316\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/vision.svg" alt="" /><h2>\u8ba1\u7b97\u673a\u89c6\u89c9</h2></div><p>\u4f53\u51b5\u3001\u8bc6\u522b\u3001\u5f02\u5e38\u626b\u63cf\uff08\u4f24\u53e3\u3001\u75c5\u7076\u53ca\u5176\u4ed6\u53ef\u89c1\u8ff9\u8c61\uff09\u4ee5\u53ca\u7caa\u4fbf\u626b\u63cf\u4f9b\u5206\u6790\u3002\u4e0d\u53d6\u4ee3\u517d\u533b\u8bca\u65ad\u6216\u5b9e\u9a8c\u5ba4\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/orquestacion.svg" alt="" /><h2>\u76d1\u6d4b\u4e0e\u9884\u8b66</h2></div><p>\u70ed\u5e94\u6fc0\u3001\u536b\u751f\u4e0e\u7ba1\u7406\u7684\u4f18\u5148\u901a\u77e5\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/agro.svg" alt="" /><h2>\u56f4\u680f\u7ba1\u7406</h2></div><p>\u8f7d\u755c\u3001\u9972\u8349\u4e0e\u4f11\u606f\u4e0e\u725b\u7fa4\u540c\u4e00\u8bfb\u6570\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/satelital.svg" alt="" /><h2>\u536b\u661f\u76d1\u6d4b\u4e0e NDVI</h2></div><p>\u8ddf\u8e2a\u4f5c\u7269\u4e0e\u9972\u8349\u52bf\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/datos.svg" alt="" /><h2>\u7530\u95f4\u91c7\u96c6</h2></div><p>\u5728\u56f4\u680f\u8bb0\u5f55\uff0c\u65e0\u8bba\u6709\u65e0\u7f51\u7edc\u3002\u8fde\u63a5\u6062\u590d\u540e\u540c\u6b65\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/automat.svg" alt="" /><h2>\u81ea\u52a8\u5316</h2></div><p>\u7531\u4e8b\u4ef6\u89e6\u53d1\u7684\u6d41\u7a0b\uff1a\u901a\u77e5\u3001\u8868\u683c\u6216\u6d88\u606f\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/dataeng.svg" alt="" /><h2>\u6570\u636e\u5de5\u7a0b</h2></div><p>\u8bbe\u5907\u3001\u8868\u683c\u4e0e\u529e\u4e8b\u5904\u6574\u5408\u3002</p></article>
+      <article><div class="svc-head"><img src="/icons/offline.svg" alt="" /><h2>\u79bb\u7ebf\u4f18\u5148\u67b6\u6784</h2></div><p>\u65e0\u8986\u76d6\u4e5f\u53ef\u8fde\u7eed\u4f5c\u4e1a\u3002</p></article>
     </div>
   `,
   products: `
@@ -392,7 +392,7 @@ const zh = {
       <div class="reach">
         <a class="reach-btn" href="${MAIL}">
           <span class="reach-ico" aria-hidden="true">${mailSvg()}</span>
-          <span>\u56e2\u961f\u90ae\u7bb1</span>
+          <span>contacto@agronys.com</span>
         </a>
         <a class="reach-btn" href="${WA}" rel="noopener noreferrer" target="_blank">
           <span class="reach-ico" aria-hidden="true">${waSvg()}</span>
@@ -400,7 +400,7 @@ const zh = {
         </a>
       </div>
       <figure class="nea-map">
-        <img src="./art/nea.png" alt="\u8fd0\u8425\u8303\u56f4\uff1a\u67e5\u79d1\u3001\u79d1\u91cc\u5c14\u7279\u65af\u3001\u7c73\u897f\u5965\u5185\u65af\u3001\u798f\u83ab\u8428\u4e0e\u5df4\u62c9\u572d" />
+        <img src="/art/nea.png" alt="\u8fd0\u8425\u8303\u56f4\uff1a\u67e5\u79d1\u3001\u79d1\u91cc\u5c14\u7279\u65af\u3001\u7c73\u897f\u5965\u5185\u65af\u3001\u798f\u83ab\u8428\u4e0e\u5df4\u62c9\u572d" />
         <figcaption>\u8986\u76d6\u963f\u6839\u5ef7 NEA \u4e0e\u5df4\u62c9\u572d</figcaption>
       </figure>
     </div>
@@ -409,7 +409,7 @@ const zh = {
     <p class="eyebrow">\u6cd5\u5f8b\u6846\u67b6</p>
     <h1>\u6cd5\u5f8b\u58f0\u660e</h1>
     <div class="legal-grid">
-      <article><span class="hud-n">01</span><div><strong>\u7ad9\u70b9\u8fd0\u8425\u65b9</strong><p>\u672c\u7ad9\u4ecb\u7ecd Skadia \u53ca\u56e2\u961f\u63d0\u4f9b\u7684\u7530\u95f4\u89e3\u51b3\u65b9\u6848\u3002\u8fd0\u8425\uff1aSkadia \u56e2\u961f\uff0c\u963f\u6839\u5ef7\u3002</p></div></article>
+      <article><span class="hud-n">01</span><div><strong>\u7ad9\u70b9\u8fd0\u8425\u65b9</strong><p>\u672c\u7ad9\u4ecb\u7ecd Agronys \u53ca\u56e2\u961f\u63d0\u4f9b\u7684\u7530\u95f4\u89e3\u51b3\u65b9\u6848\u3002\u8fd0\u8425\uff1aAgronys \u56e2\u961f\uff0c\u963f\u6839\u5ef7\u3002</p></div></article>
       <article><span class="hud-n">02</span><div><strong>\u4ec5\u4f9b\u8d44\u8baf</strong><p>\u5185\u5bb9\u4e0d\u6784\u6210\u517d\u533b\u6216\u519c\u827a\u5efa\u8bae\uff0c\u4ea6\u4e0d\u4fdd\u8bc1\u751f\u4ea7\u7ed3\u679c\u3002</p></div></article>
       <article><span class="hud-n">03</span><div><strong>\u8303\u56f4</strong><p>\u80fd\u529b\u4e0e\u6280\u672f\u63cf\u8ff0\u4ec5\u4f9b\u53c2\u8003\u3002\u6bcf\u6b21\u90e8\u7f72\u4e0e\u7267\u573a\u5171\u540c\u786e\u5b9a\u3002</p></div></article>
     </div>
@@ -419,7 +419,7 @@ const zh = {
     <h1>\u9690\u79c1</h1>
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>\u54a8\u8be2\u6570\u636e</strong><p>\u901a\u8fc7\u90ae\u4ef6\u6216 WhatsApp \u53d1\u9001\u7684\u6570\u636e\u4ec5\u7528\u4e8e\u56de\u590d\u3002\u4e0d\u51fa\u552e\u6570\u636e\u5e93\u3002</p></div></article>
-      <article><span class="hud-n">02</span><div><strong>\u8d23\u4efb\u65b9</strong><p>\u8054\u7cfb\uff1a<a href="${MAIL}">skadiagtech@gmail.com</a>\u3002\u8d23\u4efb\u65b9\uff1aSkadia \u56e2\u961f\u3002</p></div></article>
+      <article><span class="hud-n">02</span><div><strong>\u8d23\u4efb\u65b9</strong><p>\u8054\u7cfb\uff1a<a href="${MAIL}">contacto@agronys.com</a>\u3002\u8d23\u4efb\u65b9\uff1aAgronys \u56e2\u961f\u3002</p></div></article>
       <article><span class="hud-n">03</span><div><strong>\u4fdd\u5b58\u4e0e\u6743\u5229</strong><p>\u671f\u9650\uff1a\u5546\u52a1\u5173\u7cfb\u6216\u6cd5\u5f8b 25.326\u3002\u53ef\u901a\u8fc7\u8be5\u90ae\u7bb1\u7533\u8bf7\u67e5\u9605\u3001\u66f4\u6b63\u6216\u5220\u9664\u3002</p></div></article>
       <article><span class="hud-n">04</span><div><strong>\u5206\u6790</strong><p>\u672c\u7248\u672c\u4e0d\u542b\u7b2c\u4e09\u65b9\u5e7f\u544a\u6216\u8425\u9500\u5206\u6790\u3002</p></div></article>
     </div>
@@ -447,7 +447,7 @@ const zh = {
     <div class="legal-grid">
       <article><span class="hud-n">01</span><div><strong>\u6d4f\u89c8\u8def\u5f84</strong><p>\u53ef\u9009\u8bed\u8a00\u3001\u8df3\u8f6c\u6b63\u6587\u3001\u6697\u5e95\u5bf9\u6bd4\u3001\u53ef\u89c1\u7126\u70b9\u4e0e\u6807\u9898\u3002</p></div></article>
       <article><span class="hud-n">02</span><div><strong>\u95e8\u6237</strong><p>\u95e8\u6237\u63d2\u56fe\u4ec5\u4f9b\u8bf4\u660e\uff1b\u76f8\u540c\u4fe1\u606f\u89c1\u65b9\u6cd5\u3001\u670d\u52a1\u4e0e\u4ea7\u54c1\u3002\u9075\u5b88\u51cf\u5c11\u52a8\u6548\u3002</p></div></article>
-      <article><span class="hud-n">03</span><div><strong>\u53cd\u9988</strong><p>\u82e5\u8def\u5f84\u4e0d\u53ef\u7528\uff1a<a href="${MAIL}">skadiagtech@gmail.com</a>\u3002</p></div></article>
+      <article><span class="hud-n">03</span><div><strong>\u53cd\u9988</strong><p>\u82e5\u8def\u5f84\u4e0d\u53ef\u7528\uff1a<a href="${MAIL}">contacto@agronys.com</a>\u3002</p></div></article>
     </div>
   `,
 };
@@ -466,7 +466,7 @@ export function renderPage(main, page) {
   let html = pack[page];
   if (!html) return;
   html = html
-    .replaceAll("__DEMO_WA__", waDemoUrl("Skadia"))
+    .replaceAll("__DEMO_WA__", waDemoUrl("Agronys"))
     .replaceAll("__ASK_DEMO__", t().askDemo);
   const legal = new Set(["legal", "privacy", "cookies", "terms", "a11y"]);
   if (legal.has(page)) {
@@ -479,32 +479,32 @@ export function renderPage(main, page) {
 function wrapLegal(inner, page, lang) {
   const rails = {
     es: [
-      ["legal", "./aviso-legal.html", "Aviso legal"],
-      ["privacy", "./privacidad.html", "Privacidad"],
-      ["cookies", "./cookies.html", "Cookies"],
-      ["terms", "./terminos.html", "T\u00e9rminos"],
-      ["a11y", "./accesibilidad.html", "Accesibilidad"],
+      ["legal", "/aviso-legal/", "Aviso legal"],
+      ["privacy", "/privacidad/", "Privacidad"],
+      ["cookies", "/cookies/", "Cookies"],
+      ["terms", "/terminos/", "T\u00e9rminos"],
+      ["a11y", "/accesibilidad/", "Accesibilidad"],
     ],
     en: [
-      ["legal", "./aviso-legal.html", "Notice"],
-      ["privacy", "./privacidad.html", "Privacy"],
-      ["cookies", "./cookies.html", "Cookies"],
-      ["terms", "./terminos.html", "Terms"],
-      ["a11y", "./accesibilidad.html", "Accessibility"],
+      ["legal", "/aviso-legal/", "Notice"],
+      ["privacy", "/privacidad/", "Privacy"],
+      ["cookies", "/cookies/", "Cookies"],
+      ["terms", "/terminos/", "Terms"],
+      ["a11y", "/accesibilidad/", "Accessibility"],
     ],
     pt: [
-      ["legal", "./aviso-legal.html", "Aviso legal"],
-      ["privacy", "./privacidad.html", "Privacidade"],
-      ["cookies", "./cookies.html", "Cookies"],
-      ["terms", "./terminos.html", "Termos"],
-      ["a11y", "./accesibilidad.html", "Acessibilidade"],
+      ["legal", "/aviso-legal/", "Aviso legal"],
+      ["privacy", "/privacidad/", "Privacidade"],
+      ["cookies", "/cookies/", "Cookies"],
+      ["terms", "/terminos/", "Termos"],
+      ["a11y", "/accesibilidad/", "Acessibilidade"],
     ],
     zh: [
-      ["legal", "./aviso-legal.html", "\u6cd5\u5f8b\u58f0\u660e"],
-      ["privacy", "./privacidad.html", "\u9690\u79c1"],
-      ["cookies", "./cookies.html", "Cookie"],
-      ["terms", "./terminos.html", "\u6761\u6b3e"],
-      ["a11y", "./accesibilidad.html", "\u65e0\u969c\u788d"],
+      ["legal", "/aviso-legal/", "\u6cd5\u5f8b\u58f0\u660e"],
+      ["privacy", "/privacidad/", "\u9690\u79c1"],
+      ["cookies", "/cookies/", "Cookie"],
+      ["terms", "/terminos/", "\u6761\u6b3e"],
+      ["a11y", "/accesibilidad/", "\u65e0\u969c\u788d"],
     ],
   };
   const items = rails[lang] || rails.es;

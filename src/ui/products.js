@@ -1,7 +1,7 @@
 import { getLang } from "../i18n.js";
 import { waDemoUrl } from "../content/pages.js";
 
-const NUTROGAN_APP_URL = "https://www.nutrogan.site";
+const NUTROGAN_APP_URL = "https://nutrogan.site";
 
 const LINES = [
   {
@@ -9,27 +9,27 @@ const LINES = [
     idx: "01",
     img: "/media/ui/nutrogan-mockup.png",
     appUrl: NUTROGAN_APP_URL,
-    stack: ["Vue 3", "Quasar", "Vite", "Pinia", "Supabase", "PostgreSQL", "LocalForage", "Leaflet", "GeoServer", "TensorFlow.js", "PWA"],
+    stack: ["Agricultura", "Recorrido del lote", "Sigue sin señal", "Dron solo si ya lo tiene"],
   },
   {
     id: "sigag",
     idx: "02",
     img: "/media/ui/sigag-mockup.png",
-    stack: ["TypeScript", "React Native", "Expo", "React Navigation", "WatermelonDB", "SQLite", "LokiJS", "Supabase", "PostgreSQL"],
+    stack: ["Ganadería", "Lectura de apoyo", "Sigue sin señal", "Caravana solo si ya la tiene"],
   },
   {
-    id: "dashboard",
+    id: "potrero",
     idx: "03",
     img: "/media/ui/dashboard-mockup.png",
-    stack: ["Python", "PySpark", "Delta Lake", "Apache Airflow", "Streamlit", "Pandas", "Docker", "PostgreSQL", "Databricks"],
+    stack: ["Mixto", "Carga y forraje", "Tablero del establecimiento", "Sin hardware obligatorio"],
   },
 ];
 
 const COPY = {
   es: {
     eyebrow: "Productos",
-    title: "Soluciones a medida",
-    lead: "No se ofrece un paquete cerrado. Cada despliegue se arma seg\u00fan las necesidades del cliente o de la empresa: alcance, infraestructura y ritmos de trabajo del establecimiento.",
+    title: "Software para el establecimiento",
+    lead: "Tres l\u00edneas: agricultura, ganader\u00eda y el campo mixto. El programa trabaja con o sin se\u00f1al. La caravana, el dron o el sensor se conectan solo si el establecimiento ya los tiene.",
     from: "De d\u00f3nde parte",
     work: "Qu\u00e9 se hace",
     out: "Qu\u00e9 se obtiene",
@@ -38,24 +38,24 @@ const COPY = {
     lines: {
       nutrogan: {
         name: "Nutrogan",
-        tag: "Territorio y recursos",
-        from: "El potrero y el corral, con o sin red. El registro nace donde est\u00e1 la hacienda, no reci\u00e9n en la oficina.",
-        work: "Se levantan l\u00edmites de potrero, carga y recursos. Se cruza ese mapa con imagen satelital (NDVI) y, si hace falta, con modelos en el dispositivo. La app sigue en el lote sin cobertura y sincroniza cuando vuelve la se\u00f1al.",
-        out: "Una lectura \u00fanica de potrero, forraje y vigor de pastura, usable en el campo y en escritorio.",
+        tag: "Agricultura",
+        from: "El lote, con o sin se\u00f1al. La decisi\u00f3n de recorrido no puede esperar a la oficina.",
+        work: "Se mira el vigor del cultivo con imagen satelital abierta y el clima del d\u00eda. La salida es qu\u00e9 zona recorrer. Si el establecimiento ya tiene un dron o un sensor de suelo, ese archivo entra al mismo lote.",
+        out: "Una lista de zonas para caminar, usable en el campo y en el escritorio.",
       },
       sigag: {
         name: "SIGAG",
-        tag: "Sanidad y operaci\u00f3n",
-        from: "El animal en lote, manga o corral, en la recorrida o en el trabajo de manga.",
-        work: "La app toma imagen o video, estima condici\u00f3n corporal, marca se\u00f1ales visibles (heridas, lesiones y otras anomal\u00edas) y registra materia fecal para an\u00e1lisis. Opera sin red y avisa cuando hay un evento que el personal debe ver.",
-        out: "Apoyo concreto al encargado y al servicio veterinario. No diagnostica ni sustituye al profesional ni al laboratorio.",
+        tag: "Ganader\u00eda",
+        from: "El animal en el lote, la manga o el corral, el d\u00eda de trabajo.",
+        work: "Se registra la jornada sin red. La c\u00e1mara aporta una lectura de apoyo: condici\u00f3n, se\u00f1ales visibles y materia fecal. Si ya hay caravana electr\u00f3nica, se lee. La declaraci\u00f3n ante SENASA la hace el productor.",
+        out: "El mismo criterio para encargado y veterinario. Orienta. No diagnostica ni reemplaza al laboratorio.",
       },
-      dashboard: {
-        name: "Dashboard Estado de Situaci\u00f3n",
-        tag: "Indicadores del establecimiento",
-        from: "Las planillas, pesadas y registros que el establecimiento ya usa: ocupaci\u00f3n, ITH, BCS y movimientos.",
-        work: "Esos datos entran a un lakehouse medall\u00f3n (bronze / silver / gold): se limpian, se unen y se calculan indicadores. El tablero no es un reporte suelto; es la capa de lectura sobre esa pipeline.",
-        out: "GMD, UA/ha, riesgo t\u00e9rmico y condici\u00f3n corporal en un mismo tablero, para decidir carga y manejo con n\u00fameros alineados.",
+      potrero: {
+        name: "Potrero",
+        tag: "Mixto",
+        from: "El pasto y la hacienda del mismo establecimiento, que hoy suelen vivir en sistemas separados.",
+        work: "Se cruza la carga, el descanso del lote y el vigor del forraje. Encima, el tablero de la campa\u00f1a: ganancia de peso, carga por hect\u00e1rea, calor y condici\u00f3n.",
+        out: "Una lectura para decidir qu\u00e9 potrero recibe hacienda y cu\u00e1l necesita reposo.",
       },
     },
     mods: [
@@ -64,15 +64,15 @@ const COPY = {
       { id: "sat", line: "nutrogan", label: "NDVI satelital" },
       { id: "vision", line: "sigag", label: "Visi\u00f3n en el animal" },
       { id: "alert", line: "sigag", label: "Alertas de lote" },
-      { id: "board", line: "dashboard", label: "Tablero de situaci\u00f3n" },
-      { id: "lake", line: "dashboard", label: "Lakehouse medall\u00f3n" },
-      { id: "sync", line: "dashboard", label: "Planillas existentes" },
+      { id: "board", line: "potrero", label: "Tablero de situaci\u00f3n" },
+      { id: "forraje", line: "potrero", label: "Carga y forraje" },
+      { id: "sync", line: "potrero", label: "Planillas existentes" },
     ],
   },
   en: {
     eyebrow: "Products",
-    title: "Tailored solutions",
-    lead: "There is no closed package. Each deployment is built around the client or company: scope, infrastructure and how the farm already works.",
+    title: "Software for the farm",
+    lead: "Three lines: cropping, livestock and the mixed farm. The program works with or without a signal. A tag, drone or sensor connects only when the farm already has it.",
     from: "Where it starts",
     work: "What is done",
     out: "What you get",
@@ -81,24 +81,24 @@ const COPY = {
     lines: {
       nutrogan: {
         name: "Nutrogan",
-        tag: "Territory and resources",
-        from: "The paddock and the yard, with or without a network. The record starts where the cattle are, not only in the office.",
-        work: "Paddock boundaries, stocking and resources are captured. That map is crossed with satellite imagery (NDVI) and, when needed, on-device models. The app keeps working offline and syncs when coverage returns.",
-        out: "One reading of paddock, forage and pasture vigor, usable in the field and on the desk.",
+        tag: "Cropping",
+        from: "The field, with or without a signal. The walk cannot wait for the office.",
+        work: "Crop vigor is read from open satellite imagery and the day's weather. The output is which zone to walk. If the farm already has a drone or a soil sensor, that file joins the same field.",
+        out: "A list of zones to walk, usable in the field and at the desk.",
       },
       sigag: {
         name: "SIGAG",
-        tag: "Health and operations",
-        from: "The animal in the lot, chute or yard, during a round or chute work.",
-        work: "The app takes image or video, estimates body condition, flags visible signs (wounds, lesions and other anomalies) and logs fecal matter for analysis. It runs without a network and alerts when staff need to look.",
-        out: "Concrete support for the manager and the veterinary service. It does not diagnose or replace the professional or the lab.",
+        tag: "Livestock",
+        from: "The animal in the lot, chute or yard, on the working day.",
+        work: "The day is recorded without a network. The camera adds a supporting reading: condition, visible signs and fecal matter. An electronic tag is read only if it is already there. The official declaration stays with the producer.",
+        out: "One criterion for the manager and the veterinarian. It guides. It does not diagnose or replace the lab.",
       },
-      dashboard: {
-        name: "Situation Status Dashboard",
-        tag: "Farm indicators",
-        from: "The sheets, weighings and records the farm already uses: occupancy, THI, BCS and movements.",
-        work: "Those data enter a medallion lakehouse (bronze / silver / gold): they are cleaned, joined and turned into indicators. The dashboard is the reading layer on that pipeline, not a loose report.",
-        out: "ADG, UA/ha, heat risk and body condition on one board, so stocking and handling decisions share the same numbers.",
+      potrero: {
+        name: "Potrero",
+        tag: "Mixed farm",
+        from: "Grass and cattle on the same farm, which usually live in separate systems.",
+        work: "Stocking, paddock rest and forage vigor are read together. Above that, the campaign board: weight gain, stocking per hectare, heat and condition.",
+        out: "One reading to decide which paddock can take cattle and which needs rest.",
       },
     },
     mods: [
@@ -107,15 +107,15 @@ const COPY = {
       { id: "sat", line: "nutrogan", label: "Satellite NDVI" },
       { id: "vision", line: "sigag", label: "Vision on the animal" },
       { id: "alert", line: "sigag", label: "Lot alerts" },
-      { id: "board", line: "dashboard", label: "Status dashboard" },
-      { id: "lake", line: "dashboard", label: "Medallion lakehouse" },
-      { id: "sync", line: "dashboard", label: "Existing sheets" },
+      { id: "board", line: "potrero", label: "Status board" },
+      { id: "forraje", line: "potrero", label: "Stocking and forage" },
+      { id: "sync", line: "potrero", label: "Existing sheets" },
     ],
   },
   pt: {
     eyebrow: "Produtos",
-    title: "Solu\u00e7\u00f5es sob medida",
-    lead: "N\u00e3o se oferece um pacote fechado. Cada implanta\u00e7\u00e3o se monta segundo as necessidades do cliente ou da empresa: alcance, infraestrutura e ritmos de trabalho do estabelecimento.",
+    title: "Software para o estabelecimento",
+    lead: "Tr\u00eas linhas: agricultura, pecu\u00e1ria e o campo misto. O programa funciona com ou sem sinal. Brinco, drone ou sensor entram s\u00f3 se o estabelecimento j\u00e1 os tem.",
     from: "De onde parte",
     work: "O que se faz",
     out: "O que se obt\u00e9m",
@@ -124,24 +124,24 @@ const COPY = {
     lines: {
       nutrogan: {
         name: "Nutrogan",
-        tag: "Territ\u00f3rio e recursos",
-        from: "O piquete e o curral, com ou sem rede. O registro nasce onde est\u00e1 o gado, n\u00e3o s\u00f3 no escrit\u00f3rio.",
-        work: "Levantam-se limites de piquete, carga e recursos. Esse mapa cruza com imagem de sat\u00e9lite (NDVI) e, se preciso, com modelos no dispositivo. O app segue no lote sem cobertura e sincroniza quando a sinal volta.",
-        out: "Uma leitura \u00fanica de piquete, forragem e vigor da pastagem, us\u00e1vel no campo e no escrit\u00f3rio.",
+        tag: "Agricultura",
+        from: "O lote, com ou sem sinal. A decis\u00e3o do percurso n\u00e3o pode esperar o escrit\u00f3rio.",
+        work: "O vigor do cultivo \u00e9 lido com imagem de sat\u00e9lite aberta e o clima do dia. A sa\u00edda \u00e9 qual zona percorrer. Se o estabelecimento j\u00e1 tem drone ou sensor de solo, esse arquivo entra no mesmo lote.",
+        out: "Uma lista de zonas para caminhar, us\u00e1vel no campo e no escrit\u00f3rio.",
       },
       sigag: {
         name: "SIGAG",
-        tag: "Sanidade e opera\u00e7\u00e3o",
-        from: "O animal no lote, tronco ou curral, na ronda ou no trabalho de manga.",
-        work: "O app captura imagem ou v\u00eddeo, estima condi\u00e7\u00e3o corporal, marca sinais vis\u00edveis (feridas, les\u00f5es e outras anomalias) e registra mat\u00e9ria fecal para an\u00e1lise. Opera sem rede e avisa quando h\u00e1 um evento que a equipe deve ver.",
-        out: "Apoio concreto ao encarregado e ao servi\u00e7o veterin\u00e1rio. N\u00e3o diagnostica nem substitui o profissional nem o laborat\u00f3rio.",
+        tag: "Pecu\u00e1ria",
+        from: "O animal no lote, no tronco ou no curral, no dia de trabalho.",
+        work: "A jornada \u00e9 registrada sem rede. A c\u00e2mera acrescenta uma leitura de apoio: condi\u00e7\u00e3o, sinais vis\u00edveis e mat\u00e9ria fecal. O brinco eletr\u00f4nico \u00e9 lido s\u00f3 se j\u00e1 existe. A declara\u00e7\u00e3o oficial fica com o produtor.",
+        out: "O mesmo crit\u00e9rio para o encarregado e o veterin\u00e1rio. Orienta. N\u00e3o diagnostica nem substitui o laborat\u00f3rio.",
       },
-      dashboard: {
-        name: "Dashboard Estado de Situa\u00e7\u00e3o",
-        tag: "Indicadores do estabelecimento",
-        from: "As planilhas, pesagens e registros que o estabelecimento j\u00e1 usa: ocupa\u00e7\u00e3o, ITH, BCS e movimenta\u00e7\u00f5es.",
-        work: "Esses dados entram num lakehouse medalh\u00e3o (bronze / silver / gold): s\u00e3o limpos, unidos e viram indicadores. O painel \u00e9 a camada de leitura sobre essa pipeline, n\u00e3o um relat\u00f3rio solto.",
-        out: "GMD, UA/ha, risco t\u00e9rmico e condi\u00e7\u00e3o corporal no mesmo painel, para decidir carga e manejo com n\u00fameros alinhados.",
+      potrero: {
+        name: "Potrero",
+        tag: "Misto",
+        from: "O pasto e o gado do mesmo estabelecimento, que hoje costumam viver em sistemas separados.",
+        work: "Cruza-se carga, descanso do piquete e vigor da forragem. Por cima, o painel da campanha: ganho de peso, carga por hectare, calor e condi\u00e7\u00e3o.",
+        out: "Uma leitura para decidir qual piquete recebe gado e qual precisa de descanso.",
       },
     },
     mods: [
@@ -150,15 +150,15 @@ const COPY = {
       { id: "sat", line: "nutrogan", label: "NDVI satelital" },
       { id: "vision", line: "sigag", label: "Vis\u00e3o no animal" },
       { id: "alert", line: "sigag", label: "Alertas de lote" },
-      { id: "board", line: "dashboard", label: "Painel de situa\u00e7\u00e3o" },
-      { id: "lake", line: "dashboard", label: "Lakehouse medalh\u00e3o" },
-      { id: "sync", line: "dashboard", label: "Planilhas existentes" },
+      { id: "board", line: "potrero", label: "Painel de situa\u00e7\u00e3o" },
+      { id: "forraje", line: "potrero", label: "Carga e forragem" },
+      { id: "sync", line: "potrero", label: "Planilhas existentes" },
     ],
   },
   zh: {
     eyebrow: "\u4ea7\u54c1",
-    title: "\u5b9a\u5236\u65b9\u6848",
-    lead: "\u4e0d\u63d0\u4f9b\u5c01\u95ed\u5957\u9910\u3002\u6bcf\u6b21\u90e8\u7f72\u6309\u5ba2\u6237\u6216\u4f01\u4e1a\u9700\u6c42\u7ec4\u88c5\uff1a\u8303\u56f4\u3001\u57fa\u7840\u8bbe\u65bd\u4e0e\u7267\u573a\u5df2\u6709\u4f5c\u4e1a\u8282\u594f\u3002",
+    title: "\u7267\u573a\u8f6f\u4ef6",
+    lead: "\u4e09\u6761\u4ea7\u54c1\u7ebf\uff1a\u79cd\u690d\u3001\u517b\u6b96\u4e0e\u6df7\u5408\u519c\u573a\u3002\u6709\u7f51\u6216\u65e0\u7f51\u90fd\u53ef\u4ee5\u5de5\u4f5c\u3002\u8033\u6807\u3001\u65e0\u4eba\u673a\u6216\u4f20\u611f\u5668\u53ea\u6709\u7267\u573a\u5df2\u7ecf\u62e5\u6709\u65f6\u624d\u63a5\u5165\u3002",
     from: "\u4ece\u4f55\u5f00\u59cb",
     work: "\u505a\u4ec0\u4e48",
     out: "\u5f97\u5230\u4ec0\u4e48",
@@ -167,24 +167,24 @@ const COPY = {
     lines: {
       nutrogan: {
         name: "Nutrogan",
-        tag: "\u571f\u5730\u4e0e\u8d44\u6e90",
-        from: "\u56f4\u680f\u4e0e\u5708\u680f\uff0c\u6709\u7f51\u6216\u65e0\u7f51\u3002\u8bb0\u5f55\u4ece\u725b\u7fa4\u6240\u5728\u4e4b\u5730\u5f00\u59cb\uff0c\u800c\u4e0d\u662f\u5230\u4e86\u529e\u516c\u5ba4\u3002",
-        work: "\u91c7\u96c6\u56f4\u680f\u8fb9\u754c\u3001\u8f7d\u755c\u4e0e\u8d44\u6e90\uff0c\u5e76\u4e0e\u536b\u661f NDVI \u4ea4\u53c9\uff1b\u5fc5\u8981\u65f6\u5728\u8bbe\u5907\u7aef\u8fd0\u884c\u6a21\u578b\u3002\u65e0\u7f51\u4e5f\u53ef\u7ee7\u7eed\uff0c\u6062\u590d\u8986\u76d6\u540e\u540c\u6b65\u3002",
-        out: "\u56f4\u680f\u3001\u9972\u8349\u4e0e\u7267\u8349\u52bf\u7684\u7edf\u4e00\u8bfb\u6570\uff0c\u7530\u95f4\u4e0e\u684c\u9762\u90fd\u53ef\u7528\u3002",
+        tag: "\u79cd\u690d",
+        from: "\u7530\u5757\uff0c\u6709\u7f51\u6216\u65e0\u7f51\u3002\u5de1\u89c6\u4e0d\u80fd\u7b49\u5230\u4e86\u529e\u516c\u5ba4\u3002",
+        work: "\u7528\u516c\u5f00\u536b\u661f\u5f71\u50cf\u548c\u5f53\u5929\u5929\u6c14\u770b\u4f5c\u7269\u957f\u52bf\u3002\u7ed3\u679c\u662f\u8be5\u8d70\u54ea\u4e00\u533a\u3002\u7267\u573a\u82e5\u5df2\u6709\u65e0\u4eba\u673a\u6216\u571f\u58e4\u4f20\u611f\u5668\uff0c\u6587\u4ef6\u8fdb\u5165\u540c\u4e00\u5757\u5730\u3002",
+        out: "\u4e00\u4efd\u53ef\u5728\u7530\u95f4\u548c\u684c\u9762\u4f7f\u7528\u7684\u5de1\u89c6\u6e05\u5355\u3002",
       },
       sigag: {
         name: "SIGAG",
-        tag: "\u536b\u751f\u4e0e\u4f5c\u4e1a",
-        from: "\u56f4\u680f\u3001\u901a\u9053\u6216\u5708\u680f\u4e2d\u7684\u52a8\u7269\uff0c\u5728\u5de1\u89c6\u6216\u901a\u9053\u4f5c\u4e1a\u65f6\u3002",
-        work: "\u5e94\u7528\u91c7\u96c6\u56fe\u50cf\u6216\u89c6\u9891\uff0c\u4f30\u7b97\u4f53\u51b5\uff0c\u6807\u51fa\u53ef\u89c1\u5f02\u5e38\uff08\u4f24\u53e3\u3001\u75c5\u7076\u7b49\uff09\u5e76\u8bb0\u5f55\u7caa\u4fbf\u4f9b\u5206\u6790\u3002\u65e0\u7f51\u53ef\u8fd0\u884c\uff0c\u6709\u4e8b\u4ef6\u65f6\u63d0\u9192\u4eba\u5458\u3002",
-        out: "\u5bf9\u7ba1\u7406\u4e0e\u517d\u533b\u670d\u52a1\u7684\u5b9e\u9645\u652f\u6301\u3002\u4e0d\u8bca\u65ad\uff0c\u4e5f\u4e0d\u53d6\u4ee3\u4e13\u4e1a\u4eba\u5458\u6216\u5b9e\u9a8c\u5ba4\u3002",
+        tag: "\u517b\u6b96",
+        from: "\u5de5\u4f5c\u5f53\u5929\u7684\u56f4\u680f\u3001\u901a\u9053\u6216\u5708\u680f\u91cc\u7684\u52a8\u7269\u3002",
+        work: "\u65e0\u7f51\u4e5f\u80fd\u8bb0\u5f55\u5f53\u5929\u7684\u5de5\u4f5c\u3002\u76f8\u673a\u63d0\u4f9b\u8f85\u52a9\u8bfb\u6570\uff1a\u4f53\u51b5\u3001\u53ef\u89c1\u5f02\u5e38\u548c\u7caa\u4fbf\u3002\u53ea\u6709\u5df2\u7ecf\u6709\u7535\u5b50\u8033\u6807\u65f6\u624d\u8bfb\u53d6\u3002\u5b98\u65b9\u7533\u62a5\u4ecd\u7531\u751f\u4ea7\u8005\u5b8c\u6210\u3002",
+        out: "\u7ba1\u7406\u4e0e\u517d\u533b\u4f7f\u7528\u540c\u4e00\u6807\u51c6\u3002\u5b83\u63d0\u4f9b\u53c2\u8003\uff0c\u4e0d\u505a\u8bca\u65ad\uff0c\u4e5f\u4e0d\u53d6\u4ee3\u5b9e\u9a8c\u5ba4\u3002",
       },
-      dashboard: {
-        name: "\u6001\u52bf\u4eea\u8868\u76d8",
-        tag: "\u7267\u573a\u6307\u6807",
-        from: "\u7267\u573a\u5df2\u5728\u4f7f\u7528\u7684\u8868\u683c\u3001\u79f0\u91cd\u4e0e\u8bb0\u5f55\uff1a\u8f7d\u755c\u3001ITH\u3001BCS \u4e0e\u8f6c\u7fa4\u3002",
-        work: "\u6570\u636e\u8fdb\u5165\u94dc/\u94f6/\u91d1 lakehouse\uff1a\u6e05\u6d17\u3001\u5173\u8054\u5e76\u8ba1\u7b97\u6307\u6807\u3002\u4eea\u8868\u76d8\u662f\u8be5\u7ba1\u7ebf\u7684\u8bfb\u6570\u5c42\uff0c\u4e0d\u662f\u96f6\u6563\u62a5\u8868\u3002",
-        out: "\u540c\u4e00\u4eea\u8868\u76d8\u4e0a\u7684 GMD\u3001UA/ha\u3001\u70ed\u5e94\u6fc0\u98ce\u9669\u4e0e\u4f53\u51b5\uff0c\u4f7f\u8f7d\u755c\u4e0e\u7ba1\u7406\u51b3\u7b56\u4f7f\u7528\u540c\u4e00\u5957\u6570\u5b57\u3002",
+      potrero: {
+        name: "Potrero",
+        tag: "\u6df7\u5408",
+        from: "\u540c\u4e00\u7267\u573a\u7684\u8349\u573a\u4e0e\u725b\u7fa4\uff0c\u4eca\u5929\u901a\u5e38\u5206\u5728\u4e0d\u540c\u7cfb\u7edf\u91cc\u3002",
+        work: "\u628a\u8f7d\u755c\u3001\u56f4\u680f\u4f11\u606f\u548c\u9972\u8349\u957f\u52bf\u653e\u5728\u540c\u4e00\u8bfb\u6570\u91cc\u3002\u4e0a\u9762\u662f\u4ea7\u5b63\u4eea\u8868\u76d8\uff1a\u589e\u91cd\u3001\u6bcf\u516c\u9877\u8f7d\u755c\u3001\u70ed\u5e94\u6fc0\u548c\u4f53\u51b5\u3002",
+        out: "\u4e00\u6b21\u8bfb\u6570\uff0c\u7528\u6765\u51b3\u5b9a\u54ea\u5757\u56f4\u680f\u53ef\u4ee5\u8fdb\u725b\u3001\u54ea\u5757\u9700\u8981\u4f11\u606f\u3002",
       },
     },
     mods: [
@@ -193,9 +193,9 @@ const COPY = {
       { id: "sat", line: "nutrogan", label: "\u536b\u661f NDVI" },
       { id: "vision", line: "sigag", label: "\u52a8\u7269\u89c6\u89c9" },
       { id: "alert", line: "sigag", label: "\u56f4\u680f\u9884\u8b66" },
-      { id: "board", line: "dashboard", label: "\u6001\u52bf\u4eea\u8868\u76d8" },
-      { id: "lake", line: "dashboard", label: "\u5957\u7ba1 lakehouse" },
-      { id: "sync", line: "dashboard", label: "\u73b0\u6709\u8868\u683c" },
+      { id: "board", line: "potrero", label: "\u6001\u52bf\u4eea\u8868\u76d8" },
+      { id: "forraje", line: "potrero", label: "\u8f7d\u755c\u4e0e\u9972\u8349" },
+      { id: "sync", line: "potrero", label: "\u73b0\u6709\u8868\u683c" },
     ],
   },
 };
@@ -252,7 +252,7 @@ function paint(root, id) {
     if (line.appUrl) {
       app.hidden = false;
       app.href = line.appUrl;
-      app.textContent = `${c.visitApp || "Open app"} · www.nutrogan.site`;
+      app.textContent = `${c.visitApp || "Open app"} · nutrogan.site`;
     } else {
       app.hidden = true;
     }

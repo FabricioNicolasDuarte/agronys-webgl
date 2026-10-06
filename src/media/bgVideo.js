@@ -34,7 +34,7 @@ export function mountBgVideos() {
   video.playsInline = true;
   video.setAttribute("playsinline", "");
   video.setAttribute("aria-hidden", "true");
-  video.src = `./media/video/${file}`;
+  video.src = `/media/video/${file}`;
   host.prepend(video);
   const play = () => video.play().catch(() => {});
   video.addEventListener("canplay", play, { once: true });

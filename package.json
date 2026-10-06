@@ -1,5 +1,5 @@
 {
-  "name": "skadia-webgl",
+  "name": "agronys-webgl",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,6 +12,7 @@
     "vite": "^8.2.0"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "three": "^0.185.1"
   }
 }

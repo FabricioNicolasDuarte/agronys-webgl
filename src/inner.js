@@ -17,4 +17,4 @@ bindSiteChrome();
 mountBgVideos();
 paintInner();
 bindLangSwitch();
-window.addEventListener("skadia:lang", paintInner);
+window.addEventListener("agronys:lang", paintInner);

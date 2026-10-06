@@ -1,6 +1,6 @@
 Dibujá vos la vaca y el maíz. El sitio los carga desde acá:
 
-  C:\Users\fabri\skadia-webgl\public\art\
+  C:\Users\fabri\agronys-webgl\public\art\
 
 Archivos (no cambies el nombre):
 

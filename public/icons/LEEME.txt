@@ -1,7 +1,7 @@
 Reemplazá cada archivo (no cambies el nombre).
 
 Carpeta:
-  C:\Users\fabri\skadia-webgl\public\icons\
+  C:\Users\fabri\agronys-webgl\public\icons\
 
 Formato preferido: SVG (fondo transparente).
 Alternativa: PNG 256×256 px, o 512×512 para pantallas nítidas. Nombre igual, extensión .png
@@ -15,7 +15,7 @@ Archivos que lee el sitio:
   agro.svg               tarjeta y dock — potrero / forraje
   orquestacion.svg       dock — alertas / próximo paso
   producto-sigag.svg     bloque Productos → SIGAG
-  marca-skadia.svg       opcional, encabezado (hoy es texto)
+  marca-agronys*.svg      legado — usar /logos/ en UI
 
 Color de referencia del HUD: #7dffb0 sobre fondo oscuro.
 Tamaño de dibujo: que se lea a 40×40 px.

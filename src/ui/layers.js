@@ -1,4 +1,4 @@
-import { LAYERS, layerByNode } from "../content/skadia.js";
+import { LAYERS, layerByNode } from "../content/agronys.js";
 import { playTap } from "./sound.js";
 import { waDemoUrl } from "../content/pages.js";
 import { t } from "../i18n.js";
@@ -246,7 +246,7 @@ export function paintLayer(id, { open = true, sound = false, cascade = false } =
     el.classList.toggle("is-on", el.dataset.layer === layer.id);
   });
 
-  window.dispatchEvent(new CustomEvent("skadia:layer", { detail: { id: layer.id, node: layer.node } }));
+  window.dispatchEvent(new CustomEvent("agronys:layer", { detail: { id: layer.id, node: layer.node } }));
   if (sound) playTap();
   if (cascade) {
     renderCascade(layer.id);
@@ -300,7 +300,7 @@ export function bindUi() {
     }
   });
   window.addEventListener("resize", placeCascade);
-  window.addEventListener("skadia:lang", () => {
+  window.addEventListener("agronys:lang", () => {
     const sheet = document.querySelector("#sheet");
     const hot =
       document.querySelector(".panel.is-hot")?.dataset.layer ||

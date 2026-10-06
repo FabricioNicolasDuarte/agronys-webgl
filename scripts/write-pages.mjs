@@ -19,7 +19,7 @@ function page({ title, desc, active, h1, body }) {
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./logos/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="${desc}" />
     <title>${title}</title>
@@ -28,7 +28,7 @@ function page({ title, desc, active, h1, body }) {
   <body class="doc">
     <a class="skip-link" href="#main">Saltar al contenido</a>
     <header class="doc-head">
-      <a class="brand-name" href="./index.html">Skadia</a>
+      <a class="brand-name" href="./index.html">Agronys</a>
       <nav class="top-nav" aria-label="Secciones del sitio">
             ${nav(active)}
       </nav>
@@ -38,7 +38,7 @@ function page({ title, desc, active, h1, body }) {
       ${body}
     </main>
     <footer class="site-foot">
-      <p>© <span id="y"></span> Skadia</p>
+      <p>© <span id="y"></span> Agronys</p>
       <nav aria-label="Legal">
         <a href="./aviso-legal.html">Aviso legal</a>
         <a href="./privacidad.html">Privacidad</a>
@@ -60,13 +60,13 @@ function page({ title, desc, active, h1, body }) {
 
 const pages = {
   "enfoque.html": page({
-    title: "Enfoque · Skadia",
-    desc: "Qué es Skadia y para quién trabaja, en lenguaje de campo.",
+    title: "Enfoque · Agronys",
+    desc: "Qué es Agronys y para quién trabaja, en lenguaje de campo.",
     active: "Enfoque",
     h1: "El dato tiene que servir en el potrero, no recién en la oficina.",
     body: `
-      <p class="eyebrow">Skadia · desde 2022</p>
-      <p>Skadia es una startup AgTech argentina. Dirige el producto y la técnica <strong>Fabricio Nicolás Duarte</strong> (co-founder, Lead Developer y CTO), con base en Resistencia, Chaco. El trabajo de la empresa es que el productor y el empresario agroganadero puedan <strong>decidir con lo que está pasando en el lote</strong>.</p>
+      <p class="eyebrow">Agronys · desde 2022</p>
+      <p>Agronys es una startup AgTech argentina. Dirige el producto y la técnica <strong>Fabricio Nicolás Duarte</strong> (co-founder, Lead Developer y CTO), con base en Resistencia, Chaco. El trabajo de la empresa es que el productor y el empresario agroganadero puedan <strong>decidir con lo que está pasando en el lote</strong>.</p>
       <p>No vendemos un tablero lindo para la ciudad. Vendemos que calor, carga, condición del animal y pasto dejen de vivir en recuerdos distintos: el del encargado, el del veterinario y el de la planilla del viernes.</p>
       <h2>¿Para qué se necesita?</h2>
       <ul class="plain">
@@ -79,8 +79,8 @@ const pages = {
     `,
   }),
   "servicios.html": page({
-    title: "Servicios · Skadia",
-    desc: "Qué ofrece Skadia al productor, en criollo.",
+    title: "Servicios · Agronys",
+    desc: "Qué ofrece Agronys al productor, en criollo.",
     active: "Servicios",
     h1: "Qué ofrecemos, en criollo",
     body: `
@@ -106,12 +106,12 @@ const pages = {
     `,
   }),
   "productos.html": page({
-    title: "Productos · Skadia",
+    title: "Productos · Agronys",
     desc: "SIGAG, Sistema Integral de Gestión Agrícola Ganadera.",
     active: "Productos",
     h1: "Productos",
     body: `
-      <p>Hoy el producto de Skadia para el establecimiento es <strong>SIGAG</strong>.</p>
+      <p>Hoy el producto de Agronys para el establecimiento es <strong>SIGAG</strong>.</p>
       <article class="product">
         <img class="product-icon" src="./icons/producto-sigag.svg" alt="" width="56" height="56" />
         <div>
@@ -130,12 +130,12 @@ const pages = {
         </div>
       </article>
       <h2>De dónde viene</h2>
-      <p><strong>Nutrogan</strong> es la plataforma de territorio, recursos y NDVI (PWA). <strong>SIGAG</strong> es la app nativa de visión, sanidad y operación en el lote. Skadia sostiene ambas líneas desde 2022.</p>
+      <p><strong>Nutrogan</strong> es la plataforma de territorio, recursos y NDVI (PWA). <strong>SIGAG</strong> es la app nativa de visión, sanidad y operación en el lote. Agronys sostiene ambas líneas desde 2022.</p>
     `,
   }),
   "contacto.html": page({
-    title: "Contacto · Skadia",
-    desc: "Hablar con Skadia: consultas de establecimientos en Argentina.",
+    title: "Contacto · Agronys",
+    desc: "Hablar con Agronys: consultas de establecimientos en Argentina.",
     active: "Contacto",
     h1: "Contacto",
     body: `
@@ -151,18 +151,18 @@ const pages = {
     `,
   }),
   "aviso-legal.html": page({
-    title: "Aviso legal · Skadia",
-    desc: "Aviso legal del sitio Skadia.",
+    title: "Aviso legal · Agronys",
+    desc: "Aviso legal del sitio Agronys.",
     active: "",
     h1: "Aviso legal",
     body: `
-      <p>Este sitio informa sobre Skadia y el producto SIGAG. Operación del sitio: equipo Skadia / Fabricio Nicolás Duarte, Resistencia, Chaco, Argentina. Sociedad: [Razón social], CUIT [CUIT], domicilio [COMPLETAR].</p>
+      <p>Este sitio informa sobre Agronys y el producto SIGAG. Operación del sitio: equipo Agronys / Fabricio Nicolás Duarte, Resistencia, Chaco, Argentina. Sociedad: [Razón social], CUIT [CUIT], domicilio [COMPLETAR].</p>
       <p>El contenido es informativo. No es asesoramiento veterinario ni agronómico, ni garantiza resultados productivos.</p>
     `,
   }),
   "privacidad.html": page({
-    title: "Privacidad · Skadia",
-    desc: "Política de privacidad de Skadia.",
+    title: "Privacidad · Agronys",
+    desc: "Política de privacidad de Agronys.",
     active: "",
     h1: "Privacidad",
     body: `
@@ -173,8 +173,8 @@ const pages = {
     `,
   }),
   "cookies.html": page({
-    title: "Cookies · Skadia",
-    desc: "Uso de cookies en el sitio Skadia.",
+    title: "Cookies · Agronys",
+    desc: "Uso de cookies en el sitio Agronys.",
     active: "",
     h1: "Cookies",
     body: `
@@ -183,18 +183,18 @@ const pages = {
     `,
   }),
   "terminos.html": page({
-    title: "Términos de uso · Skadia",
-    desc: "Términos de uso del sitio Skadia.",
+    title: "Términos de uso · Agronys",
+    desc: "Términos de uso del sitio Agronys.",
     active: "",
     h1: "Términos de uso",
     body: `
-      <p>El contenido de este sitio no se copia con fines comerciales sin autorización. Skadia y SIGAG identifican a la línea de producto de la startup; la titularidad societaria se completa en [Razón social].</p>
+      <p>El contenido de este sitio no se copia con fines comerciales sin autorización. Agronys y SIGAG identifican a la línea de producto de la startup; la titularidad societaria se completa en [Razón social].</p>
       <p>El software y las cuentas de producto se rigen por el contrato al contratar, no solo por esta página.</p>
     `,
   }),
   "accesibilidad.html": page({
-    title: "Accesibilidad · Skadia",
-    desc: "Declaración de accesibilidad de Skadia.",
+    title: "Accesibilidad · Agronys",
+    desc: "Declaración de accesibilidad de Agronys.",
     active: "",
     h1: "Accesibilidad",
     body: `
@@ -207,7 +207,7 @@ const pages = {
 
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-const dir = "C:/Users/fabri/skadia-webgl";
+const dir = "C:/Users/fabri/agronys-webgl";
 for (const [name, html] of Object.entries(pages)) {
   writeFileSync(join(dir, name), html, "utf8");
   console.log("wrote", name);
