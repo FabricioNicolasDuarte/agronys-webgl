@@ -14,7 +14,7 @@ const plex = IBM_Plex_Sans({
 
 const site = "https://agronys.com";
 const description =
-  "La mejor forma de ver tu campo. El rodeo, el pasto y la plata en un solo lugar: decidís antes, te ahorrás vueltas y ves dónde se te va el resultado.";
+  "La mejor forma de ver su campo. Rodeo, pasto y capital en un solo lugar: decida a tiempo, reduzca recorridos y controle el resultado de la campaña.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
