@@ -14,7 +14,7 @@ const plex = IBM_Plex_Sans({
 
 const site = "https://agronys.com";
 const description =
-  "La herramienta de tu campo: el rodeo, el potrero y los números de la campaña, para decidir a tiempo y cuidar la plata.";
+  "La mejor forma de ver tu campo. El rodeo, el pasto y la plata en un solo lugar: decidís antes, te ahorrás vueltas y ves dónde se te va el resultado.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Agronys — la herramienta de tu campo",
+        alt: "Agronys — la mejor forma de ver tu campo",
       },
     ],
   },
