@@ -12,9 +12,48 @@ const plex = IBM_Plex_Sans({
   variable: "--font-plex",
 });
 
+const site = "https://agronys.com";
+const description =
+  "La herramienta de tu campo: el rodeo, el potrero y los números de la campaña, para decidir a tiempo y cuidar la plata.";
+
 export const metadata: Metadata = {
-  title: "Agronys",
-  description: "La herramienta de tu campo: el rodeo, el potrero y los números de la campaña, para decidir a tiempo y cuidar la plata.",
+  metadataBase: new URL(site),
+  title: {
+    default: "Agronys",
+    template: "%s · Agronys",
+  },
+  description,
+  applicationName: "Agronys",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "512x512" }],
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: site,
+    siteName: "Agronys",
+    title: "Agronys",
+    description,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Agronys — la herramienta de tu campo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agronys",
+    description,
+    images: ["/og.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
