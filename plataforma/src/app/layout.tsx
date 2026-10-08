@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import { CookieBar } from "@/components/site/cookie-bar";
-import { SiteNotch } from "@/components/site/site-notch";
+import { PlaceBar } from "@/components/hub/place-bar";
 import "../styles/agronys.css";
 import "../styles/sky.css";
+import "../styles/sections.css";
 import "./globals.css";
 
 const plex = IBM_Plex_Sans({
@@ -61,7 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="es" className={plex.variable}>
       <body>
         {children}
-        <SiteNotch />
+        <PlaceBar />
         <CookieBar />
       </body>
     </html>

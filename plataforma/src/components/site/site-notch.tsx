@@ -7,7 +7,7 @@ import { useLang } from "@/components/site/lang-switch";
 import { INFO } from "@/i18n/info";
 
 const LINKS = [
-  ["/quienes-somos", "about"],
+  ["/empresa", "about"],
   ["/aviso-legal", "notice"],
   ["/privacidad", "privacy"],
   ["/cookies", "cookies"],
@@ -16,7 +16,7 @@ const LINKS = [
   ["/faq", "faq"],
 ] as const;
 
-export function SiteNotch() {
+export function InfoMenu({ place = "dock" }: { place?: "dock" | "foot" }) {
   const pack = INFO[useLang()];
   const path = usePathname();
   const [open, setOpen] = useState(false);
@@ -39,9 +39,19 @@ export function SiteNotch() {
   }, [open]);
 
   return (
-    <div className={open ? "edge-notch is-open" : "edge-notch"} ref={root}>
+    <div className={open ? `info-slot is-${place} is-open` : `info-slot is-${place}`} ref={root}>
+      <button
+        type="button"
+        className={place === "dock" ? "dock-link info-open" : "info-open"}
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-label={pack.menu}
+        onClick={() => setOpen((value) => !value)}
+      >
+        {pack.chip}
+      </button>
       {open && (
-        <nav className="edge-menu" aria-label={pack.menu}>
+        <nav className="info-menu" aria-label={pack.menu}>
           {LINKS.map(([href, key]) => (
             <Link key={href} href={href} aria-current={path === href ? "page" : undefined} onClick={() => setOpen(false)}>
               {pack.links[key]}
@@ -49,19 +59,6 @@ export function SiteNotch() {
           ))}
         </nav>
       )}
-      <button
-        type="button"
-        className="edge-notch-btn"
-        aria-expanded={open}
-        aria-label={pack.menu}
-        onClick={() => setOpen((value) => !value)}
-      >
-        <svg viewBox="0 0 24 24" width="11" height="11" aria-hidden="true">
-          <circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
-          <path d="M12 11.2v5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-          <circle cx="12" cy="8" r="0.9" fill="currentColor" />
-        </svg>
-      </button>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { DockLinks, LangSwitch, useLang } from "@/components/site/lang-switch";
+import { InfoMenu } from "@/components/site/site-notch";
 import { APP_VERSION } from "@/content/site";
 import { INFO } from "@/i18n/info";
 import { COPY } from "@/i18n/lang";
@@ -54,6 +55,7 @@ export function SiteFrame({
           <p>
             {info.version} {APP_VERSION}
           </p>
+          <InfoMenu place="foot" />
         </footer>
       </div>
     </div>

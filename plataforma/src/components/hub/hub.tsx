@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { mountStage } from "@/components/hub/stage";
 import { NightSky } from "@/components/hub/night-sky";
 import { WeatherFx } from "@/components/hub/weather-fx";
+import { PLACE_EVENT, PLACE_KEY } from "@/components/hub/place-bar";
 import { getSkyOverride, subscribeSky, type SkyWx } from "@/components/hub/sky-lab";
 import { applyChrome, bootLang, getCopy, isLocating, subscribeLang, type TipId } from "@/i18n/lang";
 import { DockLinks, LangSwitch } from "@/components/site/lang-switch";
+import { InfoMenu } from "@/components/site/site-notch";
 
 type Forecast = {
   temperature_2m: number;
@@ -327,10 +329,17 @@ export function Hub() {
       place = "Ubicando…";
       zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       paint();
-      if (!navigator.geolocation) {
+      let allowed = false;
+      try {
+        allowed = localStorage.getItem(PLACE_KEY) === "1";
+      } catch {
+        allowed = false;
+      }
+      if (!allowed || !navigator.geolocation) {
         lat = FALLBACK.lat;
         lon = FALLBACK.lon;
         place = FALLBACK.place;
+        paint();
         void loadWeather();
         return;
       }
@@ -365,6 +374,7 @@ export function Hub() {
     const meteoTimer = window.setInterval(() => void loadWeather(), 8 * 60 * 1000);
     const fallbackTimer = window.setTimeout(() => void loadWeather(), 1200);
     locateDevice();
+    window.addEventListener(PLACE_EVENT, locateDevice);
     let lastSpot = "";
     const unsubscribe = subscribeSky(() => {
       const over = getSkyOverride();
@@ -390,6 +400,7 @@ export function Hub() {
       cancel = true;
       unsubscribe();
       unLang();
+      window.removeEventListener(PLACE_EVENT, locateDevice);
       window.clearInterval(clockTimer);
       window.clearInterval(meteoTimer);
       window.clearTimeout(fallbackTimer);
@@ -478,6 +489,7 @@ export function Hub() {
         <div className="bottom-bar">
           <nav className="dock" aria-label="Secciones del sitio">
             <DockLinks />
+            <InfoMenu place="dock" />
           </nav>
         </div>
       </div>

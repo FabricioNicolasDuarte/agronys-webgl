@@ -9,6 +9,7 @@ type Brief = {
 
 export type InfoPack = {
   menu: string;
+  chip: string;
   rights: string;
   version: string;
   links: {
@@ -31,10 +32,11 @@ export type InfoPack = {
 
 const es: InfoPack = {
   menu: "Información del sitio",
+  chip: "Información",
   rights: "Todos los derechos reservados.",
   version: "Versión",
   links: {
-    about: "Acerca de",
+    about: "Empresa",
     notice: "Aviso legal",
     privacy: "Privacidad",
     cookies: "Cookies",
@@ -58,9 +60,9 @@ const es: InfoPack = {
       eyebrow: "Marco legal",
       h1: "Privacidad",
       items: [
-        { title: "Datos de consulta", text: "Los datos que enviás por correo o WhatsApp se usan para responderte. No se venden ni se arman bases para terceros." },
+        { title: "Datos de consulta", text: "Los datos enviados por correo o WhatsApp se usan para responder la consulta. No se venden ni se ceden para bases de terceros." },
         { title: "Responsable", text: "El responsable es el equipo Agronys. Contacto: contacto@agronys.com." },
-        { title: "Conservación y derechos", text: "Se guardan mientras dure la consulta o la relación comercial, y según la Ley 25.326. Podés pedir acceso, rectificación o supresión por ese correo." },
+        { title: "Conservación y derechos", text: "Se conservan mientras dure la consulta o la relación comercial, conforme a la Ley 25.326. Puede solicitar acceso, rectificación o supresión por ese correo." },
         { title: "Analítica", text: "Esta versión del sitio no incorpora publicidad de terceros ni analítica de marketing." },
       ],
     },
@@ -69,7 +71,7 @@ const es: InfoPack = {
       eyebrow: "Marco legal",
       h1: "Términos y condiciones",
       items: [
-        { title: "Uso del sitio", text: "Podés recorrer el sitio para informarte. El contenido no puede copiarse con fines comerciales sin autorización del equipo." },
+        { title: "Uso del sitio", text: "El sitio puede recorrerse para informarse. El contenido no puede copiarse con fines comerciales sin autorización del equipo." },
         { title: "Producto y contrato", text: "El software y las cuentas se rigen por el contrato al contratar, no solo por esta página." },
         { title: "Consultas", text: "Para una duda sobre estos términos: contacto@agronys.com." },
       ],
@@ -80,8 +82,8 @@ const es: InfoPack = {
       h1: "Accesibilidad",
       items: [
         { title: "Recorrido", text: "El sitio tiene salto al contenido, contraste sobre fondo oscuro, foco visible y encabezados en orden." },
-        { title: "Portal", text: "El dibujo del portal es ilustrativo. La misma información está en Enfoque, Servicios y Productos. Se respeta reducir movimiento." },
-        { title: "Aviso", text: "Si un recorrido no se puede usar, escribinos a contacto@agronys.com." },
+        { title: "Portal", text: "El dibujo del portal es ilustrativo. La misma información está en Plataforma, Método y Soluciones. Se respeta la reducción de movimiento." },
+        { title: "Aviso", text: "Si un recorrido no se puede usar, escriba a contacto@agronys.com." },
       ],
     },
     faq: {
@@ -89,12 +91,12 @@ const es: InfoPack = {
       eyebrow: "Ayuda",
       h1: "Preguntas frecuentes",
       items: [
-        { title: "¿Qué es Agronys?", text: "Es un equipo AgTech argentino, desde 2022. Arma herramientas para ver el rodeo, el potrero y los números de la campaña en el mismo lugar." },
-        { title: "¿Qué se puede usar hoy?", text: "Nutrogan, SIGAG y Los números de tu campaña. Si el campo pide otra cosa, se arma a medida." },
-        { title: "¿Quién compra el dron y los sensores?", text: "El establecimiento compra el dron, el sensor y el equipo de campo. Agronys los conecta y se ocupa de la lectura y el procesamiento." },
-        { title: "¿Hace falta señal?", text: "El día se puede cargar sin señal. Cuando vuelve, sube solo y no hace falta escribirlo otra vez en la oficina." },
-        { title: "¿Dónde está el equipo?", text: "Formosa, Chaco, Corrientes, Entre Ríos, Misiones, Santa Fe, Paraguay y Uruguay. Próximamente en Brasil y Bolivia." },
-        { title: "¿Cómo se hace una consulta?", text: "Por el canal del equipo, en Contacto. Indicá el tipo de establecimiento y el problema con el que querés empezar." },
+        { title: "¿Qué es Agronys?", text: "Es una empresa argentina de soluciones tecnológicas para el agro, desde 2022. Desarrolla y comercializa software, datos e integración. Nutrogan, SIGAG y Datagronys son tres de sus productos. El catálogo de servicios es más amplio." },
+        { title: "¿Cuáles son los productos?", text: "Nutrogan, SIGAG y Datagronys. Además, Agronys ofrece servicios de software para el establecimiento e integra drones, sensores, maquinaria y otro equipo que el cliente ya dispone." },
+        { title: "¿Quién adquiere el equipo de campo?", text: "El establecimiento. Agronys no sustituye ese equipo: lo conecta a la solución cuando el proyecto lo requiere." },
+        { title: "¿Hace falta señal?", text: "La jornada puede registrarse sin señal. Cuando la señal vuelve, el registro se sincroniza. No hace falta transcribirlo en la oficina." },
+        { title: "¿Dónde opera el equipo?", text: "Formosa, Chaco, Corrientes, Entre Ríos, Misiones, Santa Fe, Paraguay y Uruguay. Próximamente en Brasil y Bolivia." },
+        { title: "¿Cómo se solicita una presentación?", text: "Por correo o WhatsApp, en Contacto. Indique el tipo de establecimiento y la decisión que desea ordenar primero. El alta de una cuenta la realiza la casa: no hay registro público." },
       ],
     },
   },
@@ -102,10 +104,11 @@ const es: InfoPack = {
 
 const en: InfoPack = {
   menu: "Site information",
+  chip: "Information",
   rights: "All rights reserved.",
   version: "Version",
   links: {
-    about: "About",
+    about: "Company",
     notice: "Legal notice",
     privacy: "Privacy",
     cookies: "Cookies",
@@ -173,10 +176,11 @@ const en: InfoPack = {
 
 const pt: InfoPack = {
   menu: "Informação do site",
+  chip: "Informação",
   rights: "Todos os direitos reservados.",
   version: "Versão",
   links: {
-    about: "Sobre",
+    about: "Empresa",
     notice: "Aviso legal",
     privacy: "Privacidade",
     cookies: "Cookies",
@@ -244,10 +248,11 @@ const pt: InfoPack = {
 
 const zh: InfoPack = {
   menu: "网站信息",
+  chip: "信息",
   rights: "版权所有。",
   version: "版本",
   links: {
-    about: "关于",
+    about: "公司",
     notice: "法律声明",
     privacy: "隐私",
     cookies: "Cookie",
@@ -315,10 +320,11 @@ const zh: InfoPack = {
 
 const gn: InfoPack = {
   menu: "Marandu sitio rehegua",
+  chip: "Marandu",
   rights: "Opa derecho oñeñongatu.",
   version: "Versión",
   links: {
-    about: "Ore rehegua",
+    about: "Empresa",
     notice: "Marandu léi rehegua",
     privacy: "Ñemigua",
     cookies: "Cookies",

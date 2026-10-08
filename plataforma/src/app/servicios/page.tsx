@@ -1,12 +1,5 @@
-import { ServiceCatalog } from "@/components/site/service-catalog";
-import { SiteFrame } from "@/components/site/site-frame";
+import { redirect } from "next/navigation";
 
-export const metadata = { title: "Servicios · Agronys" };
-
-export default function ServiciosPage() {
-  return (
-    <SiteFrame current="/servicios" theme="services">
-      <ServiceCatalog />
-    </SiteFrame>
-  );
+export default function Page() {
+  redirect("/soluciones");
 }

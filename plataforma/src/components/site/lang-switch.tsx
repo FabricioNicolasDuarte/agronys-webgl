@@ -6,10 +6,9 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { bootLang, COPY, getLang, LANGS, setLang, subscribeLang, type Lang } from "@/i18n/lang";
 
 const LINKS = [
-  ["/quienes-somos", "about"],
-  ["/enfoque", "approach"],
-  ["/servicios", "services"],
-  ["/productos", "products"],
+  ["/empresa", "about"],
+  ["/metodo", "approach"],
+  ["/soluciones", "services"],
   ["/contacto", "contact"],
 ] as const;
 
@@ -96,16 +95,12 @@ export function LangSwitch() {
 export function DockLinks({ portal = false }: { portal?: boolean }) {
   const lang = useLang();
   const path = usePathname();
-  const first = useRef<HTMLAnchorElement>(null);
   const copy = COPY[lang];
   const items = portal ? ([["/" as const, "portal" as const], ...LINKS] as const) : LINKS;
-  useEffect(() => {
-    first.current?.closest("nav")?.setAttribute("aria-label", copy.navLabel);
-  }, [copy.navLabel]);
   return (
     <>
-      {items.map(([href, key], index) => (
-        <Link key={`${lang}-${href}`} ref={index === 0 ? first : undefined} className="dock-link" href={href} aria-current={path === href ? "page" : undefined}>
+      {items.map(([href, key]) => (
+        <Link key={href} className="dock-link" href={href} aria-current={path === href ? "page" : undefined}>
           {copy.nav[key]}
         </Link>
       ))}

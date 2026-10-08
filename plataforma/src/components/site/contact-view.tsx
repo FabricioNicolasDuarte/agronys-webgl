@@ -1,6 +1,6 @@
 "use client";
 
-import { EnvelopeSimple, WhatsappLogo } from "@phosphor-icons/react";
+import { WhatsappLogo } from "@phosphor-icons/react";
 import { useLang, usePageTitle } from "@/components/site/lang-switch";
 import { MAIL, WA } from "@/content/site";
 import { PAGES } from "@/i18n/pages";
@@ -124,11 +124,9 @@ export function ContactView({ mapSvg }: { mapSvg: string }) {
       <p className="lead">{copy.lead}</p>
       <div className="contact-actions">
         <a className="reach-btn" href={MAIL}>
-          <EnvelopeSimple className="reach-ico" size={28} weight="duotone" aria-hidden="true" />
           <span>{copy.mail}</span>
         </a>
         <a className="reach-btn" href={WA} target="_blank" rel="noopener noreferrer">
-          <WhatsappLogo className="reach-ico" size={28} weight="duotone" aria-hidden="true" />
           <span>WhatsApp</span>
         </a>
       </div>
