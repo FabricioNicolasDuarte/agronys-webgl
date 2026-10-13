@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type { Lang } from "@/i18n/lang";
 import { RiveMark } from "@/components/site/rive-mark";
 
@@ -100,10 +103,12 @@ function Mark({ kind, label }: { kind: Mark; label: string }) {
 export function Compare({ lang }: { lang: Lang }) {
   const copy = COPY[lang];
   const word = { yes: copy.yes, mid: copy.mid, no: copy.no };
+  const [picked, setPicked] = useState<string | null>(null);
   const columns = [
     ...HERD.map((name) => ({ name, kind: 0 as const })),
     ...CROP.map((name) => ({ name, kind: 1 as const })),
   ];
+  const choose = (name: string) => setPicked((current) => (current === name ? null : name));
   return (
     <section className="pane" id="comparacion" aria-labelledby="sol-compare">
       <header className="pane-head">
@@ -116,17 +121,17 @@ export function Compare({ lang }: { lang: Lang }) {
           <p className="compare-family">{copy.herd}</p>
           <div className="compare-names">
             {HERD.map((name) => (
-              <p className="compare-chip" key={name}>
+              <button type="button" className={picked === name ? "compare-chip is-on" : "compare-chip"} key={name} onClick={() => choose(name)} aria-pressed={picked === name}>
                 {name}
-              </p>
+              </button>
             ))}
           </div>
           <p className="compare-family">{copy.crop}</p>
           <div className="compare-names">
             {CROP.map((name) => (
-              <p className="compare-chip" key={name}>
+              <button type="button" className={picked === name ? "compare-chip is-on" : "compare-chip"} key={name} onClick={() => choose(name)} aria-pressed={picked === name}>
                 {name}
-              </p>
+              </button>
             ))}
           </div>
         </div>
@@ -146,8 +151,10 @@ export function Compare({ lang }: { lang: Lang }) {
           <div className="compare-row is-head" role="row">
             <span role="columnheader" />
             {columns.map((col) => (
-              <span role="columnheader" key={col.name}>
-                {col.name}
+              <span role="columnheader" key={col.name} className={picked === col.name ? "is-pick" : picked ? "is-dim" : ""}>
+                <button type="button" onClick={() => choose(col.name)} aria-pressed={picked === col.name}>
+                  {col.name}
+                </button>
               </span>
             ))}
             <span role="columnheader">{copy.ours}</span>
@@ -158,7 +165,7 @@ export function Compare({ lang }: { lang: Lang }) {
               {columns.map((col) => {
                 const kind = MARKS[index][col.kind];
                 return (
-                  <span role="cell" data-name={col.name} key={`${title}-${col.name}`}>
+                  <span role="cell" data-name={col.name} key={`${title}-${col.name}`} className={picked === col.name ? "is-pick" : picked ? "is-dim" : ""}>
                     <Mark kind={kind} label={word[kind]} />
                   </span>
                 );

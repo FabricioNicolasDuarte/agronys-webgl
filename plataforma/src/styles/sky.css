@@ -124,9 +124,10 @@
   margin: 0;
   padding: 0.15rem 0 0.15rem 0.8rem;
   border: 0;
-  border-left: 1px solid rgba(255, 192, 0, 0.72);
+  border-left: 1px solid rgba(198, 245, 106, 0.72);
   border-radius: 0;
   background: linear-gradient(90deg, rgba(5, 8, 7, 0.42), transparent 88%);
+  color: #f4faf6;
   pointer-events: auto;
 }
 
@@ -135,7 +136,7 @@
 }
 
 .clima-place {
-  color: rgba(244, 250, 246, 0.62);
+  color: #f4faf6;
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -179,8 +180,13 @@
 
 .clima-phase,
 .clima-wx {
-  color: rgba(244, 250, 246, 0.58);
+  color: rgba(244, 250, 246, 0.92);
   font-weight: 400;
+}
+
+.clima-time,
+.clima-temp {
+  color: #f4faf6;
 }
 
 .clima-temp {
@@ -191,10 +197,104 @@
   margin-top: 0.48rem;
   padding-top: 0.48rem;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(244, 250, 246, 0.78);
+  color: #f4faf6;
   font-size: 0.74rem;
   font-weight: 400;
   line-height: 1.45;
+}
+
+.clima-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.35rem;
+}
+
+.clima-place {
+  flex: 1 1 auto;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.clima-tools {
+  display: contents;
+}
+
+.clima-gps {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(198, 245, 106, 0.42);
+  cursor: pointer;
+}
+
+.clima-gps:hover,
+.clima-gps:focus-visible {
+  color: #c6f56a;
+  outline: none;
+}
+
+.clima-search {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.clima-find {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0.28rem 0 0;
+  padding: 0.28rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(198, 245, 106, 0.45);
+  border-radius: 0;
+  background: transparent;
+  color: #f4faf6;
+  font: inherit;
+  font-size: 0.74rem;
+  outline: none;
+}
+
+.clima-find::placeholder {
+  color: rgba(244, 250, 246, 0.42);
+}
+
+.clima-hits {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  max-height: 8.5rem;
+  overflow: auto;
+}
+
+.clima-hits button {
+  width: 100%;
+  margin: 0;
+  padding: 0.28rem 0;
+  border: 0;
+  background: transparent;
+  color: #f4faf6;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+}
+
+.clima-hits button:hover,
+.clima-hits button:focus-visible {
+  color: #c6f56a;
+  outline: none;
+}
+
+.clima-miss {
+  margin: 0.25rem 0 0;
+  color: rgba(244, 250, 246, 0.5);
+  font-size: 0.68rem;
 }
 
 .portal.is-reading .clima {
@@ -320,7 +420,7 @@
     padding: 0.75rem 0.9rem 0.8rem;
     text-align: center;
     overflow: visible;
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(198, 245, 106, 0.55);
     border-radius: 16px;
     background: rgba(6, 10, 8, 0.9);
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
@@ -335,6 +435,20 @@
   .clima-place,
   .clima-tip {
     text-align: center;
+  }
+
+  .clima-head,
+  .clima-place,
+  .clima-gps,
+  .clima-search,
+  .clima-find,
+  .clima-hits,
+  .clima-hits button {
+    pointer-events: auto;
+  }
+
+  .clima-hits button {
+    text-align: left;
   }
 
   .clima-tip {

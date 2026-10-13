@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useLang } from "@/components/site/lang-switch";
 import type { Lang } from "@/i18n/lang";
 
@@ -42,20 +41,19 @@ const COPY: Record<Lang, { aria: string; text: string; yes: string; no: string }
 };
 
 export function PlaceBar() {
-  const path = usePathname();
   const [open, setOpen] = useState(false);
   const copy = COPY[useLang()];
 
   useEffect(() => {
-    if (path !== "/") return;
     try {
-      setOpen(localStorage.getItem(PLACE_KEY) == null);
+      const saved = localStorage.getItem(PLACE_KEY);
+      setOpen(saved !== "1" && saved !== "0");
     } catch {
       setOpen(true);
     }
-  }, [path]);
+  }, []);
 
-  if (path !== "/" || !open) return null;
+  if (!open) return null;
 
   function choose(value: "1" | "0") {
     try {
@@ -70,12 +68,14 @@ export function PlaceBar() {
   return (
     <div className="place-ask" role="dialog" aria-label={copy.aria}>
       <p>{copy.text}</p>
-      <button type="button" onClick={() => choose("1")}>
-        {copy.yes}
-      </button>
-      <button type="button" className="place-ask-no" onClick={() => choose("0")}>
-        {copy.no}
-      </button>
+      <div className="ask-actions">
+        <button type="button" onClick={() => choose("1")}>
+          {copy.yes}
+        </button>
+        <button type="button" className="place-ask-no" onClick={() => choose("0")}>
+          {copy.no}
+        </button>
+      </div>
     </div>
   );
 }

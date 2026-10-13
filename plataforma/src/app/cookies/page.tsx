@@ -1,12 +1,18 @@
+import { OrbitFrame } from "@/components/orbit/shell";
 import { CookiesView } from "@/components/site/cookies-view";
-import { SiteFrame } from "@/components/site/site-frame";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "Cookies · Agronys" };
+export const metadata = pageMeta({
+  title: "Cookies",
+  description: "Este sitio guarda una preferencia técnica para el aviso. No usa cookies de publicidad ni de analítica de marketing.",
+  path: "/cookies",
+  image: "/og/legal.jpg",
+});
 
 export default function CookiesPage() {
   return (
-    <SiteFrame current="/cookies" theme="cookies">
+    <OrbitFrame theme="dark">
       <CookiesView />
-    </SiteFrame>
+    </OrbitFrame>
   );
 }

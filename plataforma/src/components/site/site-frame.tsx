@@ -33,7 +33,6 @@ export function SiteFrame({
             </Link>
           </p>
           <div className="top-actions">
-            <LangSwitch />
             <Link className="profile" href="/entrar" aria-label={copy.account}>
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -56,6 +55,7 @@ export function SiteFrame({
             {info.version} {APP_VERSION}
           </p>
           <InfoMenu place="foot" />
+          <LangSwitch />
         </footer>
       </div>
     </div>

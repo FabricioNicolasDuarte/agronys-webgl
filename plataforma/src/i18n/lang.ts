@@ -87,7 +87,7 @@ const es: Pack = {
   climate: "Clima y recomendación",
   locating: "Ubicando…",
   reading: "Lectura del clima en el lugar desde el que abre Agronys.",
-  demo: "Solicitar presentación",
+  demo: "Pedir demo",
   seeLine: "Ver la línea",
   close: "Cerrar",
   demoMsg: (title) => `Buenos días. Solicito una presentación de «${title}» para mi establecimiento.`,

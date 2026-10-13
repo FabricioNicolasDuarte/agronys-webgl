@@ -49,14 +49,15 @@ function reading(deal: DealRow, parts: PayoutRow[]) {
 }
 
 export async function loadSituation(db: SupabaseClient): Promise<Situation> {
-  const [fiscal, deals, payouts, invoices, infra] = await Promise.all([
+  const [fiscal, deals, payouts, invoices, infra, params] = await Promise.all([
     db.rpc("fiscal_snapshot"),
     db.from("deals").select("id, status, sold_price_usd, products(name), organizations(legal_name), seller:profiles!deals_seller_id_fkey(role)").order("created_at"),
     db.from("payouts").select("deal_id, kind, amount_usd, status, payee:profiles!payouts_payee_id_fkey(full_name)").neq("status", "void"),
     db.from("invoices").select("amount_ars, amount_usd, deals(products(name))"),
     db.from("infrastructure_costs").select("amount_usd"),
+    db.from("fiscal_parameters").select("category").eq("id", 1).maybeSingle(),
   ]);
-  const failed = [fiscal.error, deals.error, payouts.error, invoices.error, infra.error].find(Boolean);
+  const failed = [fiscal.error, deals.error, payouts.error, invoices.error, infra.error, params.error].find(Boolean);
   if (failed) throw new Error(failed.message);
   const snap = (fiscal.data?.[0] ?? null) as { invoiced_ars: number; cap_ars: number } | null;
   if (!snap) throw new Error("La base no tiene el tope fiscal de referencia.");
@@ -82,11 +83,12 @@ export async function loadSituation(db: SupabaseClient): Promise<Situation> {
     byProduct.set(label, current);
   }
 
+  const category = params.data?.category || "referencia";
   const asOf = new Date().toLocaleDateString("es-AR", { month: "long", year: "numeric" });
   return {
     asOf: asOf.charAt(0).toUpperCase() + asOf.slice(1),
-    source: "Estas cifras salen de las facturas, las ventas y las liquidaciones guardadas. El tope K es una referencia, no la categoría real.",
-    fiscal: { invoicedArs: Number(snap.invoiced_ars), capArs: Number(snap.cap_ars) },
+    source: `Estas cifras salen de las facturas, las ventas y las liquidaciones guardadas. El tope ${category} es una referencia, no la categoría real.`,
+    fiscal: { invoicedArs: Number(snap.invoiced_ars), capArs: Number(snap.cap_ars), category },
     infraUsd: (infra.data || []).reduce((sum, row) => sum + Number(row.amount_usd), 0),
     invoices: [...byProduct.entries()].map(([label, amounts]) => ({ label, ...amounts })),
     parts: payoutRows.map((part) => ({

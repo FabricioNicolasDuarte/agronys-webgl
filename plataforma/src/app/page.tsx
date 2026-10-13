@@ -1,8 +1,8 @@
-import fs from "node:fs";
-import path from "node:path";
-import { HomeStage } from "@/components/hub/home-stage";
+import { OrbitHome } from "@/components/orbit/home";
+import { homeMeta } from "@/lib/seo";
+
+export const metadata = homeMeta;
 
 export default function HomePage() {
-  const riv = path.join(process.cwd(), "public", "motion", "hub.riv");
-  return <HomeStage rive={fs.existsSync(riv)} />;
+  return <OrbitHome />;
 }

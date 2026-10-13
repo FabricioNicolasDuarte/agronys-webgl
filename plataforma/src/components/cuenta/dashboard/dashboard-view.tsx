@@ -17,7 +17,6 @@ import {
 } from "recharts";
 import { billingFor, markets, MARKET_LABEL } from "@/lib/fiscal/billing";
 import {
-  demoSituation,
   dealsByStatus,
   fiscalUse,
   formatArs,
@@ -192,7 +191,7 @@ function StatusDonut({ situation }: { situation: Situation }) {
   );
 }
 
-function FiscalGauge({ use }: { use: number }) {
+function FiscalGauge({ use, category }: { use: number; category: string }) {
   const value = Math.round(use * 1000) / 10;
   return (
     <div className="ops-gauge">
@@ -212,7 +211,7 @@ function FiscalGauge({ use }: { use: number }) {
       </div>
       <p className="ops-gauge-read">
         <strong>{formatPercent(use)}</strong>
-        <span>del tope K</span>
+        <span>del tope {category}</span>
       </p>
     </div>
   );
@@ -241,7 +240,7 @@ function PayoutChart({ parts }: { parts: SituationPart[] }) {
   );
 }
 
-export function Dashboard({ situation = demoSituation }: { situation?: Situation }) {
+export function Dashboard({ situation }: { situation: Situation }) {
   const use = fiscalUse(situation);
   const open = situation.deals.filter((deal) => deal.status !== "paid" && deal.status !== "void").length;
   const due = payoutDue(situation);
@@ -278,7 +277,7 @@ export function Dashboard({ situation = demoSituation }: { situation?: Situation
         <article>
           <p>Uso del tope</p>
           <strong>{formatPercent(use)}</strong>
-          <span>Tope K de referencia {formatArs(situation.fiscal.capArs)}</span>
+          <span>Tope {situation.fiscal.category} de referencia {formatArs(situation.fiscal.capArs)}</span>
         </article>
         <article>
           <p>Ventas abiertas</p>
@@ -300,8 +299,8 @@ export function Dashboard({ situation = demoSituation }: { situation?: Situation
         </section>
         <section className="ops-card">
           <h3>Tope de categoría</h3>
-          <FiscalGauge use={use} />
-          <p className="ops-note">El tope K es una referencia desde agosto de 2026. No es la categoría real del monotributo.</p>
+          <FiscalGauge use={use} category={situation.fiscal.category} />
+          <p className="ops-note">El tope {situation.fiscal.category} es el valor cargado en la base. No es la categoría real del monotributo.</p>
         </section>
       </div>
 

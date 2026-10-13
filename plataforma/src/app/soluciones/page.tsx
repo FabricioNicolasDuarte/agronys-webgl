@@ -1,12 +1,13 @@
-import { SolutionsView } from "@/components/site/section-views";
-import { SiteFrame } from "@/components/site/site-frame";
+import { SolutionsDoc } from "@/components/orbit/docs";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "Soluciones" };
+export const metadata = pageMeta({
+  title: "Soluciones",
+  description: "Productos, servicios y la tecnología que el establecimiento ya tiene.",
+  path: "/soluciones",
+  image: "/og/soluciones.jpg",
+});
 
 export default function SolucionesPage() {
-  return (
-    <SiteFrame theme="services">
-      <SolutionsView />
-    </SiteFrame>
-  );
+  return <SolutionsDoc />;
 }

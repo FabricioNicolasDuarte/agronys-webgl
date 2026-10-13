@@ -42,6 +42,49 @@ function makeStars(count: number): Star[] {
 
 const STARS = makeStars(280);
 
+function drawSatellite(
+  ctx: CanvasRenderingContext2D,
+  time: number,
+  w: number,
+  h: number,
+  sky: HTMLElement,
+) {
+  const portal = sky.parentElement;
+  if (portal?.getAttribute("data-phase") !== "night") return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cycle = 62000;
+  const pass = 16000;
+  const t = time % cycle;
+  if (t > pass) return;
+  const u = t / pass;
+  const fade = Math.sin(u * Math.PI);
+  const x = (-0.04 + u * 1.08) * w;
+  const y = h * (0.13 + 0.045 * Math.sin(u * Math.PI));
+  const blink = 0.28 + 0.72 * Math.abs(Math.sin(time / 140));
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(-0.32);
+  ctx.strokeStyle = "#d7e6ff";
+  ctx.lineWidth = 1;
+  ctx.globalAlpha = 0.22 * fade;
+  ctx.beginPath();
+  ctx.moveTo(-12, 0);
+  ctx.lineTo(-3.2, 0);
+  ctx.moveTo(3.2, 0);
+  ctx.lineTo(12, 0);
+  ctx.stroke();
+  ctx.globalAlpha = 0.42 * fade;
+  ctx.fillStyle = "#f4f7fb";
+  ctx.fillRect(-2.1, -1.2, 4.2, 2.4);
+  ctx.globalAlpha = blink * fade * 0.9;
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(0, 0, 1.05, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+
 export function NightSky() {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -81,6 +124,7 @@ export function NightSky() {
         ctx.fill();
       }
       ctx.globalAlpha = 1;
+      drawSatellite(ctx, time, w, h, parent);
     }
 
     function loop(time: number) {

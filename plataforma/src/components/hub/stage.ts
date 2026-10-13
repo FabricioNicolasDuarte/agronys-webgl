@@ -20,14 +20,14 @@ type Layer = {
 };
 
 const LAYER_SHAPE: { id: LayerId; node: number | null; line: string }[] = [
-  { id: "ganaderia", node: 1, line: "/productos#sigag" },
-  { id: "vision", node: 2, line: "/productos#sigag" },
-  { id: "datos", node: 0, line: "/productos#nutrogan" },
-  { id: "agro", node: 3, line: "/productos#nutrogan" },
-  { id: "satelital", node: 5, line: "/productos#nutrogan" },
-  { id: "orquestacion", node: 4, line: "/productos#sigag" },
+  { id: "ganaderia", node: 1, line: "/productos/sigag" },
+  { id: "vision", node: 2, line: "/productos/sigag" },
+  { id: "datos", node: 0, line: "/productos/nutrogan" },
+  { id: "agro", node: 3, line: "/productos/nutrogan" },
+  { id: "satelital", node: 5, line: "/productos/nutrogan" },
+  { id: "orquestacion", node: 4, line: "/productos/sigag" },
   { id: "automat", node: null, line: "/servicios" },
-  { id: "dataeng", node: null, line: "/productos#precision" },
+  { id: "dataeng", node: null, line: "/productos/datagronys" },
   { id: "offline", node: null, line: "/servicios" },
 ];
 
@@ -180,7 +180,7 @@ function skyRgb() {
   if (wx === "drought") return { right: "220,170,90", left: "180,130,60" };
   if (phase === "night") return { right: "186,176,255", left: "120,170,255" };
   if (phase === "dusk" || phase === "dawn") return { right: "255,192,0", left: "255,150,70" };
-  return { right: "109,255,154", left: "73,236,253" };
+  return { right: "21,255,21", left: "131,203,235" };
 }
 
 function createConnectors(svg: SVGSVGElement) {
@@ -297,7 +297,7 @@ function updateTails(root: Element) {
   const origin = root.querySelector(".panel.is-hot .orb, .svc-btn.is-on");
   const box = svg.getBoundingClientRect();
   const maize = host?.classList.contains("is-maize");
-  const rgb = maize ? "109,255,154" : host?.classList.contains("is-cow") ? "73,236,253" : "255,192,0";
+  const rgb = maize ? "21,255,21" : host?.classList.contains("is-cow") ? "131,203,235" : "198,245,106";
   const folding = host?.dataset.fold === "1";
   svg.classList.toggle("is-live", Boolean(cards.length) && !folding);
   svg.classList.toggle("is-fold", folding);
@@ -405,7 +405,6 @@ function fillCascade(host: HTMLElement, layer: Layer, tone: string) {
     <article class="cascade-card"><span class="cascade-index">03</span><ul>${layer.facts.map((fact) => `<li>${fact}</li>`).join("")}</ul></article>
     <article class="cascade-card is-actions"><span class="cascade-index">04</span>
       <a class="demo-cta demo-cta--${tone}" href="${demo}" target="_blank" rel="noopener noreferrer">${copy.demo}</a>
-      <a class="demo-cta demo-cta--${tone}" href="${layer.line}">${copy.seeLine}</a>
       <button type="button" class="cascade-x" aria-label="${copy.close}">×</button>
     </article>`;
 }

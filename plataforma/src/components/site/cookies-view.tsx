@@ -1,5 +1,6 @@
 "use client";
 
+import { LegalBack } from "@/components/site/info-view";
 import { useLang, usePageTitle } from "@/components/site/lang-switch";
 import { CONTACT, MAIL } from "@/content/site";
 import { PAGES } from "@/i18n/pages";
@@ -20,8 +21,9 @@ export function CookiesView() {
   const copy = PAGES[useLang()].cookies;
   usePageTitle(copy.meta);
   return (
-    <>
-      <p className="eyebrow">{copy.eyebrow}</p>
+    <article className="legal-page">
+      <LegalBack />
+      <p className="orbit-kicker"><i />{copy.eyebrow}</p>
       <h1>{copy.h1}</h1>
       <div className="legal-grid">
         {copy.items.map((item, index) => (
@@ -34,6 +36,6 @@ export function CookiesView() {
           </article>
         ))}
       </div>
-    </>
+    </article>
   );
 }

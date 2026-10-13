@@ -1,6 +1,7 @@
 "use client";
 
 import { WhatsappLogo } from "@phosphor-icons/react";
+import { SectionFilm } from "@/components/orbit/section-film";
 import { useLang, usePageTitle } from "@/components/site/lang-switch";
 import { MAIL, WA } from "@/content/site";
 import { PAGES } from "@/i18n/pages";
@@ -119,8 +120,8 @@ export function ContactView({ mapSvg }: { mapSvg: string }) {
 
   return (
     <div className="contact-page">
-      <p className="eyebrow">{copy.eyebrow}</p>
-      <h1>{copy.h1}</h1>
+      <SectionFilm src="/orbit/films/contacto.mp4" poster="/orbit/films/contacto.jpg" kicker={copy.eyebrow} title={copy.h1} />
+      <div className="section-rest">
       <p className="lead">{copy.lead}</p>
       <div className="contact-actions">
         <a className="reach-btn" href={MAIL}>
@@ -153,6 +154,7 @@ export function ContactView({ mapSvg }: { mapSvg: string }) {
         <p className="presence-foot">{copy.foot}</p>
         <p className="presence-soon">{copy.soon}</p>
       </section>
+      </div>
     </div>
   );
 }

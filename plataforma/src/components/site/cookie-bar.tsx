@@ -27,19 +27,21 @@ export function CookieBar() {
         {copy.bar}{" "}
         <Link href="/cookies">{copy.more}</Link>.
       </p>
-      <button
-        type="button"
-        onClick={() => {
-          try {
-            localStorage.setItem(KEY, "1");
-          } catch {
-            /* el aviso se cierra igual */
-          }
-          setOpen(false);
-        }}
-      >
-        {copy.accept}
-      </button>
+      <div className="ask-actions">
+        <button
+          type="button"
+          onClick={() => {
+            try {
+              localStorage.setItem(KEY, "1");
+            } catch {
+              /* el aviso se cierra igual */
+            }
+            setOpen(false);
+          }}
+        >
+          {copy.accept}
+        </button>
+      </div>
     </div>
   );
 }

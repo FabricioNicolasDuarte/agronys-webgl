@@ -597,9 +597,34 @@
 .doc-portal .compare-chip {
   margin: 0;
   padding: 0.65rem 0.75rem;
+  border: 0;
   border-radius: 12px;
   color: var(--muted);
   background: rgba(255, 255, 255, 0.03);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.doc-portal .compare-chip.is-on {
+  color: #fff;
+  background: rgba(0, 254, 0, 0.18);
+}
+
+.doc-portal .compare-row button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.doc-portal .compare-row .is-dim { opacity: 0.28; }
+
+.doc-portal .compare-row .is-pick {
+  border-radius: 8px;
+  background: rgba(0, 254, 0, 0.14);
 }
 
 .doc-portal .compare-bridge {
@@ -698,7 +723,8 @@
   width: 0.85rem;
   height: 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1.5px solid rgba(244, 250, 246, 0.72);
+  background: transparent;
 }
 
 .doc-portal .cmp-mark.is-yes {
@@ -709,11 +735,14 @@
 
 .doc-portal .cmp-mark.is-mid {
   border-color: #ffc000;
-  background: transparent;
+  background: rgba(255, 192, 0, 0.55);
+  box-shadow: 0 0 8px rgba(255, 192, 0, 0.45);
 }
 
 .doc-portal .cmp-mark.is-no {
-  opacity: 0.35;
+  opacity: 1;
+  border-color: rgba(244, 250, 246, 0.55);
+  background: transparent;
 }
 
 .doc-portal .compare-close {

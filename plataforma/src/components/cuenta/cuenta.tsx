@@ -11,8 +11,11 @@ import {
   CurrencyCircleDollar,
   FileText,
   FolderOpen,
+  Buildings,
+  Gauge,
   HardDrives,
   Key,
+  Pulse,
   LinkSimple,
   List,
   Minus,
@@ -45,6 +48,10 @@ import { Alertas } from "@/components/cuenta/alerts-view";
 import { loadAlerts, type DeskAlert } from "@/components/cuenta/alerts";
 import { billingFor, isMarket, isParty, MARKET_LABEL, PARTY_LABEL, pesosFrom, type Market, type Party } from "@/lib/fiscal/billing";
 import { RecordFile } from "@/components/cuenta/record-file";
+import { FiscalDesk } from "@/components/cuenta/fiscal-desk";
+import { UsageDesk } from "@/components/cuenta/usage-desk";
+import { EstablishmentDesk } from "@/components/cuenta/establishment-desk";
+import { AgronysLogo, MarkLogo } from "@/components/orbit/logos";
 import { browserDb } from "@/lib/supabase";
 
 type Role = "superadmin" | "vendor" | "client";
@@ -98,6 +105,9 @@ const ICONS: Record<string, Icon> = {
   personas: UsersThree,
   productos: Package,
   infra: HardDrives,
+  fiscal: Gauge,
+  uso: Pulse,
+  establecimiento: Buildings,
   demos: PlayCircle,
   alertas: Bell,
   contratos: Package,
@@ -203,8 +213,8 @@ export function Cuenta() {
 
   useEffect(() => {
     if (!profile) return;
-    loadAlerts(db, profile.role).then(setAlerts);
-  }, [db, profile]);
+    loadAlerts(db, profile.role).then(setAlerts).catch(() => setAlerts([]));
+  }, [db, profile, mod]);
 
   if (!ready) return <main className="cuenta"><p className="muted">Abriendo la cuenta…</p></main>;
   if (bootError) return <main className="cuenta"><p className="err">{bootError}</p></main>;
@@ -244,8 +254,8 @@ export function Cuenta() {
       {navOpen ? <button type="button" className="shell-shade" aria-label="Cerrar menú" onClick={() => setNavOpen(false)} /> : null}
       <aside className="shell-side">
         <Link className="shell-brand" href="/" aria-label="Agronys">
-          <img className="shell-brand-full" src="/logos/logo-texto-blanco.svg" alt="" />
-          <img className="shell-brand-mark" src="/logos/logo-solo.svg" alt="" />
+          <span className="shell-brand-full"><AgronysLogo /></span>
+          <span className="shell-brand-mark"><MarkLogo /></span>
         </Link>
         <nav className="shell-nav" aria-label="Módulos de la cuenta">
           {groups.map((group) => (
@@ -293,7 +303,7 @@ export function Cuenta() {
           <button type="button" aria-label="Abrir menú" onClick={() => setNavOpen(true)}>
             <List size={22} weight="regular" aria-hidden="true" />
           </button>
-          <img src="/logos/logo-texto-blanco.svg" alt="Agronys" />
+          <span className="shell-bar-logo"><AgronysLogo /></span>
         </div>
         <section className={mod === "resumen" || mod === "guia" || mod === "personas" || mod === "productos" || mod === "proyectos" || mod === "panel" || mod === "alertas" ? "panel is-board" : "panel"}>
           <p className="sim-note">Los números salen de lo que está cargado en la base.</p>
@@ -305,6 +315,9 @@ export function Cuenta() {
           {mod === "guia" ? <Guia /> : null}
           {mod === "liquidaciones" ? <Liquidaciones db={db} profile={profile} /> : null}
           {mod === "infra" ? <Infra db={db} /> : null}
+          {mod === "fiscal" ? <FiscalDesk db={db} /> : null}
+          {mod === "uso" ? <UsageDesk db={db} /> : null}
+          {mod === "establecimiento" ? <EstablishmentDesk db={db} /> : null}
           {mod === "demos" ? <Demos db={db} profile={profile} /> : null}
           {mod === "contratos" ? <Contratos db={db} /> : null}
           {mod === "recibos" ? <Recibos db={db} /> : null}
@@ -344,6 +357,8 @@ function modulesFor(profile: Profile, collaborator: boolean): SideGroup[] {
         label: "Casa",
         items: [
           { id: "infra", name: "Infraestructura" },
+          { id: "fiscal", name: "Tope fiscal" },
+          { id: "uso", name: "Uso" },
           { id: "demos", name: "Demos" },
         ],
       },
@@ -356,6 +371,7 @@ function modulesFor(profile: Profile, collaborator: boolean): SideGroup[] {
         items: [
           { id: "panel", name: "Estado" },
           { id: "alertas", name: "Alertas" },
+          { id: "establecimiento", name: "Establecimiento" },
           { id: "contratos", name: "Mis productos" },
           { id: "recibos", name: "Mis comprobantes" },
           { id: "demos", name: "Demos" },
@@ -401,7 +417,7 @@ function Gate({ db, onIn }: { db: SupabaseClient; onIn: () => Promise<void> }) {
   return (
     <main className="cuenta">
       <form className="login" onSubmit={submit}>
-        <img className="login-logo" src="/logos/logo-texto-blanco.svg" alt="Agronys" />
+        <span className="login-logo"><AgronysLogo /></span>
         <h1>Entrar</h1>
         <label>
           Correo
@@ -413,7 +429,7 @@ function Gate({ db, onIn }: { db: SupabaseClient; onIn: () => Promise<void> }) {
         </label>
         {error ? <p className="err">{error}</p> : null}
         <button type="submit" disabled={pending}>{pending ? "Entrando…" : "Entrar"}</button>
-        <p className="muted">El alta la hace la casa. No hay registro público.</p>
+        <p className="muted">Sistema cerrado. Pedir credenciales a tu representante Agronys.</p>
       </form>
     </main>
   );

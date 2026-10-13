@@ -2,7 +2,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 
 export type DeskAlert = {
   id: string;
-  kind: "Demo" | "Venta" | "Reparto";
+  kind: "Demo" | "Venta" | "Reparto" | "Fiscal";
   title: string;
   text: string;
 };
@@ -12,7 +12,7 @@ const WINDOW_DAYS = 30;
 type Role = "superadmin" | "vendor" | "client";
 
 export async function loadAlerts(db: SupabaseClient, role: Role): Promise<DeskAlert[]> {
-  const [demos, products, orgs, deals, invoices, shares, contracts] = await Promise.all([
+  const [demos, products, orgs, deals, invoices, shares, contracts, namedDemos] = await Promise.all([
     db.from("demos").select("id, product_id, organization_id, expires_at"),
     db.from("products").select("id, name, kind"),
     db.from("organizations").select("id, legal_name"),
@@ -28,10 +28,14 @@ export async function loadAlerts(db: SupabaseClient, role: Role): Promise<DeskAl
     role === "client"
       ? db.from("client_contracts").select("product_id, product_name")
       : Promise.resolve({ data: [] as { product_id: string; product_name: string }[] }),
+    role === "client"
+      ? db.from("client_demos").select("product_id, product_name")
+      : Promise.resolve({ data: [] as { product_id: string; product_name: string }[] }),
   ]);
 
   const productName = new Map((products.data || []).map((row) => [row.id, row.name as string]));
   for (const row of contracts.data || []) productName.set(row.product_id, row.product_name);
+  for (const row of namedDemos.data || []) productName.set(row.product_id, row.product_name);
   const productKind = new Map((products.data || []).map((row) => [row.id, row.kind as string]));
   const orgName = new Map((orgs.data || []).map((row) => [row.id, row.legal_name as string]));
   const invoiced = new Set((invoices.data || []).map((row) => row.deal_id));
@@ -65,6 +69,21 @@ export async function loadAlerts(db: SupabaseClient, role: Role): Promise<DeskAl
       title: "Venta aceptada sin factura",
       text: `${product} para ${org} está aceptada y todavía no tiene factura.`,
     });
+  }
+
+  if (role === "superadmin") {
+    const fiscal = await db.rpc("fiscal_snapshot");
+    if (fiscal.error) throw new Error(fiscal.error.message);
+    const snap = (fiscal.data || [])[0] as { invoiced_ars: number; cap_ars: number; ratio: number; alert: boolean } | undefined;
+    if (snap?.alert) {
+      const pct = Math.round(Number(snap.ratio) * 1000) / 10;
+      alerts.push({
+        id: "fiscal-cap",
+        kind: "Fiscal",
+        title: "Tope de referencia",
+        text: `El facturado de 12 meses está en ${pct}% del tope cargado (ARS ${Number(snap.invoiced_ars).toLocaleString("es-AR")} de ${Number(snap.cap_ars).toLocaleString("es-AR")}). Es el tope de la tabla, no la categoría confirmada del titular.`,
+      });
+    }
   }
 
   const sums = new Map<string, number>();

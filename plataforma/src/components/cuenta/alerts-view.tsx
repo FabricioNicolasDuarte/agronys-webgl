@@ -15,7 +15,7 @@ export function Alertas({ alerts }: { alerts: DeskAlert[] }) {
           </div>
           <p className="ops-asof">{month}</p>
         </div>
-        <p className="ops-note">Avisos de lo que está cargado: una demo que vence en 30 días, una venta aceptada sin factura, o un reparto que no suma 100. No hay otros avisos.</p>
+        <p className="ops-note">Avisos de lo que está cargado: una demo que vence en 30 días, una venta aceptada sin factura, un reparto que no suma 100, o el tope fiscal de referencia. No hay otros avisos.</p>
       </header>
       {alerts.length ? (
         <ul className="ops-alerts is-stack">
@@ -30,7 +30,7 @@ export function Alertas({ alerts }: { alerts: DeskAlert[] }) {
       ) : (
         <section className="ops-card">
           <h3>Nada para avisar</h3>
-          <p className="ops-note">Con lo que podés ver, no hay una demo por vencer, una venta aceptada sin factura ni un reparto incompleto.</p>
+          <p className="ops-note">Con lo que podés ver, no hay una demo por vencer, una venta aceptada sin factura, un reparto incompleto ni el tope fiscal alcanzado.</p>
         </section>
       )}
     </div>

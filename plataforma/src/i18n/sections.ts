@@ -131,7 +131,7 @@ const es: SectionPack = {
       { title: "Servicios de software", text: "Desarrollo, datos, producción, territorio y acompañamiento. No se limitan a lo que hacen Nutrogan, SIGAG y Datagronys." },
       { title: "Tecnología del cliente", text: "Drones, sensores, balanzas, mangas, cercos, bombas y monitores que el establecimiento ya dispone se conectan a la solución." },
     ],
-    note: "Cada proyecto define qué se construye, qué se conecta y qué queda afuera. Esta página no publica rendimientos.",
+    note: "Cada proyecto define qué se construye, qué se conecta y qué queda afuera.",
     cta: "Solicitar una presentación",
   },
   method: {
@@ -188,7 +188,7 @@ const en: SectionPack = {
       { title: "Software services", text: "Development, data, production, territory and support. They are not limited to what Nutrogan, SIGAG and Datagronys do." },
       { title: "The client’s technology", text: "Drones, sensors, scales, yards, fences, pumps and monitors the property already owns are connected to the solution." },
     ],
-    note: "Each project defines what is built, what is connected and what is left out. This page does not publish yields.",
+    note: "Each project defines what is built, what is connected and what is left out.",
     cta: "Request a presentation",
   },
   method: {
@@ -288,7 +288,7 @@ const pt: SectionPack = {
       { title: "Serviços de software", text: "Desenvolvimento, dados, produção, território e acompanhamento. Não se limitam ao que fazem Nutrogan, SIGAG e Datagronys." },
       { title: "Tecnologia do cliente", text: "Drones, sensores, balanças, mangas, cercas, bombas e monitores que o estabelecimento já possui são conectados à solução." },
     ],
-    note: "Cada projeto define o que se constrói, o que se conecta e o que fica de fora. Esta página não publica rendimentos.",
+    note: "Cada projeto define o que se constrói, o que se conecta e o que fica de fora.",
     cta: "Solicitar uma apresentação",
   },
   method: {
@@ -399,7 +399,7 @@ const zh: SectionPack = {
       { title: "软件服务", text: "开发、数据、生产、土地和支持。不限于 Nutrogan、SIGAG 和 Datagronys 所做的事。" },
       { title: "客户已有的技术", text: "牧场已经拥有的无人机、传感器、称重、通道、围栏、水泵和机械监视器，接入解决方案。" },
     ],
-    note: "每个项目约定建造什么、连接什么、排除什么。本页不公布产量。",
+    note: "每个项目约定建造什么、连接什么、排除什么。",
     cta: "申请一次介绍",
   },
   method: {

@@ -40,7 +40,7 @@ const DOC: Record<string, string> = {
 
 type Contract = { id: string; product_id: string; product_name: string; status: string; sold_price_usd: number | null };
 type Receipt = { id: string; kind: string; number: number; amount_ars: number | string; paid_at: string };
-type Demo = { id: string; product_id: string; expires_at: string };
+type Demo = { id: string; product_id: string; product_name: string; expires_at: string };
 
 function useTone() {
   const [tone, setTone] = useState(TONE);
@@ -86,7 +86,7 @@ export function ClientDesk({ db }: { db: SupabaseClient }) {
     Promise.all([
       db.from("client_contracts").select("id, product_id, product_name, status, sold_price_usd"),
       db.from("client_receipts").select("id, kind, number, amount_ars, paid_at"),
-      db.from("demos").select("id, product_id, expires_at"),
+      db.from("client_demos").select("id, product_id, product_name, expires_at"),
     ]).then(([contracts, receipts, demos]) => {
       setRows({
         contracts: contracts.data || [],
@@ -98,7 +98,6 @@ export function ClientDesk({ db }: { db: SupabaseClient }) {
 
   if (!rows) return <p className="muted">Cargando…</p>;
 
-  const names = new Map(rows.contracts.map((row) => [row.product_id, row.product_name]));
   const paid = rows.contracts.filter((row) => row.status === "paid").length;
   const open = rows.contracts.length - paid;
   const covered = rows.contracts.length ? Math.round((paid / rows.contracts.length) * 1000) / 10 : 0;
@@ -116,13 +115,13 @@ export function ClientDesk({ db }: { db: SupabaseClient }) {
     .map((row) => ({ name: `${DOC[row.kind] || row.kind} ${row.number}`, ars: Number(row.amount_ars) }));
 
   const alerts = [
-    rows.demos.length
-      ? {
+    ...(rows.demos.length
+      ? [{
           title: rows.demos.length === 1 ? "1 demo habilitada" : `${rows.demos.length} demos habilitadas`,
-          text: rows.demos.map((demo) => `${names.get(demo.product_id) || "Producto"} hasta el ${new Date(demo.expires_at).toLocaleDateString("es-AR")}`).join(". "),
+          text: rows.demos.map((demo) => `${demo.product_name} hasta el ${new Date(demo.expires_at).toLocaleDateString("es-AR")}`).join(". "),
           attention: true,
-        }
-      : { title: "Sin demos", text: "No hay una demo habilitada para tu establecimiento.", attention: false },
+        }]
+      : []),
     open
       ? { title: open === 1 ? "1 producto sin cobrar" : `${open} productos sin cobrar`, text: "El comprobante aparece cuando el pago quedó registrado.", attention: false }
       : { title: "Productos cobrados", text: rows.contracts.length ? "Los productos de tu cuenta están cobrados." : "Todavía no hay un producto en tu cuenta.", attention: false },

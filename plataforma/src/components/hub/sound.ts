@@ -5,67 +5,40 @@ function context() {
   return ctx;
 }
 
-function tick(ac: AudioContext, now: number, freq: number, peak: number, seconds: number) {
-  const frames = Math.max(1, Math.floor(ac.sampleRate * seconds));
-  const buffer = ac.createBuffer(1, frames, ac.sampleRate);
-  const data = buffer.getChannelData(0);
-  for (let i = 0; i < data.length; i += 1) data[i] = Math.random() * 2 - 1;
-  const noise = ac.createBufferSource();
-  noise.buffer = buffer;
-  const filter = ac.createBiquadFilter();
-  filter.type = "highpass";
-  filter.frequency.value = freq;
-  filter.Q.value = 0.7;
-  const gain = ac.createGain();
-  gain.gain.setValueAtTime(peak, now);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + seconds);
-  noise.connect(filter);
-  filter.connect(gain);
-  gain.connect(ac.destination);
-  noise.start(now);
-  noise.stop(now + seconds);
-}
-
-function body(ac: AudioContext, now: number, start: number, end: number, peak: number, seconds: number) {
-  const osc = ac.createOscillator();
-  osc.type = "sine";
-  osc.frequency.setValueAtTime(start, now);
-  osc.frequency.exponentialRampToValueAtTime(Math.max(40, end), now + seconds * 0.55);
-  const filter = ac.createBiquadFilter();
-  filter.type = "lowpass";
-  filter.frequency.value = 900;
+function tap(ac: AudioContext, down: boolean) {
+  const now = ac.currentTime;
   const gain = ac.createGain();
   gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(peak, now + 0.006);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + seconds);
-  osc.connect(filter);
-  filter.connect(gain);
+  gain.gain.exponentialRampToValueAtTime(down ? 0.032 : 0.045, now + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + (down ? 0.11 : 0.14));
   gain.connect(ac.destination);
-  osc.start(now);
-  osc.stop(now + seconds + 0.02);
+  const base = down ? 420 : 640;
+  [base, base * 1.5].forEach((freq, i) => {
+    const osc = ac.createOscillator();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(freq, now);
+    osc.frequency.exponentialRampToValueAtTime(freq * (down ? 0.86 : 1.12), now + 0.08);
+    osc.connect(gain);
+    osc.start(now + i * 0.018);
+    osc.stop(now + 0.16);
+  });
 }
 
-function play(open: boolean) {
+function play(down: boolean) {
   try {
     const ac = context();
-    if (ac.state === "suspended") void ac.resume();
-    const now = ac.currentTime;
-    if (open) {
-      tick(ac, now, 1800, 0.03, 0.018);
-      body(ac, now, 210, 246, 0.04, 0.09);
-      return;
-    }
-    tick(ac, now, 900, 0.02, 0.016);
-    body(ac, now, 196, 148, 0.032, 0.11);
+    const start = () => tap(ac, down);
+    if (ac.state === "running") start();
+    else void ac.resume().then(start);
   } catch {
     /* sin audio */
   }
 }
 
 export function playOpen() {
-  play(true);
+  play(false);
 }
 
 export function playClose() {
-  play(false);
+  play(true);
 }

@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import { CookieBar } from "@/components/site/cookie-bar";
+import { Soundscape } from "@/components/site/soundscape";
 import { PlaceBar } from "@/components/hub/place-bar";
+import { organizationJsonLd, SITE } from "@/lib/seo";
 import "../styles/agronys.css";
 import "../styles/sky.css";
 import "../styles/sections.css";
@@ -13,9 +15,9 @@ const plex = IBM_Plex_Sans({
   variable: "--font-plex",
 });
 
-const site = "https://agronys.com";
+const site = SITE;
 const description =
-  "La mejor forma de ver su campo. Rodeo, pasto y capital en un solo lugar: decida a tiempo, reduzca recorridos y controle el resultado de la campaña.";
+  "Agronys desarrolla y comercializa software, datos e integración para el establecimiento. Nutrogan, SIGAG y Datagronys son tres de sus productos.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
@@ -27,7 +29,6 @@ export const metadata: Metadata = {
   applicationName: "Agronys",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.png", type: "image/png", sizes: "512x512" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Agronys — la mejor forma de ver tu campo",
+        alt: "Agronys. Tu operación. Nuestro sistema. Vos lo operás.",
       },
     ],
   },
@@ -57,13 +58,19 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0c0e0d",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={plex.variable}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         {children}
         <PlaceBar />
         <CookieBar />
+        <Soundscape />
       </body>
     </html>
   );

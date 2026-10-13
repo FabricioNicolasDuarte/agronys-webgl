@@ -72,6 +72,7 @@ export function LangSwitch() {
       <div className="lang-menu" role="group" aria-label={copy.langLabel}>
         {LANGS.map((item) => (
           <button
+            suppressHydrationWarning
             key={item.id}
             type="button"
             data-lang={item.id}

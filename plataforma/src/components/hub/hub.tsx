@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
 import { mountStage } from "@/components/hub/stage";
 import { NightSky } from "@/components/hub/night-sky";
@@ -8,8 +7,7 @@ import { WeatherFx } from "@/components/hub/weather-fx";
 import { PLACE_EVENT, PLACE_KEY } from "@/components/hub/place-bar";
 import { getSkyOverride, subscribeSky, type SkyWx } from "@/components/hub/sky-lab";
 import { applyChrome, bootLang, getCopy, isLocating, subscribeLang, type TipId } from "@/i18n/lang";
-import { DockLinks, LangSwitch } from "@/components/site/lang-switch";
-import { InfoMenu } from "@/components/site/site-notch";
+import { ClimaTools } from "@/components/hub/clima-search";
 
 type Forecast = {
   temperature_2m: number;
@@ -67,16 +65,19 @@ function seasonOf(date: Date, latitude: number): Season {
   return flip[north];
 }
 
-function localHour(date: Date, timeZone: string) {
-  const part = new Intl.DateTimeFormat("en-US", {
+function localClock(date: Date, timeZone: string) {
+  const parts = new Intl.DateTimeFormat("en-US", {
     timeZone,
     hour: "numeric",
+    minute: "numeric",
     hourCycle: "h23",
-  })
-    .formatToParts(date)
-    .find((item) => item.type === "hour");
-  const hour = Number(part?.value);
-  return Number.isFinite(hour) ? hour % 24 : 12;
+  }).formatToParts(date);
+  const hour = Number(parts.find((item) => item.type === "hour")?.value);
+  const minute = Number(parts.find((item) => item.type === "minute")?.value);
+  return {
+    hour: Number.isFinite(hour) ? hour % 24 : 12,
+    minute: Number.isFinite(minute) ? minute % 60 : 0,
+  };
 }
 
 function dateAtLocalHour(hour: number, timeZone: string) {
@@ -166,6 +167,11 @@ function phenomenon(now: Forecast) {
   return "clear";
 }
 
+function Glyph({ src }: { src: string }) {
+  const mask = `url("${src}")`;
+  return <span className="glyph" style={{ maskImage: mask, WebkitMaskImage: mask }} aria-hidden="true" />;
+}
+
 export function Hub() {
   useEffect(() => {
     const root = document.querySelector<HTMLElement>("[data-stage]");
@@ -241,11 +247,12 @@ export function Hub() {
       root.style.setProperty("--star", sun.elev < 3 ? Math.min(1, (3 - sun.elev) / 12).toFixed(2) : "0");
       root.style.setProperty("--sway", `${sway}deg`);
       root.style.setProperty("--sway-time", `${sway > 4 ? 2.3 : phase === "night" ? 8.5 : 6}s`);
-      const hour = localHour(date, zone);
+      const clockNow = localClock(date, zone);
+      const minuteOfDay = clockNow.hour * 60 + clockNow.minute;
       root.dataset.phase = phase;
       root.dataset.season = season;
       root.dataset.wx = wx;
-      root.dataset.rest = hour >= 23 || hour < 5 ? "1" : "0";
+      root.dataset.rest = minuteOfDay >= 21 * 60 + 30 || minuteOfDay < 5 * 60 ? "1" : "0";
       root.dataset.sky = wx === "clear" ? phase : wx;
       const copy = getCopy();
       const clock = date.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: zone });
@@ -408,7 +415,7 @@ export function Hub() {
   }, []);
 
   return (
-    <div className="portal" data-stage="">
+    <div className="portal is-page" data-stage="">
       <div className="field" aria-hidden="true" />
       <div className="soil" aria-hidden="true" />
       <NightSky />
@@ -417,24 +424,11 @@ export function Hub() {
       <svg id="leads" className="leads" aria-hidden="true" />
       <svg id="tails" className="tails" aria-hidden="true" />
       <div id="ui">
-        <header className="topbar">
-          <p className="brand">
-            <Link href="/">
-              <img className="brand-logo" src="/logos/logo-texto-blanco.svg" alt="Agronys" />
-            </Link>
-          </p>
-          <div className="top-actions">
-            <LangSwitch />
-            <Link className="profile" href="/entrar" aria-label="Cuenta">
-              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-                <circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M5 19c1.2-3.2 3.8-5 7-5s5.8 1.8 7 5" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-            </Link>
-          </div>
-        </header>
         <aside className="clima" aria-label="Clima y recomendación">
-          <p className="clima-place">Ubicando…</p>
+          <div className="clima-head">
+            <p className="clima-place">Ubicando…</p>
+            <ClimaTools />
+          </div>
           <div className="clima-meta">
             <span className="clima-time">—</span>
             <span className="clima-phase">—</span>
@@ -458,13 +452,13 @@ export function Hub() {
           </div>
           <div className="col col-left">
             <button type="button" className="panel" data-layer="vision" aria-label="La cámara mira el animal">
-              <span className="orb" data-node="2"><img src="/icons/vision.svg" alt="" width={22} height={22} /></span>
+              <span className="orb" data-node="2"><Glyph src="/icons/vision.svg" /></span>
             </button>
             <button type="button" className="panel" data-layer="ganaderia" aria-label="Todo el rodeo, en un solo lugar">
-              <span className="orb" data-node="1"><img src="/icons/ganaderia.svg" alt="" width={22} height={22} /></span>
+              <span className="orb" data-node="1"><Glyph src="/icons/ganaderia.svg" /></span>
             </button>
             <button type="button" className="panel" data-layer="orquestacion" aria-label="Te avisa a tiempo">
-              <span className="orb" data-node="4"><img src="/icons/orquestacion.svg" alt="" width={22} height={22} /></span>
+              <span className="orb" data-node="4"><Glyph src="/icons/orquestacion.svg" /></span>
             </button>
           </div>
           <div className="hub">
@@ -475,23 +469,17 @@ export function Hub() {
           </div>
           <div className="col col-right">
             <button type="button" className="panel" data-layer="satelital" aria-label="El pasto, visto desde arriba">
-              <span className="orb" data-node="5"><img src="/icons/satelital.svg" alt="" width={22} height={22} /></span>
+              <span className="orb" data-node="5"><Glyph src="/icons/satelital.svg" /></span>
             </button>
             <button type="button" className="panel" data-layer="agro" aria-label="Qué potrero rinde">
-              <span className="orb" data-node="3"><img src="/icons/agro.svg" alt="" width={22} height={22} /></span>
+              <span className="orb" data-node="3"><Glyph src="/icons/agro.svg" /></span>
             </button>
             <button type="button" className="panel" data-layer="datos" aria-label="Anotá el día en el lote">
-              <span className="orb" data-node="0"><img src="/icons/datos.svg" alt="" width={22} height={22} /></span>
+              <span className="orb" data-node="0"><Glyph src="/icons/datos.svg" /></span>
             </button>
           </div>
         </main>
 
-        <div className="bottom-bar">
-          <nav className="dock" aria-label="Secciones del sitio">
-            <DockLinks />
-            <InfoMenu place="dock" />
-          </nav>
-        </div>
       </div>
       <div id="cascade" className="cascade" hidden />
     </div>

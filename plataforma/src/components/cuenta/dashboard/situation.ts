@@ -24,7 +24,7 @@ export type SituationPart = {
 export type Situation = {
   asOf: string;
   source: string;
-  fiscal: { invoicedArs: number; capArs: number };
+  fiscal: { invoicedArs: number; capArs: number; category: string };
   deals: SituationDeal[];
   parts: SituationPart[];
   infraUsd: number;
@@ -93,63 +93,10 @@ export function situationAlerts(situation: Situation): SituationAlert[] {
   alerts.push({
     tone: "quiet",
     title: "Tope de categoría",
-    text: `El facturado usa ${formatPercent(fiscalUse(situation))} del tope K de referencia. No es la categoría real del monotributo.`,
+    text: `El facturado usa ${formatPercent(fiscalUse(situation))} del tope ${situation.fiscal.category} de referencia. No es la categoría real del monotributo.`,
   });
   return alerts;
 }
-
-/** Libros de la semilla local. El tipo de cambio 1400 es de demostración, no el del Banco Nación. */
-export const demoSituation: Situation = {
-  asOf: "Octubre 2026",
-  source: "Estas cifras salen de las facturas, las ventas y las liquidaciones guardadas.",
-  fiscal: { invoicedArs: 19_600_000, capArs: 126_610_838.75 },
-  infraUsd: 150,
-  invoices: [
-    { label: "Nutrogan", ars: 5_600_000, usd: 4_000 },
-    { label: "SIGAG", ars: 5_600_000, usd: 4_000 },
-    { label: "App Norte", ars: 8_400_000, usd: 6_000 },
-  ],
-  parts: [
-    { payee: "Vendedor Demo", kind: "sales_commission", usd: 1_000 },
-    { payee: "Fabricio Duarte", kind: "dev_split", usd: 2_000 },
-    { payee: "Colaborador Demo", kind: "dev_split", usd: 2_000 },
-    { payee: "Socio Demo", kind: "dev_split", usd: 2_000 },
-  ],
-  deals: [
-    {
-      id: "nutrogan",
-      product: "Nutrogan",
-      organization: "Estancia Demo",
-      status: "paid",
-      soldUsd: 4000,
-      reading: "Comisión del vendedor, USD 1.000",
-    },
-    {
-      id: "sigag",
-      product: "SIGAG",
-      organization: "Estancia Demo",
-      status: "paid",
-      soldUsd: 4000,
-      reading: "Venta del superadmin. El vendedor no la ve.",
-    },
-    {
-      id: "app-norte",
-      product: "App Norte",
-      organization: "Estancia Demo",
-      status: "paid",
-      soldUsd: 6000,
-      reading: "Co-desarrollo en tres partes, según el porcentaje de cada uno",
-    },
-    {
-      id: "potrero",
-      product: "Potrero",
-      organization: "Estancia Demo",
-      status: "assigned",
-      soldUsd: null,
-      reading: "Asignada. Sin precio de venta ni factura.",
-    },
-  ],
-};
 
 export const STATUS_LABEL: Record<DealStatus, string> = {
   draft: "Borrador",

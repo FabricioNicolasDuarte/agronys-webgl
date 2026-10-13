@@ -1,12 +1,14 @@
-import { MethodView } from "@/components/site/section-views";
-import { SiteFrame } from "@/components/site/site-frame";
+import { SolutionDoc } from "@/components/orbit/solution";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "Método" };
+export const metadata = pageMeta({
+  title: "Solución",
+  description:
+    "Primero se entiende la operación y la tecnología que ya existe. Después se define si corresponde un producto, un desarrollo o una integración.",
+  path: "/metodo",
+  image: "/og/solucion.jpg",
+});
 
 export default function MetodoPage() {
-  return (
-    <SiteFrame theme="approach">
-      <MethodView />
-    </SiteFrame>
-  );
+  return <SolutionDoc />;
 }
