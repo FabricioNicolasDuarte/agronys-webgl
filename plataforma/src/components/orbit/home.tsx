@@ -53,8 +53,17 @@ function mix(from: Spot, to: Spot, ease: number): Spot {
   };
 }
 
-function introFrame(ease: number): Flight {
-  return { ...mix(spot("full"), spot("mid"), ease), settled: false, intro: ease, shrink: 0 };
+function introFrame(ease: number, toCorner: boolean): Flight {
+  return {
+    ...mix(spot("full"), spot(toCorner ? "corner" : "mid"), ease),
+    settled: toCorner && ease > 0.97,
+    intro: ease,
+    shrink: 0,
+  };
+}
+
+function isPhone() {
+  return window.matchMedia("(max-width: 760px)").matches;
 }
 
 function scrollFrame(progress: number): Flight {
@@ -80,8 +89,17 @@ export function OrbitHome() {
   const [tab, setTab] = useState(0);
   const [paused, setPaused] = useState(false);
   const [overDark, setOverDark] = useState(false);
+  const [phone, setPhone] = useState(false);
   const stagePhoto = useRef<HTMLDivElement>(null);
   const introDone = useRef(false);
+
+  useLayoutEffect(() => {
+    const mq = window.matchMedia("(max-width: 760px)");
+    const apply = () => setPhone(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
 
   useLayoutEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -90,8 +108,13 @@ export function OrbitHome() {
       setFlight({ ...spot("corner"), settled: true, intro: 1, shrink: 1 });
       return;
     }
+    const toCorner = isPhone();
     if (window.scrollY > 24 && pin.current) {
       introDone.current = true;
+      if (toCorner) {
+        setFlight({ ...spot("corner"), settled: true, intro: 1, shrink: 0 });
+        return;
+      }
       const total = pin.current.offsetHeight - window.innerHeight;
       const passed = Math.min(Math.max(-pin.current.getBoundingClientRect().top, 0), Math.max(total, 0));
       setFlight(scrollFrame(total > 0 ? passed / total : 0));
@@ -106,10 +129,10 @@ export function OrbitHome() {
       const ease = 1 - (1 - moved) ** 3;
       if (t >= 1) {
         introDone.current = true;
-        setFlight(introFrame(1));
+        setFlight(introFrame(1, toCorner));
         return;
       }
-      setFlight(introFrame(ease));
+      setFlight(introFrame(ease, toCorner));
       frame = requestAnimationFrame(tick);
     };
     setFlight(introFrame(0));
@@ -131,9 +154,12 @@ export function OrbitHome() {
       const passed = Math.min(Math.max(-node.getBoundingClientRect().top, 0), Math.max(total, 0));
       const p = total > 0 ? passed / total : 0;
       setProgress(p);
-      if (introDone.current) setFlight(scrollFrame(p));
+      const narrow = isPhone();
+      if (introDone.current) {
+        setFlight(narrow ? { ...spot("corner"), settled: true, intro: 1, shrink: 0 } : scrollFrame(p));
+      }
       const media = film.current;
-      if (media?.duration) {
+      if (media?.duration && !narrow) {
         const clip = Math.min(1, p / 0.82);
         wantTime.current = clip * Math.max(0, media.duration - 1 / 24);
         if (!seeking.current && Math.abs(media.currentTime - wantTime.current) > 1 / 48) {
@@ -195,17 +221,17 @@ export function OrbitHome() {
     });
   }, [tab]);
 
-  const t = Math.min(1, Math.max(0, (progress - 0.78) / 0.22));
-  const wash = Math.min(1, Math.max(0, (progress - 0.8) / 0.16));
+  const t = phone ? 0 : Math.min(1, Math.max(0, (progress - 0.78) / 0.22));
+  const wash = phone ? 0 : Math.min(1, Math.max(0, (progress - 0.8) / 0.16));
   const tone = Math.round(5 + (243 - 5) * wash);
-  const theme = overDark || progress <= 0.82 ? "dark" : "light";
+  const theme = overDark || progress <= (phone ? 0.98 : 0.82) ? "dark" : "light";
   const intro = flight?.intro ?? 0;
   const opening = intro < 0.995;
-  const wordLight = progress > 0.84;
+  const wordLight = !phone && progress > 0.84;
 
   return (
     <div className={`${orbitClass(lang)} orbit${opening ? " is-intro" : ""}`}>
-      <Nav theme={theme} hidden={progress < 0.06} settled={flight?.settled ?? false} />
+      <Nav theme={theme} hidden={phone ? false : progress < 0.06} settled={flight?.settled ?? false} />
       <section className="orbit-pin" ref={pin}>
         <div className="orbit-sticky" style={{ background: `rgb(${tone} ${tone} ${tone})` }}>
           <div className="orbit-ticks" style={{ opacity: (opening ? intro : 1) * (1 - wash) }} />
@@ -250,11 +276,19 @@ export function OrbitHome() {
                 src="/orbit/hero.mp4?v=4"
                 poster="/orbit/hero-poster.jpg?v=4"
                 muted
+                loop
                 playsInline
                 preload="auto"
                 aria-label={copy.heroAlt}
                 style={opening ? { filter: `blur(${(1 - intro) * 22}px)` } : undefined}
-                onLoadedData={(event) => event.currentTarget.pause()}
+                onLoadedData={(event) => {
+                  const media = event.currentTarget;
+                  if (window.matchMedia("(max-width: 760px)").matches) {
+                    media.play().catch(() => {});
+                    return;
+                  }
+                  media.pause();
+                }}
                 onSeeked={(event) => {
                   const media = event.currentTarget;
                   if (Math.abs(media.currentTime - wantTime.current) > 1 / 48) {
