@@ -92,7 +92,7 @@ const groupsEs: Group[] = [
     ],
   },
   {
-    title: "Acompañamiento",
+    title: "Acompaña\u00ADmiento",
     lines: [
       { title: "Relevamiento", text: "Se define qué corresponde construir, conectar o dejar afuera." },
       { title: "Capacitación", text: "El equipo queda en condiciones de operar la solución." },
@@ -150,7 +150,7 @@ const es: SectionPack = {
   solutions: {
     meta: "Soluciones · Agronys",
     eyebrow: "Soluciones",
-    h1: "Productos, servicios y la tecnología que el establecimiento ya tiene.",
+    h1: "Productos, servicios y la tecnología que el estable\u00ADcimiento ya tiene.",
     lead: "Agronys comercializa soluciones tecnológicas. Los productos tienen nombre. Los servicios cubren el trabajo de una empresa de software para el agro. El equipo de campo del cliente se integra: no hace falta reemplazarlo para empezar.",
     productsTitle: "Productos",
     productsLead: "Software con nombre propio, de la empresa.",
@@ -207,7 +207,7 @@ const en: SectionPack = {
   solutions: {
     meta: "Solutions · Agronys",
     eyebrow: "Solutions",
-    h1: "Products, services, and the technology the establishment already owns.",
+    h1: "Products, services, and the technology the establish\u00ADment already owns.",
     lead: "Agronys sells technology solutions. Products have names. Services cover the work of a software company for agriculture. The client’s field equipment is integrated: it does not have to be replaced to begin.",
     productsTitle: "Products",
     productsLead: "Named software, from the company.",
@@ -307,7 +307,7 @@ const pt: SectionPack = {
   solutions: {
     meta: "Soluções · Agronys",
     eyebrow: "Soluções",
-    h1: "Produtos, serviços e a tecnologia que o estabelecimento já possui.",
+    h1: "Produtos, serviços e a tecnologia que o estabele\u00ADcimento já possui.",
     lead: "A Agronys comercializa soluções tecnológicas. Os produtos têm nome. Os serviços cobrem o trabalho de uma empresa de software para o agro. O equipamento do cliente se integra: não é preciso substituí-lo para começar.",
     productsTitle: "Produtos",
     productsLead: "Software com nome próprio, da empresa.",
@@ -315,7 +315,7 @@ const pt: SectionPack = {
     servicesTitle: "Serviços",
     servicesLead: "O que a empresa pode desenvolver, integrar ou acompanhar. Não é o manual de um único produto.",
     groups: groupsEs.map((group, index) => ({
-      title: ["Software", "Dados", "Produção", "Território", "Acompanhamento"][index],
+      title: ["Software", "Dados", "Produção", "Território", "Acompanha\u00ADmento"][index],
       lines: group.lines.map((line, lineIndex) => ptLine(index, lineIndex, line)),
     })),
     linkTitle: "Tecnologia que o cliente já possui",

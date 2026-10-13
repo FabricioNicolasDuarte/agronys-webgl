@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ORBIT, presentationHref } from "@/components/orbit/copy";
 import { orbitClass } from "@/components/orbit/font";
 import { WireGlobe } from "@/components/orbit/globe";
+import { playLogoFlight } from "@/components/orbit/logo-flight-sound";
 import { AgronysLogo } from "@/components/orbit/logos";
 import { FieldVideo } from "@/components/orbit/section-film";
 import { Clock, Footer, Nav, PlaceMark, Rich } from "@/components/orbit/shell";
@@ -102,24 +103,21 @@ export function OrbitHome() {
   }, []);
 
   useLayoutEffect(() => {
+    const phoneNow = isPhone();
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       introDone.current = true;
       setFlight({ ...spot("corner"), settled: true, intro: 1, shrink: 1 });
       return;
     }
-    const toCorner = isPhone();
-    if (window.scrollY > 24 && pin.current) {
+    if (!phoneNow && window.scrollY > 24 && pin.current) {
       introDone.current = true;
-      if (toCorner) {
-        setFlight({ ...spot("corner"), settled: true, intro: 1, shrink: 0 });
-        return;
-      }
       const total = pin.current.offsetHeight - window.innerHeight;
       const passed = Math.min(Math.max(-pin.current.getBoundingClientRect().top, 0), Math.max(total, 0));
       setFlight(scrollFrame(total > 0 ? passed / total : 0));
       return;
     }
+    const stopSound = phoneNow ? playLogoFlight() : () => {};
     let start = 0;
     let frame = 0;
     const tick = (now: number) => {
@@ -129,15 +127,18 @@ export function OrbitHome() {
       const ease = 1 - (1 - moved) ** 3;
       if (t >= 1) {
         introDone.current = true;
-        setFlight(introFrame(1, toCorner));
+        setFlight(introFrame(1, phoneNow));
         return;
       }
-      setFlight(introFrame(ease, toCorner));
+      setFlight(introFrame(ease, phoneNow));
       frame = requestAnimationFrame(tick);
     };
-    setFlight(introFrame(0));
+    setFlight(introFrame(0, phoneNow));
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(frame);
+      stopSound();
+    };
   }, []);
 
   useEffect(() => {
@@ -230,8 +231,8 @@ export function OrbitHome() {
   const wordLight = !phone && progress > 0.84;
 
   return (
-    <div className={`${orbitClass(lang)} orbit${opening ? " is-intro" : ""}`}>
-      <Nav theme={theme} hidden={phone ? false : progress < 0.06} settled={flight?.settled ?? false} />
+    <div className={`${orbitClass(lang)} orbit${phone ? " is-phone" : ""}${opening ? " is-intro" : ""}`}>
+      <Nav theme={theme} hidden={phone ? !(flight?.settled ?? false) : progress < 0.06} settled={flight?.settled ?? false} />
       <section className="orbit-pin" ref={pin}>
         <div className="orbit-sticky" style={{ background: `rgb(${tone} ${tone} ${tone})` }}>
           <div className="orbit-ticks" style={{ opacity: (opening ? intro : 1) * (1 - wash) }} />
@@ -255,10 +256,17 @@ export function OrbitHome() {
           >
             <AgronysLogo />
           </h1>
-          <p className="orbit-by" style={{ opacity: opening ? 0 : Math.max(0, 1 - (flight?.shrink ?? 0) * 1.35) }}>
-            <span>{copy.designed}</span>
-            <span>{copy.operated}</span>
-          </p>
+          {phone ? (
+            <p className="orbit-phone-line">
+              <span>{copy.designed}.</span>
+              <span>{copy.operated}.</span>
+            </p>
+          ) : (
+            <p className="orbit-by" style={{ opacity: opening ? 0 : Math.max(0, 1 - (flight?.shrink ?? 0) * 1.35) }}>
+              <span>{copy.designed}</span>
+              <span>{copy.operated}</span>
+            </p>
+          )}
           <figure
             className="orbit-hero-frame"
             style={{
@@ -273,8 +281,8 @@ export function OrbitHome() {
               <video
                 ref={film}
                 className="orbit-hero-video"
-                src="/orbit/hero.mp4?v=4"
-                poster="/orbit/hero-poster.jpg?v=4"
+                src={phone ? STAGE[0] : "/orbit/hero.mp4?v=4"}
+                poster={phone ? "/orbit/films/cards/stage-campo.jpg" : "/orbit/hero-poster.jpg?v=4"}
                 muted
                 loop
                 playsInline
@@ -301,10 +309,12 @@ export function OrbitHome() {
             </div>
             <div className="orbit-hero-dim" style={{ opacity: opening ? (1 - intro) * 0.62 : 0 }} />
           </figure>
-          <div className="orbit-hero-meta" style={{ opacity: opening ? 0 : Math.max(0, 1 - progress * 2.4) }}>
-            <Clock />
-            <PlaceMark />
-          </div>
+          {phone ? null : (
+            <div className="orbit-hero-meta" style={{ opacity: opening ? 0 : Math.max(0, 1 - progress * 2.4) }}>
+              <Clock />
+              <PlaceMark />
+            </div>
+          )}
         </div>
       </section>
 

@@ -69,7 +69,7 @@ export function SolutionDoc() {
 
   return (
     <OrbitFrame theme={theme}>
-      <article className="sol">
+      <article className="sol" lang={lang === "zh" ? "zh-Hans" : lang}>
         <header className="sol-hero">
           <video autoPlay muted loop playsInline poster="/orbit/films/solucion.jpg" aria-label={copy.heroAlt}>
             <source src="/orbit/films/solucion.mp4" type="video/mp4" />

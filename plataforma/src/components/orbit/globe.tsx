@@ -45,9 +45,10 @@ export function WireGlobe() {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       ctx.clearRect(0, 0, w, h);
-      const cx = w * 0.7;
-      const cy = h * 0.48;
-      const rx = Math.min(w, h) * 0.72;
+      const phone = window.matchMedia("(max-width: 760px)").matches;
+      const cx = phone ? w * 0.5 : w * 0.7;
+      const cy = phone ? h * 0.5 : h * 0.48;
+      const rx = phone ? w * 0.36 : Math.min(w, h) * 0.72;
       const ry = rx * 0.42;
       if (!reduced) rot += 0.0024;
 

@@ -2136,6 +2136,48 @@ body:has(.co) {
 
   .orbit-pin { height: 100dvh; }
 
+  .orbit.is-phone .orbit-ticks,
+  .orbit.is-phone .orbit-by,
+  .orbit.is-phone .orbit-hero-meta { display: none; }
+
+  .orbit.is-phone .orbit-hero-video {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: none;
+  }
+
+  .orbit-phone-line {
+    position: absolute;
+    z-index: 4;
+    left: 1.15rem;
+    right: 1.15rem;
+    bottom: 16vh;
+    display: grid;
+    gap: 0.2rem;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.05rem, 10.4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    text-shadow: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.72);
+  }
+
+  .orbit-phone-line span {
+    animation: orbit-phone-line 1.05s cubic-bezier(0.16, 0.84, 0.32, 1) both;
+  }
+
+  .orbit-phone-line span:nth-child(2) { animation-delay: 0.16s; }
+
+  @keyframes orbit-phone-line {
+    from { opacity: 0; transform: translateY(1.4rem); }
+    to { opacity: 1; transform: none; }
+  }
+
   .orbit-nav {
     padding: 0.8rem 1rem;
   }
@@ -2150,6 +2192,29 @@ body:has(.co) {
   .orbit-nav nav.is-open {
     max-height: calc(100dvh - 4.5rem);
     overflow: auto;
+  }
+
+  .orbit-nav nav.is-open .orbit-products { width: 100%; }
+
+  .orbit-nav nav.is-open .orbit-drop {
+    position: static;
+    right: auto;
+    display: none;
+    width: 100%;
+    min-width: 0;
+    margin-top: 0.35rem;
+    padding: 0.15rem 0 0.35rem;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+  }
+
+  .orbit-nav nav.is-open .orbit-products[open] .orbit-drop,
+  .orbit-nav nav.is-open .orbit-products:hover .orbit-drop { display: grid; }
+
+  .orbit-nav nav.is-open .orbit-drop .logo-word {
+    height: 1.05rem;
+    max-width: 100%;
   }
 
   .orbit-by {
@@ -2213,11 +2278,14 @@ body:has(.co) {
     font-size: clamp(1.65rem, 7.4vw, 2.15rem);
   }
 
+  .orbit-constellation { overflow: hidden; }
+
   .orbit-globe {
     position: relative;
     inset: auto;
-    height: 42vh;
-    margin-top: 0.2rem;
+    width: 100%;
+    height: 62vw;
+    margin: 0;
     opacity: 1;
   }
 
@@ -2376,8 +2444,57 @@ body:has(.co) {
   }
   .orbit-doc main:has(.portal) { padding-top: 4.2rem; }
   .portal.is-page .clima {
-    top: 0.8rem;
-    width: min(16.5rem, calc(100% - 6.2rem));
+    top: 0.45rem;
+    bottom: auto;
+    left: 0.7rem;
+    right: 0.7rem;
+    width: auto;
+    height: auto;
+    transform: none;
+    padding: 0.4rem 0.7rem 0.45rem;
+    border-radius: 12px;
+    text-align: left;
+    background: rgba(6, 10, 8, 0.78);
+  }
+
+  .portal.is-page .clima-place,
+  .portal.is-page .clima-tip { text-align: left; }
+
+  .portal.is-page .clima-meta { justify-content: flex-start; }
+
+  .portal.is-page .clima-tip {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.72rem;
+  }
+
+  .sol-rail {
+    display: block;
+    left: auto;
+    right: 3.8rem;
+  }
+
+  .sol-drone-wrap { width: 6.4rem; }
+
+  .sol-descent { padding: 2.2rem 0.9rem 1.6rem; }
+
+  .sol-descent-copy { width: calc(100% - 8.2rem); }
+
+  .sol-descent-copy article {
+    min-height: 0;
+    padding: 1.25rem 0;
+  }
+
+  .sol-descent h2,
+  .sol-descent h3 {
+    max-width: 100%;
+    font-size: clamp(1.22rem, 5.5vw, 1.55rem);
+    line-height: 1.02;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    overflow-wrap: break-word;
   }
   .portal.is-page .board {
     grid-template-columns: 3.15rem minmax(0, 1fr) 3.15rem;
@@ -2388,22 +2505,31 @@ body:has(.co) {
     height: 2.45rem;
   }
 
+  .orbit-legal .lang-short { display: inline !important; }
+  .orbit-legal .lang-full { display: none !important; }
+  .orbit-legal .lang-toggle { display: none !important; }
+
   .orbit-legal .lang-switch {
+    display: inline-flex;
+    align-items: center;
     width: auto;
-    height: auto;
-    padding: 0;
-    border-radius: 0;
+    height: 2rem;
+    margin: 0.15rem 0 0 !important;
+    padding: 0 0.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
     background: transparent;
   }
-  .orbit-legal .lang-toggle { display: none !important; }
+
   .orbit-legal .lang-menu {
     display: flex !important;
     position: static;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
     width: auto;
     min-width: 0;
-    height: auto;
+    height: 100%;
     padding: 0;
     border: 0;
     border-radius: 0;
@@ -2411,17 +2537,22 @@ body:has(.co) {
     box-shadow: none;
     opacity: 1;
   }
+
   .orbit-legal .lang-switch .lang-menu button {
     width: auto;
-    height: auto;
-    padding: 0.35rem 0.55rem;
+    height: 1.65rem;
+    padding: 0 0.48rem;
     text-align: center;
-    color: #f4faf6;
+    font-size: 0.66rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    color: rgba(244, 250, 246, 0.72);
     background: transparent;
     border-radius: 999px;
   }
+
   .orbit-legal .lang-switch .lang-menu button[aria-pressed="true"] {
-    background: #f4faf6;
-    color: #0c0e0d;
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
   }
 }
